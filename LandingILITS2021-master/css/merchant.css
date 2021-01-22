@@ -1,0 +1,139 @@
+#merchant-header {
+	position: relative;
+}
+
+#merchant-header .merchant-bg {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+}
+
+#merchant-header .merchant-head {
+	padding-top: 100px;
+}
+
+#merchant-header .merchant-title {
+	font-size: 2rem;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+
+#merchant-header .merchant-official {
+	width: 100%;
+}
+
+#merchant-header .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#merchant-header .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#merchant-header .clothes img {
+	max-width: 100%;
+}
+
+.catalog-title {
+	/* display-3 d-inline-block px-5 font-weight-bold border-bottom */
+	font-size: 2.5rem;
+	padding: 0 2rem 1rem;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	text-transform: uppercase;
+}
+
+#merchant-catalog .catalog-menu .catalog-items {
+	/* border: 1px solid black; */
+	position: relative;
+	margin-bottom: 2rem;
+}
+
+#merchant-catalog .catalog-menu .catalog-items .pre-order {
+	position: absolute;
+	color: #f99121;
+	font-weight: 500;
+}
+
+#merchant-catalog .catalog-menu .catalog-items h4 {
+	color: #f6014f;
+	font-weight: 500;
+}
+
+#merchant-catalog .catalog-menu .catalog-items img {
+	max-width: 100%;
+}
+
+#merchant-catalog .catalog-menu .catalog-items .btn-blue {
+	padding: 5px 20px;
+	border: 3px solid black;
+	color: white;
+	border-radius: 50px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#merchant-catalog .catalog-menu .catalog-items .btn-blue:hover {
+	color: black;
+	background-color: #FCFC54;
+}
+
+.btn-red {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+.btn-red:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+@media (min-width: 768px) {
+	#merchant-header .merchant-title {
+		font-size: 4.5rem;
+		font-weight: bold;
+		color: white;
+		text-align: center;
+	}
+
+	#merchant-header .clothes img {
+		width: 85%;
+	}
+
+	#merchant-header .btn-yellow {
+		padding: 10px 20px;
+		border: 3px solid black;
+		color: black;
+		font-weight: 600;
+		border-radius: 50px;
+		background-color: #FCFC54;
+		transition: all 0.3s;
+	}
+
+	.catalog-title {
+		/* display-3 d-inline-block px-5 font-weight-bold border-bottom */
+		font-size: 4.5rem;
+		padding: 0 5rem 1rem;
+		margin-bottom: 1.5rem;
+		display: inline-block;
+		font-weight: bold;
+		border-bottom: 1px solid gray;
+		text-transform: uppercase;
+	}
+}
