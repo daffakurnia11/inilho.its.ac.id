@@ -9,13 +9,23 @@ $(function() {
       success: function(data) {
         $('#product').html(data.category + ' ' + data.product);
         $('#price').html('IDR ' + data.price);
-        $('#catalog').attr('src','http://localhost/inilho.its.ac.id/assets/img/product/' + data.catalog);
-        if (data.detail1 == null) {
-          $('#detail1').attr('src','http://localhost/inilho.its.ac.id/assets/img/product/' + data.catalog);
+        $('#code').html(data.code);
+        $('#image1').attr('src','http://localhost/inilho.its.ac.id/assets/img/product/' + data.image1);
+        if(data.category === 'Tie Dye T-Shirt' || data.category === 'Hoodie' || data.category === 'T-Shirt') {
+          document.getElementById("sizeOption").style.display = "block";
         } else {
-          $('#detail1').attr('src','http://localhost/inilho.its.ac.id/assets/img/product/' + data.detail1);
+          document.getElementById("sizeOption").style.display = "none";
+        }
+        if (data.image2 == null) {
+          $('#image2').attr('src','http://localhost/inilho.its.ac.id/assets/img/product/' + data.image1);
+        } else {
+          $('#image2').attr('src','http://localhost/inilho.its.ac.id/assets/img/product/' + data.image2);
         }
       }
     });
   })
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

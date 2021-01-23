@@ -89,16 +89,24 @@
       <button id="headingThree" class="catalog-button collapsed" type="button" data-toggle="collapse" data-target="#catalog-totebag">
         TOTEBAG
       </button>
-      <div class="accordion" id="accordionExample">
-        <!-- ITEMS -->
-        <div id="catalog-hoodie" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <button id="headingFour" class="catalog-button collapsed" type="button" data-toggle="collapse" data-target="#catalog-keychain">
+        KEYCHAIN
+      </button>
+      <button id="headingFive" class="catalog-button collapsed" type="button" data-toggle="collapse" data-target="#catalog-etc">
+        ETC
+      </button>
+      <div class="accordion" id="catalogMenu">
+        <!-- HOODIE & T-SHIRT -->
+        <div id="catalog-hoodie" class="collapse show" aria-labelledby="headingOne" data-parent="#catalogMenu">
           <div class="row">
             <?php foreach ($tabel_product as $items) : ?>
-              <?php if ($items['category'] == 'Hoodie' || $items['category'] == 'Kaos') : ?>
+              <?php if ($items['category'] == 'Hoodie' || $items['category'] == 'T-Shirt') : ?>
                 <div class="col-md-4 catalog-items text-center">
-                  <h5 class="pre-order">Pre Order</h5>
-                  <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="" height="300px">
-                  <h4><?= $items['category'] . ' ' . $items['product'] ?></h4>
+                  <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
+                  <div class="d-flex jcc aic" style="height: 300px;">
+                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                  </div>
+                  <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
                   <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
                 </div>
@@ -106,16 +114,18 @@
             <?php endforeach; ?>
           </div>
         </div>
-        <!-- END OF ITEMS -->
-        <!-- ITEMS -->
-        <div id="catalog-tiedye" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <!-- END OF HOODIE & T-SHIRT -->
+        <!-- TIEDYE -->
+        <div id="catalog-tiedye" class="collapse" aria-labelledby="headingTwo" data-parent="#catalogMenu">
           <div class="row">
             <?php foreach ($tabel_product as $items) : ?>
-              <?php if ($items['category'] == 'Kaos Tiedye') : ?>
+              <?php if ($items['category'] == 'Tie Dye T-Shirt') : ?>
                 <div class="col-md-4 catalog-items text-center">
-                  <h5 class="pre-order">Pre Order</h5>
-                  <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
-                  <h4><?= $items['category'] . ' ' . $items['product'] ?></h4>
+                  <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
+                  <div class="d-flex jcc aic" style="height: 200px;">
+                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                  </div>
+                  <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
                   <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
                 </div>
@@ -123,16 +133,18 @@
             <?php endforeach; ?>
           </div>
         </div>
-        <!-- END OF ITEMS -->
-        <!-- ITEMS -->
-        <div id="catalog-totebag" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <!-- END OF TIEDYE -->
+        <!-- TOTEBAG -->
+        <div id="catalog-totebag" class="collapse" aria-labelledby="headingThree" data-parent="#catalogMenu">
           <div class="row">
             <?php foreach ($tabel_product as $items) : ?>
               <?php if ($items['category'] == 'Totebag') : ?>
                 <div class="col-md-4 catalog-items text-center">
-                  <h5 class="pre-order">Pre Order</h5>
-                  <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="" height="250px">
-                  <h4><?= $items['category'] . ' ' . $items['product'] ?></h4>
+                  <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
+                  <div class="d-flex jcc aic" style="height: 300px;">
+                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="" height="300px">
+                  </div>
+                  <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
                   <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
                 </div>
@@ -140,7 +152,45 @@
             <?php endforeach; ?>
           </div>
         </div>
-        <!-- END OF ITEMS -->
+        <!-- END OF TOTEBAG -->
+        <!-- KEYCHAIN -->
+        <div id="catalog-keychain" class="collapse" aria-labelledby="headingFour" data-parent="#catalogMenu">
+          <div class="row">
+            <?php foreach ($tabel_product as $items) : ?>
+              <?php if ($items['category'] == 'Keychain') : ?>
+                <div class="col-md-4 catalog-items text-center">
+                  <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
+                  <div class="d-flex jcc aic" style="height: 350px;">
+                    <img class="p-5" src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                  </div>
+                  <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
+                  <h5>IDR <?= $items['price'] ?></h5>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <!-- END OF KEYCHAIN -->
+        <!-- ETC -->
+        <div id="catalog-etc" class="collapse" aria-labelledby="headingFive" data-parent="#catalogMenu">
+          <div class="row">
+            <?php foreach ($tabel_product as $items) : ?>
+              <?php if ($items['category'] == 'Stiker' || $items['category'] == 'Lanyard' || $items['category'] == 'Gelang') : ?>
+                <div class="col-md-4 catalog-items text-center">
+                  <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
+                  <div class="d-flex jcc aic" style="height: 280px;">
+                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                  </div>
+                  <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
+                  <h5>IDR <?= $items['price'] ?></h5>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <!-- END OF ETC -->
       </div>
     </div>
     <!-- END OF CATALOG ITEMS -->
@@ -168,10 +218,10 @@
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active" data-interval="1000">
-                      <img id="catalog" src="" class="d-block w-100" alt="...">
+                      <img id="image1" src="" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item" data-interval="1000">
-                      <img id="detail1" src="" class="d-block w-100" alt="...">
+                      <img id="image2" src="" class="d-block w-100" alt="...">
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -189,11 +239,18 @@
             <!-- PRODUCT DETAILS -->
             <div class="col-md-5 d-flex jcc aic flex-column">
               <form action="">
+                <h5 class="text-left" id="code" style="color: #0c0c6d;">xx</h5>
                 <h1 id="product">Hoodie Arek Cak!</h1>
                 <h4 id="price" style="color: #F60D4F;">IDR 140.000</h4>
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
+                      <label for="qty">Quantity</label>
+                      <input type="number" class="form-control" id="qty" value="1" min="1">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group" id="sizeOption">
                       <label for="size">Size</label>
                       <select class="form-control" id="size" name="size">
                         <option value="s">S</option>
@@ -204,14 +261,8 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="qty">Quantity</label>
-                      <input type="number" class="form-control" id="qty" value="1" min="1">
-                    </div>
-                  </div>
                 </div>
-                <button class="btn btn-warning btn-block">Add to Cart !</button>
+                <a class="btn btn-warning btn-block" data-toggle="tooltip" title="Still on Development, Coming Soon!">Add to Cart !</a>
               </form>
             </div>
             <!-- END OF PRODUCT DETAILS -->
@@ -245,6 +296,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <!-- <script src="js/main.js"></script> -->
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
   <script src="<?= base_url('assets/') ?>js/merchant-modal.js"></script>
 </body>
 
