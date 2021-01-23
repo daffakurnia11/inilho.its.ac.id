@@ -22,7 +22,6 @@
 @import "landing_header.css";
 @import "landing_fakultas.css";
 @import "merchant.css";
-@import "bootstrap-4.min.css";
 
 a {
 	text-decoration: none !important;

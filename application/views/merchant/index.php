@@ -93,7 +93,7 @@
         KEYCHAIN
       </button>
       <button id="headingFive" class="catalog-button collapsed" type="button" data-toggle="collapse" data-target="#catalog-etc">
-        ETC
+        SMALL MERCH
       </button>
       <div class="accordion" id="catalogMenu">
         <!-- HOODIE & T-SHIRT -->
@@ -233,38 +233,37 @@
             <!-- END OF PRODUCT PICTURE -->
             <!-- PRODUCT DETAILS -->
             <div class="col-md-5 d-flex jcc aic flex-column">
-              <form action="">
-                <h5 class="text-left" id="code" style="color: #0c0c6d;">xx</h5>
-                <h1 id="product">Hoodie Arek Cak!</h1>
-                <h4 id="price" style="color: #F60D4F;">IDR 140.000</h4>
-                <div class="row">
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="qty">Quantity</label>
-                      <input type="number" class="form-control" id="qty" value="1" min="1">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="form-group" id="sizeOption">
-                      <label for="size">Size</label>
-                      <select class="form-control" id="size" name="size">
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                        <option value="xxl">XXL</option>
-                      </select>
-                    </div>
+              <?= form_open('merchandise/add') ?>
+              <input type="hidden" id="idForm" name="id" value="">
+              <input type="hidden" id="priceForm" name="price" value="">
+              <input type="hidden" id="nameForm" name="name" value="">
+              <input type="hidden" id="categoryForm" name="category" value="">
+              <?= form_hidden('redirect_page', str_replace('index.php/', '', current_url())) ?>
+              <h5 class="text-left" id="code" style="color: #0c0c6d;">xx</h5>
+              <h1 id="product">Hoodie Arek Cak!</h1>
+              <h4 id="priceValue" style="color: #F60D4F;">IDR 140.000</h4>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="qty">Quantity</label>
+                    <input type="number" class="form-control" id="qty" name="qty" value="1" min="1">
                   </div>
                 </div>
-                <a class="btn btn-warning btn-block" data-toggle="tooltip" title="Still on Development, Coming Soon!">Add to Cart !</a>
-
-                <script>
-                  $(document).ready(function() {
-                    $('[data-toggle="tooltip"]').tooltip();
-                  });
-                </script>
-              </form>
+                <div class="col">
+                  <div class="form-group" id="sizeOption">
+                    <label for="size">Size</label>
+                    <select class="form-control" id="size" name="size">
+                      <option value="s">S</option>
+                      <option value="m">M</option>
+                      <option value="l">L</option>
+                      <option value="xl">XL</option>
+                      <option value="xxl">XXL</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-warning btn-block swalDefaultSuccess">Add to Cart !</button>
+              <?= form_close(); ?>
             </div>
             <!-- END OF PRODUCT DETAILS -->
           </div>
@@ -273,6 +272,48 @@
     </div>
   </div>
   <!-- END OF PRODUCT DETAILS -->
+
+  <!-- CART BUTTON -->
+  <div id="add-to-cart" class="dropup">
+    <a class="btn-cart bounce-container bounce d-flex jcc aic" data-toggle="dropdown" href="#">
+      <div class="btn">
+        <i class="fas fa-shopping-cart text-white"></i>
+      </div>
+    </a>
+    <div class="dropdown-menu ">
+      <!-- Message Start -->
+      <?php if (!$this->cart->total()) : ?>
+        <p class="p-3">Keranjang Belanja masih Kosong.</p>
+      <?php else : ?>
+        <?php foreach ($this->cart->contents() as $items) : ?>
+          <a class="dropdown-item">
+            <div class="media">
+              <div class="media-body">
+                <h5 class="dropdown-item-title mt-2">
+                  <?= $items['options']['Category'] . ' ' . $items['name']; ?>
+                </h5>
+                <span class="text-sm"><?= $items['qty'] ?> x IDR <?= $this->cart->format_number($items['price']); ?></span>
+                <br>
+                <?php if ($items['options']['Size'] != 'null') : ?>
+                  <span class="text-sm text-muted">Size : <?= $items['options']['Size'] ?></span>
+                <?php endif; ?>
+              </div>
+            </div>
+          </a>
+          <!-- Message End -->
+          <div class="dropdown-divider my-0"></div>
+        <?php endforeach; ?>
+        <a href="#" class="dropdown-item dropdown-footer text-center">
+          Total : <?= $this->cart->format_number($this->cart->total()); ?>
+        </a>
+        <div class="dropdown-divider my-0"></div>
+        <a href="" class="dropdown-item dropdown-footer text-center">
+          View Cart
+        </a>
+      <?php endif; ?>
+    </div>
+  </div>
+  <!-- END OF CART BUTTON -->
 
   <!-- SCROLL TO TOP -->
   <div class="scroll-to-top bounce-container bounce d-flex jcc aic" onclick="(function(){
@@ -297,6 +338,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
+  <script src="<?= base_url('assets/') ?>js/sweetalert2.min.js"></script>
   <script src="<?= base_url('assets/') ?>js/merchant-modal.js"></script>
 </body>
 

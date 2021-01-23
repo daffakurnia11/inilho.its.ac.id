@@ -1,3 +1,5 @@
+@import "bootstrap-4.min.css";
+
 #merchant-header {
 	position: relative;
 }
@@ -116,6 +118,22 @@
 	background-color: #FCFC54;
 }
 
+.btn-cart {
+	position: fixed;
+	bottom: 20px;
+	right: 90px;
+	z-index: 1000;
+	height: 3rem;
+	width: 3rem;
+	background-color: #f60d4f;
+	border-radius: 100%;
+	transition: opacity 0.5s;
+}
+
+#add-to-cart .media img.cart-image {
+	max-width: 250px;
+}
+
 @media (min-width: 768px) {
 	#merchant-header .merchant-title {
 		font-size: 4.5rem;
@@ -147,5 +165,9 @@
 		font-weight: bold;
 		border-bottom: 1px solid gray;
 		text-transform: uppercase;
+	}
+
+	#add-to-cart .media img.cart-image {
+		width: 150px;
 	}
 }
