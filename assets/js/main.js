@@ -1,5 +1,5 @@
-const header = document.querySelector("#header");
-const image = header.querySelector("img");
+// const header = document.querySelector("#header");
+// const image = header.querySelector("img");
 const navbar = document.querySelector(".navbar");
 const navList = document.querySelector("#navbarNavUl");
 const mobileContainer = document.querySelector("#mobileNavContainer");
@@ -32,8 +32,8 @@ function scrollEvent() {
 
 function main() {
 	if (window.innerWidth <= breakpoints["lg"]) {
-		image.src = "images/landing-header-sm.png";
-		image.style = "width: 100%; position: absolute; z-index: 0";
+		// image.src = "images/landing-header-sm.png";
+		// image.style = "width: 100%; position: absolute; z-index: 0";
 
 		bpSelector.forEach(function (bpItem) {
 			bpItem.classList.add("mobile");
@@ -41,8 +41,8 @@ function main() {
 
 		mobileContainer.classList.add("w-100");
 	} else {
-		image.src = "images/landing-header.png";
-		image.style = "width: 85%; position: absolute; z-index: 0";
+		// image.src = "images/landing-header.png";
+		// image.style = "width: 85%; position: absolute; z-index: 0";
 
 		bpSelector.forEach(function (bpItem) {
 			bpItem.classList.remove("mobile");

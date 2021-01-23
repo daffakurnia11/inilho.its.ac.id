@@ -104,11 +104,11 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 300px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
-                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -123,11 +123,11 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 200px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
-                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -142,11 +142,11 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 300px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="" height="300px">
+                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="" height="300px">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
-                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -161,11 +161,11 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 350px;">
-                    <img class="p-5" src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                    <img class="p-5" src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
-                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -180,11 +180,11 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 280px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['image1'] ?>" alt="">
+                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
-                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['id']; ?>">Detail !</button>
+                  <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -198,7 +198,7 @@
   <!-- END OF CATALOG -->
 
   <!-- PRODUCT DETAILS (MODAL) -->
-  <div class="modal fade" id="detailModal" tabindex="-1">
+  <div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content" style="border: 3px solid black; border-radius: 20px">
         <!-- MODAL HEADER -->
@@ -217,12 +217,7 @@
               <div class="detail-picture">
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="1000">
-                      <img id="image1" src="" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-interval="1000">
-                      <img id="image2" src="" class="d-block w-100" alt="...">
-                    </div>
+                    <!-- ITEMS SLIDER (FROM JS) -->
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -263,6 +258,12 @@
                   </div>
                 </div>
                 <a class="btn btn-warning btn-block" data-toggle="tooltip" title="Still on Development, Coming Soon!">Add to Cart !</a>
+
+                <script>
+                  $(document).ready(function() {
+                    $('[data-toggle="tooltip"]').tooltip();
+                  });
+                </script>
               </form>
             </div>
             <!-- END OF PRODUCT DETAILS -->
@@ -292,15 +293,10 @@
 
   <!-- END OF FOOTER -->
 
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  <!-- <script src="js/main.js"></script> -->
-  <script>
-    $(document).ready(function() {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  </script>
+  <script src="js/main.js"></script>
   <script src="<?= base_url('assets/') ?>js/merchant-modal.js"></script>
 </body>
 

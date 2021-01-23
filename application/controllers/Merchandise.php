@@ -27,6 +27,13 @@ class Merchandise extends CI_Controller
 
   public function details()
   {
-    echo json_encode($this->db->get_where('tabel_product', ['id' => $this->input->post('id')])->row_array());
+    echo json_encode($this->db->get_where('tabel_product', ['code' => $this->input->post('code')])->row_array());
+  }
+  public function images()
+  {
+    // $id = $this->input->post('id');
+    // $query = 'SELECT * FROM tabel_images WHERE code = $id';
+    // var_dump($this->db->query($query));
+    echo json_encode($this->db->get_where('tabel_images', ['code' => $this->input->post('code')])->result());
   }
 }
