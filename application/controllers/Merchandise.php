@@ -47,4 +47,9 @@ class Merchandise extends CI_Controller
     $this->cart->insert($data);
     redirect($redirect_page);
   }
+
+  public function viewcart()
+  {
+    $this->load->view('merchant/viewcart');
+  }
 }

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+			integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+			crossorigin="anonymous"
+		/>
+
+		<!-- LINK GLOBAL STYLE -->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<title>Ini Lho ITS! 2021</title>
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<nav
+			class="navbar navbar-expand-lg navbar-light position-absolute w-100 p-lg-2 p-0"
+			style="z-index: 1000;">
+			<div
+				id="mobileNavContainer"
+				class="d-flex justify-content-between order-0 order-lg-1"
+			>
+				<button
+					class="navbar-toggler left"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand bp" href="#">
+					<img src="../assets/images/logo.png" alt="Logo ILITS2021" loading="lazy" />
+				</a>
+			</div>
+			<div class="collapse navbar-collapse bp" id="navbarNav">
+				<ul
+					id="navbarNavUl"
+					class="navbar-nav d-flex justify-content-between text-center"
+				>
+					<li class="nav-item active">
+						<a class="nav-link" href="#">
+							Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#fakultas">fakultas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#prestasi">prestasi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#fasilitas">fasilitas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">tryout</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- END OF NAVBAR -->
+
+        <!-- HEADER FASILITAS-->
+        <div id="header">
+            <img id="fasilitas-header" src="assets/images/fasilitas-header.png" alt="">
+            <div class="header-container">
+                <div class="flex-container bp justify-content-center">
+                    <div class="fasilitas-header-desc">
+                        <p class="font-weight-bold display-4 text-white">
+                            Perpustakaan ITS
+                        </p>
+                        <p class="text-white">
+                            Perpustakaan ITS merupakan salah satu tempat yang paling banyak dikunjungi oleh mahasiswa, dosen, maupun pihak eksternal yang sedang mengadakan kunjungan ke ITS.
+                        </p>
+                    </div>
+                    <div class="fasilitas-header-img">
+                        <img src="assets/images/perpustakaan.png" alt="">
+                        <img src="../assets/images/arrows.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF HEADER FASILITAS -->
+
+        <!-- MAPS -->
+        <div id="maps">
+            <div class="flex-container">
+                <div class="maps-left">
+                    <div class="container-window">
+                        <div class="shadow"></div>
+                        <div class="container-window-topbar">
+                            <i class="topbar-dot"></i>
+                            <i class="topbar-dot"></i>
+                            <img id="panah-window" src="assets/images/panah-window.svg" alt="">
+                        </div>
+                        <img id="maps-img" src="assets/images/maps.png" alt="">
+                    </div>
+                </div>
+                <div class="maps-right">
+                    <div class="maps-card">
+                        <span class="color-square"></span>
+                        <span class="text-square">
+                            <p>Open Maps!</p>
+                        </span>
+                    </div>
+                    <p class="maps-desc">
+                        Dengan bantuan google maps memudahkan kamu untuk melihat its secara dalam
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- END OF MAPS -->
+
+        <!-- FASILITAS LIST -->
+        <div id="fasilitas">
+            <div class="container-fluid">
+                <div class="row" id="head-fasilitas-list">
+                    <div class="col bg-title">
+                        <img src="assets/images/gradasi-fasilitas.png" alt="">
+                        <div>
+                            <p>
+                                Ada Apa aja di ITS?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- LIST FASILITAS -->
+                <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window p-0"
+                            data-target="#modal"
+                            data-toggle="modal"
+                        >
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window p-0">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window p-0">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window p-0">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window p-0">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5 p-0">
+                        <div class="fasilitas-card container-window">
+                            <div class="container-window-topbar">
+                                <i class="topbar-dot"></i>
+                                <i class="topbar-dot"></i>
+                            </div>
+                            <img class="w-100" src="assets/images/graha.png" alt="" />
+                            <div class="p-c-bot">
+                                <div class="w-100">
+                                    <h3 class="font-weight-bold text-center">Graha ITS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <!-- END LIST FASILITAS -->
+            </div>
+        </div>
+        <!-- END OF FASILITAS LIST -->
+
+        <!-- SCROLL TO TOP -->
+		<div
+			class="scroll-to-top bounce-container bounce d-flex jcc aic"
+			onclick="(function(){
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		})()"
+		>
+			<div class="btn">
+				<i class="fa fa-chevron-up text-white"></i>
+			</div>
+		</div>
+		<!-- END OF SCROLL TO TOP -->
+
+        <!-- MODAL -->
+        <div
+        class="modal fade"
+        id="modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modalll">
+                        <img src="assets/images/modal-rectangle.png" class="modal-bg" />
+                        <div class="modal-content-container">
+                            <div class="left">
+                                <img src="assets/images/modal-img.png" alt="" />
+                            </div>
+                            <div class="right">
+                                <h3>Hydrone</h3>
+                                <p>
+                                    Hydrocontest merupakan kompetisi pelajar internasional pertama
+                                    yang didedikasikan untuk efisiensi energi di dunia maritim.
+                                    Kompetisi tersebut rutin diadakan oleh Hydros Foundation yang
+                                    bertujuan untuk meningkatkan kesadaran masyarakat umum tentang
+                                    tantangan melestarikan sumber daya air.  Kategori Lightweight
+                                    Transport menuntut peserta bisa mengoperasikan transportasi
+                                    kapal penumpang yang nyaman dengan beban seberat 20 kilogram
+                                    dengan panjang lintasan 600 meter. Hydrone ITS Peringkat 5
+                                    Hydrocontest Kategori Lightweight di St. Tropez, Perancis
+                                    tahun 2017.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF MODAL -->
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+			crossorigin="anonymous"
+		></script>
+        <!-- <script src="../assets/js/main.js"></script> -->
+        <script src="assets/js/fasilitas.js"></script>
+	</body>
+</html>

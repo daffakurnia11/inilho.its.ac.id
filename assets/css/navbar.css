@@ -5,6 +5,11 @@
 	overflow: hidden;
 }
 
+.navbar.mobile {
+	height: 100vh;
+	overflow: scroll;
+}
+
 /* .navbar-scroll {
 	background: rgba(246, 13, 79, 1);
 	opacity: 80%;
@@ -20,7 +25,11 @@
 } */
 
 .navbar-toggler-icon {
-	background-image: url(http://localhost/inilho.its.ac.id/assets/img/burgerbar.svg) !important;
+	background-image: url('../images/burgerbar.svg') !important;
+}
+
+.navbar-toggler-icon.active {
+	background-image: url('../images/plus.svg') !important;
 }
 
 .navbar-toggler.left {
@@ -35,7 +44,7 @@
 	text-transform: uppercase;
 }
 
-.nav-item.active>.nav-link {
+.nav-item.active > .nav-link {
 	color: #fcfc54 !important;
 	border-bottom: 3px solid #fcfc54;
 }
@@ -53,11 +62,15 @@
 	padding: 0 1.2rem;
 }
 
+.navbar-brand.active:not(.mobile) {
+	display: block;
+}
+
 .navbar-brand.mobile {
 	background: #fff;
 }
 
-.navbar-brand>img {
+.navbar-brand > img {
 	height: 3rem;
 }
 
@@ -79,10 +92,77 @@
 	background: #f60d4f;
 }
 
-#navbarNavUl {
-	width: 800px;
+#navbarNavUl:not(.mobile) li {
+	padding: 0 1.4rem;
 }
 
-#navbarNavUl.mobile {
+#navbarNavUl.mobile li {
 	width: 100%;
+	padding: 0.5rem 0;
+}
+
+.nav-locked {
+	position: fixed;
+	top: 0;
+}
+
+#mobileNavContainer.mobile {
+	background: #f60d4f;
+}
+
+.nav-dropdown {
+	width: auto;
+	justify-self: center;
+	position: relative;
+	cursor: pointer;
+	text-align: left;
+}
+
+.nav-dropdown.mobile {
+	text-align: center;
+}
+
+.nav-dropdown::after {
+	content: '';
+	position: relative;
+	top: 16px;
+	left: 15px;
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 10px solid #fcfc54;
+}
+
+.nav-dropdown-content {
+	position: relative;
+	top: -70%;
+	display: none;
+	background: rgba(246, 13, 79, 0.4);
+	box-shadow: 0px 16px 17px 0px rgba(0, 0, 0, 0.26);
+	overflow: visible;
+	margin-bottom: 2rem;
+	padding: 0 2rem;
+	height: 0;
+	transition: all 0.5s ease;
+}
+
+.nav-dropdown-content > a {
+	padding: 1rem 0;
+}
+
+.nav-dropdown-content:not(.mobile) {
+	left: -35%;
+}
+
+.nav-dropdown-content.active {
+	top: 0;
+	height: auto;
+	display: block;
+}
+
+.dropdown-li.mobile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }

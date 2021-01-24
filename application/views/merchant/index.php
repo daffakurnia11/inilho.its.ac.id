@@ -15,16 +15,16 @@
 <body>
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light position-absolute w-100 p-lg-2 p-0" style="z-index: 1000">
-    <div id="mobileNavContainer" class="d-flex justify-content-between order-0 order-lg-1">
-      <button class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <div id="mobileNavContainer" class="d-flex justify-content-between order-0 order-lg-1 bp">
+      <button id="navbar-button" class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand bp" href="#">
-        <img src="<?= base_url('assets/img/') ?>logo.png" alt="Logo ILITS2021" loading="lazy" />
+        <img src="<?= base_url() ?>assets/img/logo.png" alt="Logo ILITS2021" loading="lazy" />
       </a>
     </div>
     <div class="collapse navbar-collapse bp" id="navbarNav">
-      <ul id="navbarNavUl" class="navbar-nav d-flex justify-content-between text-center">
+      <ul id="navbarNavUl" class="navbar-nav d-flex justify-content-between text-center bp">
         <li class="nav-item active">
           <a class="nav-link" href="#">
             Home
@@ -43,20 +43,26 @@
         <li class="nav-item">
           <a class="nav-link" href="#fasilitas">fasilitas</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">tryout</a>
+        <li class="nav-item dropdown-li bp">
+          <p href="" class="nav-link nav-dropdown bp">more</p>
+          <div class="nav-dropdown-content bp">
+            <a href="" class="nav-link">Pendaftaran Tryout</a>
+            <a href="" class="nav-link">Pendaftaran Webinar</a>
+            <a href="" class="nav-link">Pendaftaran Open Campus</a>
+            <a href="" class="nav-link">Pemesanan Merch</a>
+          </div>
         </li>
       </ul>
     </div>
   </nav>
+
   <!-- END OF NAVBAR -->
 
   <!-- LANDING HEADER SECTION -->
   <div id="merchant-header" class="section">
-    <img class="merchant-bg" src="<?= base_url('assets/img/') ?>product/departemen-top.png" />
     <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
-      <div class="merchant-head row vh-100 aic">
-        <div class="col-md-6 d-flex flex-column pb-3">
+      <div class="merchant-head row aic">
+        <div class="col-xl-6 pb-3">
           <h1 class="merchant-title">
             Ini Lho ITS! 2021
           </h1>
@@ -65,7 +71,7 @@
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
-        <div class="col-md-6 clothes">
+        <div class="col-xl-6 clothes">
           <img src="<?= base_url('assets/img/') ?>product/kaos-tiedye.png" alt="">
         </div>
       </div>
@@ -307,7 +313,7 @@
           Total : <?= $this->cart->format_number($this->cart->total()); ?>
         </a>
         <div class="dropdown-divider my-0"></div>
-        <a href="" class="dropdown-item dropdown-footer text-center">
+        <a href="<?= base_url('merchandise/viewcart') ?>" class="dropdown-item dropdown-footer text-center">
           View Cart
         </a>
       <?php endif; ?>
@@ -330,6 +336,32 @@
 
   <!-- FOOTER -->
 
+  <div id="footer">
+    <div id="footer-logo">
+      <img src="<?= base_url('assets/img/') ?>logo.png" alt="Logo ILITS2021" />
+    </div>
+    <div class="medspons-container">
+      <div class="medspons">
+        <h3>Media Partner</h3>
+        <div class="medspons-content">
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+        </div>
+      </div>
+
+      <div class="medspons">
+        <h3>Sponsor</h3>
+        <div class="medspons-content">
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+          <img src="<?= base_url('assets/img/') ?>google.png" />
+        </div>
+      </div>
+    </div>
+    <p id="footer-copy">&copy; Copyright Ini LHO ITS 2021. All Rights Reserved</p>
+  </div>
 
 
   <!-- END OF FOOTER -->

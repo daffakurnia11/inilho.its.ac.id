@@ -1,0 +1,71 @@
+#footer {
+	width: 100%;
+	background: url('http://localhost/inilho.its.ac.id/assets/img/footer.png'), #f60d4f;
+	background-repeat: no-repeat, repeat;
+	background-size: 550px;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 450px 1fr;
+}
+
+#footer-logo {
+	padding-left: 3rem;
+	padding-top: 3rem;
+	width: 450px;
+}
+
+#footer-logo img {
+	width: 70%;
+}
+
+.medspons-container {
+	margin: 2.6rem 1.6rem 0 2.6rem;
+	display: flex;
+}
+
+.medspons-content {
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.medspons h3 {
+	grid-column: 1/3;
+	text-align: center;
+	color: white;
+}
+
+.medspons img {
+	width: 70%;
+	margin: 1rem auto;
+}
+
+#footer-copy {
+	text-align: center;
+	color: white;
+	grid-column: 1/4;
+}
+
+@media only screen and (max-width: 768px) {
+	#footer {
+		background-size: 400px;
+		grid-template-columns: 310px 1fr;
+	}
+
+	#footer-logo {
+		width: 300px;
+	}
+
+	.medspons-container {
+		display: block;
+	}
+
+	.medspons:nth-child(2) {
+		margin: 2rem auto;
+	}
+
+	#footer-copy {
+		margin-top: 2rem;
+		grid-column: 1/3;
+	}
+}

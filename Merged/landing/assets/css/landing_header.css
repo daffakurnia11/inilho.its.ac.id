@@ -22,4 +22,5 @@ input.form-control {
 
 #header > img {
 	height: 100vh;
+	position: absolute;
 }

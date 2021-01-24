@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+			integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+			crossorigin="anonymous"
+		/>
+
+		<!-- LINK GLOBAL STYLE -->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<title>Ini Lho ITS! 2021</title>
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<nav
+			class="navbar navbar-expand-lg navbar-light position-absolute w-100 p-lg-2 p-0"
+			style="z-index: 1000"
+		>
+			<div
+				id="mobileNavContainer"
+				class="d-flex justify-content-between order-0 order-lg-1 bp"
+			>
+				<button
+					id="navbar-button"
+					class="navbar-toggler left"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand bp" href="#">
+					<img
+						src="../assets/images/logo.png"
+						alt="Logo ILITS2021"
+						loading="lazy"
+					/>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse bp" id="navbarNav">
+				<ul
+					id="navbarNavUl"
+					class="navbar-nav d-flex justify-content-between text-center bp"
+				>
+					<li class="nav-item active">
+						<a class="nav-link" href="#">
+							Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#fakultas">fakultas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#prestasi">prestasi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#fasilitas">fasilitas</a>
+					</li>
+					<li class="nav-item dropdown-li bp">
+						<p href="" class="nav-link nav-dropdown bp">more</p>
+						<div class="nav-dropdown-content bp">
+							<a href="" class="nav-link">Pendaftaran Tryout</a>
+							<a href="" class="nav-link">Pendaftaran Webinar</a>
+							<a href="" class="nav-link">Pendaftaran Open Campus</a>
+							<a href="" class="nav-link">Pemesanan Merch</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- END OF NAVBAR -->
+
+		<!-- PRESTASI HEADER SECTION -->
+		<div id="header" class="prestasi-header">
+			<img id="prestasi-header-img" src="assets/images/prestasi-header.png" />
+			<div id="big-text" class="d-flex jcc aic container-fluid">
+				<!-- HEADER CAROUSEL  -->
+				<div class="row aic jcc">
+					<div
+						id="prestasi-carousel"
+						data-interval="false"
+						class="carousel slide"
+						data-ride="carousel"
+					>
+						<div class="carousel-inner">
+							<!-- CAROUSEL ITEM  -->
+							<div class="carousel-item active">
+								<div class="prestasi-c bp">
+									<div class="left">
+										<p class="font-weight-bold text-white display-4 mb-3">
+											Tim Bayucaraka ITS
+										</p>
+										<p class="text-white">
+											"Juara Pertama Kompetisi Unmanned Aerial Vehicle (UAV)
+											2019, Turki"
+										</p>
+									</div>
+									<div class="right">
+										<img src="assets/images/prestasi.png" alt="" />
+										<img src="../assets/images/arrows.svg" alt="" />
+									</div>
+								</div>
+							</div>
+							<!-- ENDING CAROUSEL ITEM  -->
+
+							<!-- CAROUSEL ITEM  -->
+							<div class="carousel-item">
+								<div class="prestasi-c bp">
+									<div class="left">
+										<p class="font-weight-bold text-white display-4 mb-3">
+											Tim Bayucaraka ITS
+										</p>
+										<p class="text-white">
+											"Juara Pertama Kompetisi Unmanned Aerial Vehicle (UAV)
+											2019, Turki"
+										</p>
+									</div>
+									<div class="right">
+										<img src="assets/images/prestasi.png" alt="" />
+										<img src="../assets/images/arrows.svg" alt="" />
+									</div>
+								</div>
+							</div>
+							<!-- ENDING CAROUSEL ITEM  -->
+						</div>
+
+						<div class="dots carousel-indicators">
+							<i
+								data-target="#prestasi-carousel"
+								data-slide-to="0"
+								class="dot-item active"
+							></i>
+							<i
+								data-target="#prestasi-carousel"
+								data-slide-to="1"
+								class="dot-item"
+							></i>
+						</div>
+					</div>
+				</div>
+				<!-- ENDING OF HEADER CAROUSEL  -->
+			</div>
+		</div>
+		<!-- END OF LANDING HEADER -->
+
+		<!-- MEET SECTION  -->
+		<div id="meet">
+			<img id="meet-bg" src="assets/images/meet.png" alt="" />
+			<div class="meet-content">
+				<div class="left">
+					<!-- PLACEHOLDER BUAT YT  -->
+					<img src="assets/images/meet-yt.png" alt="" />
+				</div>
+				<div class="right">
+					<div class="meet-card">
+						<span>&nbsp</span>
+						<p class="font-weight-bold">Meet the Team!</p>
+					</div>
+					<p>
+						Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
+						accusantium doloremque laudantium, totam rem aperiam eaque ipsa,
+						quae ab illo inventore veritatis et quasi Husni
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- END OF MEET SECTION  -->
+
+		<!-- PRESTASI SECTION  -->
+		<div id="prestasi" class="section">
+			<div class="section-header">
+				<div class="section-title">prestasi</div>
+				<div class="container d-flex jcc aic mb-4">
+					<div class="row pill-container">
+						<div
+							class="col pill-item category active"
+							onclick="categoryToggle(1)"
+						>
+							Laut
+						</div>
+						<div class="col pill-item category" onclick="categoryToggle(2)">
+							Darat
+						</div>
+						<div class="col pill-item category" onclick="categoryToggle(3)">
+							ETC
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Loop pake category-n buat id-nya  -->
+			<div class="section-body category-body active" id="category-1">
+				<div id="prestasi-list">
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div
+						class="prestasi-card container-window"
+						data-toggle="modal"
+						data-target="#exampleModal"
+					>
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- Modal -->
+				</div>
+			</div>
+
+			<div class="section-body category-body" id="category-2">
+				<div id="prestasi-list">
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Darat</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Darat</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Darat</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div
+						class="prestasi-card container-window"
+						data-toggle="modal"
+						data-target="#exampleModal"
+					>
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Darat</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- Modal -->
+				</div>
+			</div>
+
+			<div class="section-body category-body" id="category-3">
+				<div id="prestasi-list">
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div class="prestasi-card container-window">
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- CARD   -->
+					<div
+						class="prestasi-card container-window"
+						data-toggle="modal"
+						data-target="#exampleModal"
+					>
+						<div class="container-window-topbar">
+							<i class="topbar-dot"></i>
+							<i class="topbar-dot"></i>
+						</div>
+						<img class="w-100" src="assets/images/prestasi.png" alt="" />
+						<div class="p-c-bot">
+							<div class="w-100">
+								<h4 class="font-weight-bold">HYDRONE</h4>
+								<p>Laut</p>
+							</div>
+						</div>
+					</div>
+					<!-- END OF CARD    -->
+
+					<!-- Modal -->
+				</div>
+			</div>
+		</div>
+		<!-- END OF PRESTASI SECTION  -->
+
+		<!-- SCROLL TO TOP -->
+		<div
+			class="scroll-to-top bounce-container bounce d-flex jcc aic"
+			onclick="(function(){
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		})()"
+		>
+			<div class="btn">
+				<i class="fa fa-chevron-up text-white"></i>
+			</div>
+		</div>
+		<!-- END OF SCROLL TO TOP -->
+
+		<!-- MODAL PLACEHOLDER  -->
+		<div
+			class="modal fade"
+			id="modal"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modalll">
+						<div class="modal-content-container">
+							<div class="left">
+								<img src="assets/images/modal-rectangle.png" class="modal-bg" />
+
+								<!-- CONTENT IMAGE  -->
+								<img src="assets/images/modal-img.png" alt="" />
+							</div>
+							<div class="right">
+								<h3>Hydrone</h3>
+								<p>
+									Hydrocontest merupakan kompetisi pelajar internasional pertama
+									yang didedikasikan untuk efisiensi energi di dunia maritim.
+									Kompetisi tersebut rutin diadakan oleh Hydros Foundation yang
+									bertujuan untuk meningkatkan kesadaran masyarakat umum tentang
+									tantangan melestarikan sumber daya air.  Kategori Lightweight
+									Transport menuntut peserta bisa mengoperasikan transportasi
+									kapal penumpang yang nyaman dengan beban seberat 20 kilogram
+									dengan panjang lintasan 600 meter. Hydrone ITS Peringkat 5
+									Hydrocontest Kategori Lightweight di St. Tropez, Perancis
+									tahun 2017.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END OF MODAL PLACEHOLDER  -->
+
+		<!-- FOOTER  -->
+		<div id="footer">
+			<div id="footer-logo">
+				<img src="../assets/images/logo.png" alt="Logo ILITS2021" />
+			</div>
+			<div class="medspons-container">
+				<div class="medspons">
+					<h3>Media Partner</h3>
+					<div class="medspons-content">
+						<img src="../assets/images/google.png" />
+						<img src="../assets/images/google.png" />
+						<img src="../assets/images/google.png" />
+						<img src="../assets/images/google.png" />
+						<img src="../assets/images/google.png" />
+					</div>
+				</div>
+
+				<div class="medspons">
+					<h3>Sponsor</h3>
+					<div class="medspons-content">
+						<img src="../assets/images/google.png" />
+						<img src="../assets/images/google.png" />
+					</div>
+				</div>
+			</div>
+			<p id="footer-copy">
+				&copy; Copyright Ini LHO ITS 2021. All Rights Reserved
+			</p>
+		</div>
+
+		<!-- END OF FOOTER  -->
+
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+			crossorigin="anonymous"
+		></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="assets/js/prestasi.js"></script>
+	</body>
+</html>

@@ -14,18 +14,15 @@
 	
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
-@import "navbar.css";
-@import "carousel.css";
-@import "container.css";
-@import "section.css";
-@import "landing_header.css";
-@import "landing_fakultas.css";
-@import "merchant.css";
-
-a {
-	text-decoration: none !important;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import 'navbar.css';
+@import 'footer.css';
+@import 'carousel.css';
+@import 'container.css';
+@import 'section.css';
+@import 'landing_header.css';
+@import 'landing_fakultas.css';
+@import 'merchant.css';
 
 * {
 	font-family: Poppins;
@@ -33,7 +30,7 @@ a {
 }
 
 html {
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 
 .jcc {
