@@ -8,7 +8,7 @@ class Merchandise extends CI_Controller
     $data['title'] = 'Merchandise';
     $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
 
-    $this->load->view('merchant/index', $data);
+    $this->load->view('merch/index', $data);
   }
 
   public function details()
@@ -50,6 +50,6 @@ class Merchandise extends CI_Controller
 
   public function viewcart()
   {
-    $this->load->view('merchant/viewcart');
+    $this->load->view('merch/viewcart');
   }
 }

@@ -1,11 +1,11 @@
 @import "bootstrap-4.min.css";
 @import "viewcart.css";
 
-/* #merchant-header {
+/* #merch-header {
 	position: relative;
 } */
 
-#merchant-header {
+#merch-header {
 	width: 100%;
 	min-height: 100vh;
 	background: url('http://localhost/inilho.its.ac.id/assets/img/product/departemen-top.png');
@@ -14,22 +14,22 @@
 	padding: 0;
 }
 
-#merchant-header .merchant-head {
+#merch-header .merch-head {
 	padding-top: 100px;
 }
 
-#merchant-header .merchant-title {
+#merch-header .merch-title {
 	font-size: 2rem;
 	font-weight: bold;
 	color: white;
 	text-align: center;
 }
 
-#merchant-header .merchant-official {
+#merch-header .merch-official {
 	width: 100%;
 }
 
-#merchant-header .btn-yellow {
+#merch-header .btn-yellow {
 	padding: 5px 15px;
 	border: 3px solid black;
 	color: black;
@@ -39,12 +39,12 @@
 	transition: all 0.3s;
 }
 
-#merchant-header .btn-yellow:hover {
+#merch-header .btn-yellow:hover {
 	color: white;
 	background-color: #0C0C6D;
 }
 
-#merchant-header .clothes img {
+#merch-header .clothes img {
 	max-width: 100%;
 }
 
@@ -70,7 +70,7 @@
 	position: relative;
 }
 
-#merchant-catalog .catalog-menu .catalog-button {
+#merch-catalog .catalog-menu .catalog-button {
 	padding: 5px 15px;
 	border: 2px solid black;
 	color: black;
@@ -81,33 +81,33 @@
 	margin-bottom: 2rem;
 }
 
-#merchant-catalog .catalog-menu .catalog-button:hover {
+#merch-catalog .catalog-menu .catalog-button:hover {
 	color: white;
 	background-color: #F60D4F;
 }
 
-#merchant-catalog .catalog-menu .catalog-items {
+#merch-catalog .catalog-menu .catalog-items {
 	/* border: 1px solid black; */
 	position: relative;
 	margin-bottom: 2rem;
 }
 
-#merchant-catalog .catalog-menu .catalog-items .pre-order {
+#merch-catalog .catalog-menu .catalog-items .pre-order {
 	position: absolute;
 	color: #f99121;
 	font-weight: 500;
 }
 
-#merchant-catalog .catalog-menu .catalog-items h4 {
+#merch-catalog .catalog-menu .catalog-items h4 {
 	color: #f6014f;
 	font-weight: 500;
 }
 
-#merchant-catalog .catalog-menu .catalog-items img {
+#merch-catalog .catalog-menu .catalog-items img {
 	max-width: 100%;
 }
 
-#merchant-catalog .catalog-menu .catalog-items .btn-blue {
+#merch-catalog .catalog-menu .catalog-items .btn-blue {
 	padding: 5px 20px;
 	border: 3px solid black;
 	color: white;
@@ -116,7 +116,7 @@
 	transition: all 0.3s;
 }
 
-#merchant-catalog .catalog-menu .catalog-items .btn-blue:hover {
+#merch-catalog .catalog-menu .catalog-items .btn-blue:hover {
 	color: black;
 	background-color: #FCFC54;
 }
@@ -138,18 +138,18 @@
 }
 
 @media only screen and (min-width: 769px) {
-	#merchant-header .merchant-title {
+	#merch-header .merch-title {
 		font-size: 4.5rem;
 		font-weight: bold;
 		color: white;
 		text-align: center;
 	}
 
-	#merchant-header .clothes img {
+	#merch-header .clothes img {
 		width: 85%;
 	}
 
-	#merchant-header .btn-yellow {
+	#merch-header .btn-yellow {
 		padding: 10px 20px;
 		border: 3px solid black;
 		color: black;

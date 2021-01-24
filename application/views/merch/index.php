@@ -59,14 +59,14 @@
   <!-- END OF NAVBAR -->
 
   <!-- LANDING HEADER SECTION -->
-  <div id="merchant-header" class="section">
+  <div id="merch-header" class="section">
     <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
-      <div class="merchant-head row aic">
+      <div class="merch-head row aic">
         <div class="col-xl-6 pb-3">
-          <h1 class="merchant-title">
+          <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merchant-official" src="<?= base_url('assets/img/') ?>product/merchant-official.png">
+          <img class="merch-official" src="<?= base_url('assets/img/') ?>product/merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
@@ -80,7 +80,7 @@
   <!-- END OF LANDING HEADER -->
 
   <!-- CATALOG -->
-  <div id="merchant-catalog">
+  <div id="merch-catalog">
     <div class="catalog-header">
       <h1 class="catalog-title">CATALOG</h1>
     </div>
@@ -371,7 +371,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
   <script src="<?= base_url('assets/') ?>js/sweetalert2.min.js"></script>
-  <script src="<?= base_url('assets/') ?>js/merchant-modal.js"></script>
+  <script src="<?= base_url('assets/') ?>js/merch-modal.js"></script>
 </body>
 
 </html>
