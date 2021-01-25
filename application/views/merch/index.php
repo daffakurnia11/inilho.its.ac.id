@@ -259,15 +259,19 @@
                   <div class="form-group" id="sizeOption">
                     <label for="size">Size</label>
                     <select class="form-control" id="size" name="size">
-                      <option value="s">S</option>
-                      <option value="m">M</option>
-                      <option value="l">L</option>
-                      <option value="xl">XL</option>
-                      <option value="xxl">XXL</option>
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                      <option value="XXL">XXL</option>
                     </select>
                   </div>
                 </div>
               </div>
+              <p>
+                Kaos tiedye "Future Engineer" ini cocok buat kamu yang suka dengan perpaduan warna yang unik!
+                Diproduksi menggunakan bahan cotton combed 30s premium, tentunya membuat kenyamanan tersendiri buat kalian yang beli kaos ini.
+                Tunggu apalagi? Yuk segera diorder merchnyaa!</p>
               <button type="submit" class="btn btn-warning btn-block swalDefaultSuccess">Add to Cart !</button>
               <?= form_close(); ?>
             </div>
