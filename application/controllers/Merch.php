@@ -206,7 +206,7 @@ class Merch extends CI_Controller
     $this->db->delete('data_order');
     $this->db->where('no_order', $id_order);
     $this->db->delete('order_detail');
-    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Shorten Link berhasil dihapus!</div>');
+    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Pesanan berhasil dihapus!</div>');
     redirect('merch/order');
   }
 }

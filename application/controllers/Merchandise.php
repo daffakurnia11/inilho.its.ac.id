@@ -143,4 +143,26 @@ class Merchandise extends CI_Controller
 
     $this->load->view('merchandise/invoice', $data);
   }
+
+  public function tracking()
+  {
+    $this->form_validation->set_rules('keyword', 'Invoice', 'required|exact_length[12]');
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('merchandise/tracking');
+    } else {
+      $keyword = $this->input->post('keyword');
+
+      $this->db->select('*');
+      $this->db->from('data_order');
+      $this->db->like('no_order', $keyword);
+      $data['data_order'] = $this->db->get()->result_array()[0];
+
+      $this->db->select('*');
+      $this->db->from('order_detail');
+      $this->db->like('no_order', $keyword);
+      $data['order_detail'] = $this->db->get()->result_array();
+
+      $this->load->view('merchandise/tracking', $data);
+    }
+  }
 }

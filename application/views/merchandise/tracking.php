@@ -80,102 +80,121 @@
   <!-- END OF LANDING HEADER -->
 
   <!-- INVOICE CONTENT -->
-  <div id="invoice-body" class="mb-5">
-    <div class="invoice-header text-center">
-      <h3>Terimakasih telah melakukan pemesanan.</h3>
-      <p>Selanjutnya, silakan melakukan pembayaran sesuai dengan petunjuk dibawah ini.</p>
+  <div id="tracking-body" class="mb-5">
+    <div class="tracking-header text-center">
+      <h3>Cek Status dan Pesanan Kalian!</h3>
+      <p>Silakan masukkan nomor invoice kalian untuk memeriksa status dan pesanan kalian.</p>
     </div>
-    <div class="invoice-card container-sm">
-      <div class="invoice-content">
-        <img class="invoice-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
-        <div class="invoice-details mt-2">
-          <div class="row">
-            <div class="col">
-              <p><strong>Invoice :</strong> <?= $data_order['no_order']; ?></p>
-              <p><strong>Nama :</strong> <?= $data_order['receiver']; ?></p>
-              <p><strong>Status :</strong> <?= $data_order['status']; ?></p>
-            </div>
-            <div class="col">
-              <p><strong>Alamat : </strong><?= $data_order['address'] ?></p>
-              <p><strong>Kota : </strong><?= $data_order['city'] . ', ' . $data_order['province'] . ' - ' . $data_order['postal'] ?></p>
-              <p><strong>No Telp : </strong><?= $data_order['phone'] ?></p>
-            </div>
+    <div class="tracking-search container">
+      <form action="" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Masukkan No Invoice" name="keyword" autofocus>
+          <div class="input-group-append">
+            <input class="btn btn-blue" type="submit" name="submit">
           </div>
         </div>
-        <div class="table-responsive invoice-cart">
-          <table class="table mt-2" style="color: black;">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">Nama</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Berat</th>
-                <th scope="col">Harga Satuan</th>
-                <th scope="col">Harga</th>
-              </tr>
-            </thead>
-            <tbody class="text-center">
-              <?php
-              $subtotal = 0;
-              ?>
-              <?php foreach ($order_detail as $items) : ?>
-                <?php
-                $product = $this->db->get_where('tabel_product', ['id' => $items['product_id']])->row_array();
-                $subtotal += ($product['price'] * $items['qty']);
-                ?>
-                <tr>
-                  <td class="text-left">
-                    <?= $items['product'] ?><br>
-                    <?php if ($items['options'] != 'null') {
-                      echo 'Size : ' . $items['options'];
-                    } ?>
-                  </td>
-                  <td><?= $items['qty'] ?></td>
-                  <td><?= number_format($product['weight'], 0) ?> gr.</td>
-                  <td>
-                    <div class="d-flex justify-content-between">
-                      <span>Rp. </span>
-                      <span><?= number_format($product['price'], 2) ?></span>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex justify-content-between">
-                      <span>Rp. </span>
-                      <span><?= number_format(($product['price'] * $items['qty']), 2) ?></span>
-                    </div>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-              <tr>
-                <td colspan="4" class="text-right font-weight-bold">Sub Total : </td>
-                <td class="d-flex justify-content-between">
-                  <span>Rp. </span>
-                  <span><?= number_format($subtotal, 2) ?></span>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2" class="text-uppercase text-left"><strong>Kurir : </strong> <?= $data_order['courier'] . ' - ' . $data_order['package'] ?></td>
-                <td><?= number_format($data_order['weight'], 0) ?> gr.</td>
-                <td></td>
-                <td class="d-flex justify-content-between">
-                  <span>Rp. </span>
-                  <span><?= number_format($data_order['shipping'], 2) ?></span>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="4" class="text-right font-weight-bolder">Total Payment : </td>
-                <td class="d-flex justify-content-between">
-                  <span>Rp. </span>
-                  <span class="font-weight-bolder"><?= number_format($data_order['total'], 2) ?></span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      </form>
+    </div>
+    <div class="tracking-result">
+      <?php if ($this->input->post('submit')) : ?>
+        <?php if (isset($data_order)) : ?>
+          <div class="tracking-card container-sm">
+            <div class="tracking-content">
+              <img class="tracking-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
+              <div class="tracking-details mt-2">
+                <div class="row">
+                  <div class="col">
+                    <p><strong>Invoice :</strong> <?= $data_order['no_order']; ?></p>
+                    <p><strong>Nama :</strong> <?= $data_order['receiver']; ?></p>
+                    <p><strong>Status :</strong> <?= $data_order['status']; ?></p>
+                  </div>
+                  <div class="col">
+                    <p><strong>Alamat : </strong><?= $data_order['address'] ?></p>
+                    <p><strong>Kota : </strong><?= $data_order['city'] . ', ' . $data_order['province'] . ' - ' . $data_order['postal'] ?></p>
+                    <p><strong>No Telp : </strong><?= $data_order['phone'] ?></p>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive invoice-cart">
+                <table class="table mt-2" style="color: black;">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">Nama</th>
+                      <th scope="col">Jumlah</th>
+                      <th scope="col">Berat</th>
+                      <th scope="col">Harga Satuan</th>
+                      <th scope="col">Harga</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <?php
+                    $subtotal = 0;
+                    ?>
+                    <?php foreach ($order_detail as $items) : ?>
+                      <?php
+                      $product = $this->db->get_where('tabel_product', ['id' => $items['product_id']])->row_array();
+                      $subtotal += ($product['price'] * $items['qty']);
+                      ?>
+                      <tr>
+                        <td class="text-left">
+                          <?= $items['product'] ?><br>
+                          <?php if ($items['options'] != 'null') {
+                            echo 'Size : ' . $items['options'];
+                          } ?>
+                        </td>
+                        <td><?= $items['qty'] ?></td>
+                        <td><?= number_format($product['weight'], 0) ?> gr.</td>
+                        <td>
+                          <div class="d-flex justify-content-between">
+                            <span>Rp. </span>
+                            <span><?= number_format($product['price'], 2) ?></span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex justify-content-between">
+                            <span>Rp. </span>
+                            <span><?= number_format(($product['price'] * $items['qty']), 2) ?></span>
+                          </div>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
+                    <tr>
+                      <td colspan="4" class="text-right font-weight-bold">Sub Total : </td>
+                      <td class="d-flex justify-content-between">
+                        <span>Rp. </span>
+                        <span><?= number_format($subtotal, 2) ?></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="text-uppercase text-left"><strong>Kurir : </strong> <?= $data_order['courier'] . ' - ' . $data_order['package'] ?></td>
+                      <td><?= number_format($data_order['weight'], 0) ?> gr.</td>
+                      <td></td>
+                      <td class="d-flex justify-content-between">
+                        <span>Rp. </span>
+                        <span><?= number_format($data_order['shipping'], 2) ?></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" class="text-right font-weight-bolder">Total Payment : </td>
+                      <td class="d-flex justify-content-between">
+                        <span>Rp. </span>
+                        <span class="font-weight-bolder"><?= number_format($data_order['total'], 2) ?></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        <?php else : ?>
+          <div class="tracking-notfound container text-center">
+            <h4>Pesanan tidak ditemukan!</h4>
+          </div>
+        <?php endif; ?>
+      <?php endif; ?>
     </div>
     <div class="text-center my-5">
       <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
-      <a href="<?= base_url('merchandise/tracking') ?>" class="mx-2 btn btn-green">Cek Status Pesanan</a>
     </div>
   </div>
 
