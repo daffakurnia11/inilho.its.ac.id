@@ -121,7 +121,9 @@
       <h4>Total : Rp. <?= number_format($this->cart->total(), 2) ?></h4>
     </div>
     <div class="text-center mb-5">
-      <a href="<?= base_url('merchandise/clear') ?>" class="btn btn-yellow">Hapus Keranjang Belanja</a>
+      <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
+      <a href="<?= base_url('merchandise/clear') ?>" class="mx-2 btn btn-red">Hapus Keranjang Belanja</a>
+      <a href="<?= base_url('merchandise/checkout') ?>" class="mx-2 btn btn-green">Checkout</a>
     </div>
   </div>
   <!-- END OF CART LISTS -->

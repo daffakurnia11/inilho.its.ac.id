@@ -81,4 +81,12 @@ class Merchandise extends CI_Controller
     $this->cart->destroy();
     redirect('merchandise');
   }
+
+  public function checkout()
+  {
+    if (empty($this->cart->contents())) {
+      redirect('merchandise');
+    }
+    $this->load->view('merch/checkout');
+  }
 }

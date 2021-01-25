@@ -4,6 +4,9 @@
 	position: relative;
 } */
 
+/* CSS FOR MERCHANDISE CATALOG */
+
+/* CATALOG HEADER */
 #merch-header {
 	width: 100%;
 	min-height: 100vh;
@@ -47,18 +50,10 @@
 	max-width: 100%;
 }
 
-.catalog-title {
-	/* display-3 d-inline-block px-5 font-weight-bold border-bottom */
-	font-size: 2.5rem;
-	padding: 0 2rem 1rem;
-	margin-bottom: 1.5rem;
-	display: inline-block;
-	font-weight: bold;
-	border-bottom: 1px solid gray;
-	text-transform: uppercase;
-}
+/* ENF OF CATALOG HEADER */
 
-.catalog-header {
+/* CATALOG CONTENTS */
+#merch-catalog .catalog-header {
 	display: flex;
 	text-align: center;
 	flex-direction: column;
@@ -69,6 +64,18 @@
 	position: relative;
 }
 
+#merch-catalog .catalog-header .catalog-title {
+	/* display-3 d-inline-block px-5 font-weight-bold border-bottom */
+	font-size: 2.5rem;
+	padding: 0 2rem 1rem;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	text-transform: uppercase;
+}
+
+/* CATALOG MENU */
 #merch-catalog .catalog-menu .catalog-button {
 	padding: 5px 15px;
 	border: 2px solid black;
@@ -120,6 +127,8 @@
 	background-color: #FCFC54;
 }
 
+/* END OF CATALOG MENU */
+
 .btn-cart {
 	position: fixed;
 	bottom: 20px;
@@ -135,6 +144,12 @@
 #add-to-cart .media img.cart-image {
 	max-width: 250px;
 }
+
+/* END OF CATALOG CONTENTS */
+
+/* END OF MERCHANDISE CATALOG */
+
+/* CSS FOR VIEWCART */
 
 #cart-lists .cart-items {
 	position: relative;
@@ -192,6 +207,98 @@
 	color: white;
 	background-color: #0C0C6D;
 }
+
+#cart-lists .btn-red {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: #ffffff;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #f6014f;
+	transition: all 0.3s;
+}
+
+#cart-lists .btn-red:hover {
+	color: #ffffff;
+	background-color: #0C0C6D;
+}
+
+#cart-lists .btn-green {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #13bf2b;
+	transition: all 0.3s;
+}
+
+#cart-lists .btn-green:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+/* END OF VIEWCART */
+
+/* CSS FOR CHECKOUT */
+
+/* CHECKOUT FORM CUSTOMER */
+#checkout-body .checkout-header {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	z-index: 1;
+	position: relative;
+}
+
+#checkout-body .checkout-header .checkout-title {
+	font-size: 2.5rem;
+	padding: 0 2rem 1rem;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	text-transform: uppercase;
+}
+
+#checkout-body .checkout-form .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#checkout-body .checkout-form .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#checkout-body .checkout-form .btn-green {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #13bf2b;
+	transition: all 0.3s;
+}
+
+#checkout-body .checkout-form .btn-green:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+/* END OF CHECKOUT FORM CUSTOMER */
+
+/* END OF CHECKOUT */
+
+/* MEDIA QUERY */
 
 @media only screen and (min-width: 769px) {
 	#merch-header .merch-title {

@@ -31,7 +31,7 @@
       <div class="form-group">
         <label for="city">Kota</label>
         <select name="city" id="city" class="form-control">
-          <option value="<?= $data_store['sender'] ?>"><?= $data_store['sender'] ?></option>
+          <option value="<?= $data_store['city'] ?>"><?= $data_store['city'] ?></option>
         </select>
       </div>
     </div>

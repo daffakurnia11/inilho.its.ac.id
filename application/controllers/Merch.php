@@ -191,7 +191,7 @@ class Merch extends CI_Controller
       $array_response = json_decode($response, true);
       $data_city = $array_response['rajaongkir']['results'];
       foreach ($data_city as $city) {
-        echo "<option value='" . $city['city_id'] . "'>" . $city['city_name'] . "</option>";
+        echo "<option value='" . $city['city_id'] . "' id_city='" . $city['city_id'] . "'>" . $city['city_name'] . "</option>";
       }
     }
   }
@@ -222,6 +222,52 @@ class Merch extends CI_Controller
       $this->db->update('data_store', $data);
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pengirim Berhasil Diubah!</div>');
       redirect('merch/settings');
+    }
+  }
+
+  public function courier()
+  {
+    echo "<option value''>--Pilih Paket--</option>";
+    $origin = $this->db->get_where('data_store', ['id' => 1])->row_array();
+    $kurir = $this->input->post('courier');
+    $city = $this->input->post('city');
+    $weight = $this->input->post('weight');
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+      CURLOPT_SSL_VERIFYHOST => 0,
+      CURLOPT_SSL_VERIFYPEER => 0,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => "origin=" . $origin['city'] . "&destination=" . $city . "&weight=" . $weight . "&courier=" . $kurir . "",
+      CURLOPT_HTTPHEADER => array(
+        "content-type: application/x-www-form-urlencoded",
+        "key: $this->api_key"
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      // echo $response;
+      $array_response = json_decode($response, true);
+      // echo '<pre>';
+      // print_r($array_response['rajaongkir']['results'][0]['costs']);
+      // echo '</pre>';
+      $data_courier = $array_response['rajaongkir']['results'][0]['costs'];
+      foreach ($data_courier as $courier) {
+        echo "<option value='" . $courier['service'] . "' cost='" . $courier['cost'][0]['value'] . "'>" . $courier['service'] . " (" . $courier['cost'][0]['etd'] . " Hari)" . "</option>";
+      }
     }
   }
 }
