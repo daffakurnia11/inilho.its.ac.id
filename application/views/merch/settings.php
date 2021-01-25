@@ -53,7 +53,7 @@
   $(document).ready(function() {
     // Province Data
     $.ajax({
-      url: '<?= base_url('merch/province') ?>',
+      url: '<?= base_url('shipping/province') ?>',
       type: "POST",
       success: function(result_province) {
         // console.log(result_province);
@@ -66,7 +66,7 @@
       var get_province = $("option:selected", this).attr("id_province");
 
       $.ajax({
-        url: '<?= base_url('merch/city') ?>',
+        url: '<?= base_url('shipping/city') ?>',
         type: "POST",
         data: 'id_province=' + get_province,
         success: function(result_city) {

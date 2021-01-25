@@ -8,7 +8,7 @@ class Merchandise extends CI_Controller
     $data['title'] = 'Merchandise';
     $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
 
-    $this->load->view('merch/index', $data);
+    $this->load->view('merchandise/index', $data);
   }
 
   public function details()
@@ -53,7 +53,7 @@ class Merchandise extends CI_Controller
     if (empty($this->cart->contents())) {
       redirect('merchandise');
     }
-    $this->load->view('merch/viewcart');
+    $this->load->view('merchandise/viewcart');
   }
 
   public function delete($rowid)
@@ -84,9 +84,63 @@ class Merchandise extends CI_Controller
 
   public function checkout()
   {
-    if (empty($this->cart->contents())) {
-      redirect('merchandise');
+    $this->form_validation->set_rules('receiver', 'Nama Penerima', 'required|trim');
+    $this->form_validation->set_rules('phone', 'No Penerima', 'required|trim');
+    $this->form_validation->set_rules('address', 'Alamat Penerima', 'required|trim');
+    $this->form_validation->set_rules('postal', 'Kode Pos', 'required|trim');
+    $this->form_validation->set_rules('province', 'Provinsi', 'required');
+    $this->form_validation->set_rules('city', 'Kota', 'required');
+    $this->form_validation->set_rules('courier', 'Kurir', 'required');
+    $this->form_validation->set_rules('package', 'Paket', 'required');
+
+    if ($this->form_validation->run() == FALSE) {
+      if (empty($this->cart->contents())) {
+        redirect('merchandise');
+      }
+      $this->load->view('merchandise/checkout');
+    } else {
+      $data = [
+        'no_order' => $this->input->post('no_order'),
+        'receiver' => $this->input->post('receiver'),
+        'phone' => $this->input->post('phone'),
+        'address' => $this->input->post('address'),
+        'province' => $this->input->post('province'),
+        'city' => $this->input->post('city'),
+        'postal' => $this->input->post('postal'),
+        'courier' => $this->input->post('courier'),
+        'package' => $this->input->post('package'),
+        'weight' => $this->input->post('weight'),
+        'shipping' => $this->input->post('shipping'),
+        'subtotal' => $this->input->post('subtotal'),
+        'total' => $this->input->post('total'),
+        'status' => 'Belum Bayar'
+      ];
+      $this->db->insert('data_order', $data);
+
+      $i = 1;
+      foreach ($this->cart->contents() as $items) {
+        $data_detail = [
+          'no_order' => $this->input->post('no_order'),
+          'product_id' => $items['id'],
+          'product' => ($items['options']['Category'] . ' ' . $items['name']),
+          'options' => $items['options']['Size'],
+          'qty' => $this->input->post('qty' . $i)
+        ];
+        $i++;
+        $this->db->insert('order_detail', $data_detail);
+      }
+
+      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pesanan berhasil ditambahkan!</div>');
+      redirect('merchandise/invoice/' . $this->input->post('no_order'));
     }
-    $this->load->view('merch/checkout');
+  }
+
+  public function invoice($id_order)
+  {
+    $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id_order])->row_array();
+    $data['order_detail'] = $this->db->get_where('order_detail', ['no_order' => $id_order])->result_array();
+    $data['product'] = $this->db->get('tabel_product')->result_array();
+
+    $this->load->view('merchandise/invoice', $data);
   }
 }

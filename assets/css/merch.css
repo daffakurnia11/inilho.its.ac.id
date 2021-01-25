@@ -298,6 +298,57 @@
 
 /* END OF CHECKOUT */
 
+/* CSS FOR INVOICE */
+
+#invoice-body .invoice-card {
+	border: 2px solid black;
+	max-width: 900px;
+	padding: 1rem;
+}
+
+#invoice-body .invoice-card .invoice-content .invoice-logo {
+	width: 100px;
+}
+
+#invoice-body .invoice-card .invoice-content .invoice-details th,
+#invoice-body .invoice-card .invoice-content .invoice-details p {
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+#invoice-body .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#invoice-body .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#invoice-body .btn-green {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #13bf2b;
+	transition: all 0.3s;
+}
+
+#invoice-body .btn-green:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+/* END OF INVOICE */
+
 /* MEDIA QUERY */
 
 @media only screen and (min-width: 769px) {

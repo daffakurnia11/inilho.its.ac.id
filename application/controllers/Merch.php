@@ -115,87 +115,6 @@ class Merch extends CI_Controller
     }
   }
 
-  private $api_key = 'ded2a0a32bdfddc14fceb7f027d9c754';
-
-  public function province()
-  {
-    echo "<option value''>--Pilih Provinsi--</option>";
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
-      CURLOPT_SSL_VERIFYHOST => 0,
-      CURLOPT_SSL_VERIFYPEER => 0,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => "",
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 30,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "GET",
-      CURLOPT_HTTPHEADER => array(
-        "key: $this->api_key"
-      ),
-    ));
-
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-
-    curl_close($curl);
-
-    if ($err) {
-      echo "cURL Error #:" . $err;
-    } else {
-      // echo $response;
-      $array_response = json_decode($response, true);
-      // echo '<pre>';
-      // print_r($array_response['rajaongkir']['results']);
-      // echo '</pre>';
-      $data_province = $array_response['rajaongkir']['results'];
-      foreach ($data_province as $province) {
-        echo "<option value='" . $province['province_id'] . "' id_province='" . $province['province_id'] . "'>" . $province['province'] . "</option>";
-      }
-    }
-  }
-
-  public function city()
-  {
-    echo "<option value''>--Pilih Kota--</option>";
-    $id_province = $this->input->post('id_province');
-
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => "https://api.rajaongkir.com/starter/city?province=$id_province",
-      CURLOPT_SSL_VERIFYHOST => 0,
-      CURLOPT_SSL_VERIFYPEER => 0,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => "",
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 30,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "GET",
-      CURLOPT_HTTPHEADER => array(
-        "key: $this->api_key"
-      ),
-    ));
-
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-
-    curl_close($curl);
-
-    if ($err) {
-      echo "cURL Error #:" . $err;
-    } else {
-      // echo $response;
-      $array_response = json_decode($response, true);
-      $data_city = $array_response['rajaongkir']['results'];
-      foreach ($data_city as $city) {
-        echo "<option value='" . $city['city_id'] . "' id_city='" . $city['city_id'] . "'>" . $city['city_name'] . "</option>";
-      }
-    }
-  }
-
   public function settings()
   {
     $data['title'] = 'Merchandise Settings';
@@ -225,49 +144,69 @@ class Merch extends CI_Controller
     }
   }
 
-  public function courier()
+  public function order()
   {
-    echo "<option value''>--Pilih Paket--</option>";
-    $origin = $this->db->get_where('data_store', ['id' => 1])->row_array();
-    $kurir = $this->input->post('courier');
-    $city = $this->input->post('city');
-    $weight = $this->input->post('weight');
-    $curl = curl_init();
+    $data['title'] = 'Merchandise Order';
+    $data['data_order'] = $this->db->get('data_order')->result_array();
 
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
-      CURLOPT_SSL_VERIFYHOST => 0,
-      CURLOPT_SSL_VERIFYPEER => 0,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => "",
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 30,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "origin=" . $origin['city'] . "&destination=" . $city . "&weight=" . $weight . "&courier=" . $kurir . "",
-      CURLOPT_HTTPHEADER => array(
-        "content-type: application/x-www-form-urlencoded",
-        "key: $this->api_key"
-      ),
-    ));
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('templates/navbar');
+    $this->load->view('merch/order', $data);
+    $this->load->view('templates/footer');
+  }
 
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
+  public function detail($id_order)
+  {
+    $data['title'] = 'Merchandise Order';
+    $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id_order])->row_array();
+    $data['order_detail'] = $this->db->get_where('order_detail', ['no_order' => $id_order])->result_array();
+    $data['product'] = $this->db->get('tabel_product')->result_array();
 
-    curl_close($curl);
+    $this->form_validation->set_rules('status', 'Status', 'required');
 
-    if ($err) {
-      echo "cURL Error #:" . $err;
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/sidebar');
+      $this->load->view('templates/navbar');
+      $this->load->view('merch/detail_order', $data);
+      $this->load->view('templates/footer');
     } else {
-      // echo $response;
-      $array_response = json_decode($response, true);
-      // echo '<pre>';
-      // print_r($array_response['rajaongkir']['results'][0]['costs']);
-      // echo '</pre>';
-      $data_courier = $array_response['rajaongkir']['results'][0]['costs'];
-      foreach ($data_courier as $courier) {
-        echo "<option value='" . $courier['service'] . "' cost='" . $courier['cost'][0]['value'] . "'>" . $courier['service'] . " (" . $courier['cost'][0]['etd'] . " Hari)" . "</option>";
-      }
     }
+  }
+
+  public function editStatus($id_order)
+  {
+    $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id_order])->row_array();
+    $data = [
+      'no_order' => $this->input->post('no_order'),
+      'receiver' => $this->input->post('receiver'),
+      'phone' => $this->input->post('phone'),
+      'address' => $this->input->post('address'),
+      'province' => $this->input->post('province'),
+      'city' => $this->input->post('city'),
+      'postal' => $this->input->post('postal'),
+      'courier' => $this->input->post('courier'),
+      'package' => $this->input->post('package'),
+      'weight' => $this->input->post('weight'),
+      'shipping' => $this->input->post('shipping'),
+      'subtotal' => $this->input->post('subtotal'),
+      'total' => $this->input->post('total'),
+      'status' => $this->input->post('status'),
+    ];
+
+    $this->db->where('no_order', $this->input->post('no_order'));
+    $this->db->update('data_order', $data);
+    redirect('merch/order');
+  }
+
+  public function delete($id_order)
+  {
+    $this->db->where('no_order', $id_order);
+    $this->db->delete('data_order');
+    $this->db->where('no_order', $id_order);
+    $this->db->delete('order_detail');
+    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Shorten Link berhasil dihapus!</div>');
+    redirect('merch/order');
   }
 }
