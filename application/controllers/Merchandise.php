@@ -45,6 +45,7 @@ class Merchandise extends CI_Controller
       );
     }
     $this->cart->insert($data);
+    sleep(3);
     redirect($redirect_page);
   }
 
