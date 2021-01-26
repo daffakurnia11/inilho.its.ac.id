@@ -24,75 +24,90 @@
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+      Shorten Link
+    </div>
 
-    <!-- Nav Item - Link -->
-    <?php if ($title == 'Shorten Link') : ?>
+    <!-- Shorten Link - Add Link -->
+    <?php if ($title == 'Add Shorten Link') : ?>
       <li class="nav-item active">
       <?php else : ?>
       <li class="nav-item">
       <?php endif; ?>
       <a class="nav-link" href="<?= base_url('shortenlink'); ?>">
         <i class="fas fa-fw fa-link"></i>
-        <span>Shorten Link</span>
+        <span>Add Link</span>
       </a>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-      <div class="sidebar-heading">
-        Merchandise
-      </div>
-
-      <!-- Merchandise - Products -->
-      <?php if ($title == 'Merchandise Products') : ?>
+      <!-- Shorten Link - List Links -->
+      <?php if ($title == 'List Shorten Link') : ?>
         <li class="nav-item active">
         <?php else : ?>
         <li class="nav-item">
         <?php endif; ?>
-        <a class="nav-link" href="<?= base_url('merch/product'); ?>">
-          <i class="fas fa-fw fa-tshirt"></i>
-          <span>Products</span></a>
+        <a class="nav-link" href="<?= base_url('shortenlink/list'); ?>">
+          <i class="fas fa-fw fa-link"></i>
+          <span>List Link</span>
+        </a>
         </li>
 
-        <!-- Merchandise - Settings -->
-        <?php if ($title == 'Merchandise Settings') : ?>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+          Merchandise
+        </div>
+
+        <!-- Merchandise - Products -->
+        <?php if ($title == 'Merchandise Products') : ?>
           <li class="nav-item active">
           <?php else : ?>
           <li class="nav-item">
           <?php endif; ?>
-          <a class="nav-link" href="<?= base_url('merch/settings'); ?>">
-            <i class="fas fa-fw fa-user-cog"></i>
-            <span>Settings</span></a>
+          <a class="nav-link" href="<?= base_url('merch/product'); ?>">
+            <i class="fas fa-fw fa-tshirt"></i>
+            <span>Products</span></a>
           </li>
+
           <!-- Merchandise - Settings -->
-          <?php if ($title == 'Merchandise Order') : ?>
+          <?php if ($title == 'Merchandise Settings') : ?>
             <li class="nav-item active">
             <?php else : ?>
             <li class="nav-item">
             <?php endif; ?>
-            <a class="nav-link" href="<?= base_url('merch/order'); ?>">
-              <i class="fas fa-fw fa-cart-arrow-down"></i>
-              <span>Order</span></a>
+            <a class="nav-link" href="<?= base_url('merch/settings'); ?>">
+              <i class="fas fa-fw fa-user-cog"></i>
+              <span>Settings</span></a>
             </li>
+            <!-- Merchandise - Settings -->
+            <?php if ($title == 'Merchandise Order') : ?>
+              <li class="nav-item active">
+              <?php else : ?>
+              <li class="nav-item">
+              <?php endif; ?>
+              <a class="nav-link" href="<?= base_url('merch/order'); ?>">
+                <i class="fas fa-fw fa-cart-arrow-down"></i>
+                <span>Order</span></a>
+              </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+              <!-- Divider -->
+              <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Logout -->
-            <li class="nav-item">
-              <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Log Out</span></a>
-            </li>
+              <!-- Nav Item - Logout -->
+              <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-fw fa-sign-out-alt"></i>
+                  <span>Log Out</span></a>
+              </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+              <!-- Divider -->
+              <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-              <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+              <!-- Sidebar Toggler (Sidebar) -->
+              <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+              </div>
 
 </ul>
 <!-- End of Sidebar -->

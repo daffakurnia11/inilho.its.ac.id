@@ -88,7 +88,7 @@
         <?= form_open(); ?>
         <?php
         date_default_timezone_set("Asia/Jakarta");
-        $no_order = date('Ymd') . '-' . strtoupper(random_string('numeric', 3));
+        $no_order = date('dmY') . '-' . strtoupper(random_string('numeric', 3));
         ?>
         <div class="row">
           <div class="col-sm-6">
