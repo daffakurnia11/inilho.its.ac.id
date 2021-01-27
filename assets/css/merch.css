@@ -294,6 +294,27 @@
 	background-color: #0C0C6D;
 }
 
+#checkout-body .checkout-form .checkout-cart .input-group .input-group-text,
+#checkout-body .checkout-form .checkout-cart .input-group .form-control {
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+#checkout-body .checkout-form .checkout-cart .btn-blue {
+	padding: 3px 0;
+	width: 100%;
+	border: 3px solid black;
+	color: white;
+	font-size: 14px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#checkout-body .checkout-form .checkout-cart .btn-blue:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
 /* END OF CHECKOUT FORM CUSTOMER */
 
 /* END OF CHECKOUT */

@@ -104,6 +104,34 @@ $(function() {
       }
     });
   })
+
+  $('#check-code').on('click', function() {
+    var code = $('#code_referral').val();
+    $.ajax({
+      url: url + 'merchandise/referral',
+      data: {
+        code: code
+      },
+      method: "POST",
+      dataType: 'json',
+      success: function(data) {
+        var shipping = $("option:selected",'#package').attr("cost");
+        var payment = $('#total-price').html();
+        if (data) {
+          $('#referral').html('Diskon ' + data.discount + '%');
+          
+          var total = parseInt(shipping) + (parseInt(payment) * ((100 - parseInt(data.discount)) / 100));
+
+          $('#total-payment').html('Rp. ' + total + ',00');
+        } else {
+          $('#referral').html('Tidak Ditemukan');
+          var total = parseInt(shipping) + parseInt(payment);
+
+          $('#total-payment').html('Rp. ' + parseInt(total) + ',00');
+        }
+      }
+    });
+  })
 });
 
 $(function() {

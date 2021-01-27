@@ -13,7 +13,7 @@ class Auth extends CI_Controller
     if ($this->form_validation->run() == FALSE) {
       $data['title'] = 'Ini Lho ITS! Dashboard Login';
       $this->load->view('templates/auth_header', $data);
-      $this->load->view('auth/login');
+      $this->load->view('dashboard/login');
       $this->load->view('templates/auth_footer');
     } else {
       $this->_login();

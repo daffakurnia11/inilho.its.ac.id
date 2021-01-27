@@ -169,4 +169,9 @@ class Merchandise extends CI_Controller
       $this->load->view('merchandise/tracking', $data);
     }
   }
+
+  public function referral()
+  {
+    echo json_encode($this->db->get_where('tabel_referral', ['code' => $this->input->post('code')])->row_array());
+  }
 }

@@ -194,7 +194,10 @@
               <?php endforeach; ?>
               <tr>
                 <td colspan="4" class="text-right">Total Harga : </td>
-                <td class="font-weight-bold">Rp. <?= number_format($this->cart->total(), 2) ?></td>
+                <td class="font-weight-bold">
+                  Rp.
+                  <span id="total-price"><?= $this->cart->total() ?></span>,00
+                </td>
               </tr>
               <tr>
                 <td colspan="4" class="text-right">Total Berat : </td>
@@ -203,6 +206,21 @@
               <tr>
                 <td colspan="4" class="text-right">Ongkos Kirim : </td>
                 <td id="cost-courier" class="font-weight-bold"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="input-group my-0">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Kode Referral : </span>
+                    </div>
+                    <input id="code_referral" type="text" class="form-control" placeholder="Masukkan Kode Referral">
+                  </div>
+                </td>
+                <td>
+                  <button type="button" id="check-code" class="btn btn-blue">Cek Kode!</button>
+                </td>
+                <td class="text-right d-flex justify-content-end align-items-center h-100"><span>Potongan : </span></td>
+                <td id="referral" class="font-weight-bold"></td>
               </tr>
               <tr class="font-weight-bolder">
                 <td colspan="4" class="text-right">Total Pembayaran : </td>
@@ -282,7 +300,6 @@
             $('#package').on('change', function() {
               var shipping = $("option:selected", this).attr("cost");
               $("#cost-courier").html('Rp. ' + shipping + ',00');
-
 
               // Get Total Payment
               var payment = parseInt(shipping) + parseInt(<?= $this->cart->total() ?>);
