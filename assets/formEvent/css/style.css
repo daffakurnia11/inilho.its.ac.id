@@ -1,0 +1,362 @@
+/*-------- CSS Reset --------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*--- Fonts ---*/
+@font-face{
+    font-family: SofiaPro;
+    src: url(../fonts/SofiaProBold.otf);
+}
+
+@font-face{
+    font-family: ProximaNova;
+    src: url(../fonts/ProximaNova.ttf);
+}
+
+
+/*----- Navigation Bar -----*/
+#navbar{
+    width:100%;
+    height:auto;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
+    position:fixed;
+    z-index:1000;
+    background-color: #f2f2f2;
+}
+
+#navbar .nav-title h2{
+    width:70%;
+    margin: 0px auto;
+    font: 24px 'SofiaPro';
+    color: #BF1A1E;
+    letter-spacing: .05em;
+    text-align: left;
+    text-transform: uppercase;
+    padding:20px 0px;
+}
+
+#navbar .button{
+    display: block;
+    float: right;
+    font: 14px "Roboto";
+    padding: 10px 25px;
+    background-color: #BF1A1E;
+}
+
+
+/*----- Header Wrapper -----*/
+#header-wrapper{
+    width: 100%;
+    height: auto;
+    position: relative;
+    min-height: 32em;
+    background-color: transparent;
+}
+
+#header-wrapper .inner-wrapper{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    background-image: url(../img/pattern.png);
+}
+
+#header-wrapper .inner-wrapper .judulutama{
+    font: 64px "SofiaPro";
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0px;
+    top:40%;
+    position:relative;
+    transform: translateY(-50%);
+    z-index: 1;
+    text-shadow: 0.5rem 0.7rem #0c222b;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+#main-wrapper{
+    background-color: #FFFFFF;
+    padding-bottom: 100px;
+}
+
+
+/*--- Division Grid ---*/
+.divisi-judul{
+    font: 48px 'SofiaPro';
+    color: #242424;
+    letter-spacing: .05em;
+    text-align: center;
+    padding:50px;
+    border-bottom: 4px solid A4A4A4;
+}
+.divisi-container{
+    width: 84em;
+    height: auto;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+    .divisi-outer{
+        width: 25%;
+        height: auto;
+        overflow: hidden;
+    }
+
+        .divisi-box{
+            width: 100%;
+            height: 360px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+
+        .divisi-box:hover{
+            cursor:pointer;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+            .divisi-inner{
+                width: 100%;
+                height: 100%;
+                /*background: linear-gradient(135deg,#8afffb,rgba(239,50,217,.6));
+                */background: rgba(0, 0, 0, .5);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            .divisi-inner:hover{
+                opacity: 1;
+                transition: all 0.3s ease;
+            }
+
+            .divisi-inner:hover > .divisi-title{
+                padding-top: 0px;
+                transition: all 0.3s ease;
+            }
+
+            .divisi-inner .divisi-title{
+                font: 36px 'SofiaPro';
+                text-align: center;
+                color: #FFFFFF;
+                margin: 0px;
+                top:50%;
+                transform: translateY(-50%);
+                z-index: 1;
+                padding-top: 50px;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+.divisi-floating{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: all 0.7s ease;
+    z-index: 0;
+}
+
+.divisi-container-small{
+    width: 100%;
+    height: auto;
+    display: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.divisi-floating:hover{
+    cursor: pointer;
+}
+
+.div-acara{background-image: url('../img/1a.png');}
+.div-danus{background-image: url('../img/2a.png');}
+.div-humas{background-image: url('../img/3a.png');}
+.div-logistik{background-image: url('../img/4a.png');}
+.div-kestari{background-image: url('../img/5a.png');}
+.div-branding{background-image: url('../img/6a.png');}
+.div-it{background-image: url('../img/7a.png');}
+.div-kamzin{background-image: url('../img/8a.png');}
+
+.divisi-floating .textbox, .divisi-floating-small .textbox{
+    width: 40%;
+    margin: 0px;
+    top: 50%;
+    height: 0px;
+    max-height: 40%;
+    overflow: hidden;
+    text-align: right;
+    color: #FFFFFF;
+    float: right;
+    transform: translateY(-50%);
+    padding-right: 10%;
+    position: relative;
+}
+
+.divisi-floating-small{
+    height: auto;
+    min-height:24em;
+    background-size: cover;
+    background-position: right;
+}
+
+.divisi-floating-small .textbox{
+    height: auto;
+    padding:100px 10%;
+    transform: none;
+}
+
+
+    .divisi-floating .textbox h3{
+        font: 48px 'SofiaPro';
+        margin: 0px;
+        padding-bottom:10px;
+    }
+
+    .divisi-floating-small .textbox h3{
+        font: 30px 'SofiaPro';
+        text-align: left;
+        padding-bottom:10px;
+    }
+
+    .divisi-floating-small .textbox h5{
+        font: 16px 'ProximaNova';
+        text-align: left;
+    }
+
+    .divisi-floating .textbox h5{
+        font: 20px 'ProximaNova';
+        margin-top:24px;
+    }
+
+
+#join-now{
+    padding-top: 100px;
+    width: auto;
+    height: auto;
+    text-align:center;
+}
+
+#join-now .joinbutton{
+    font: 20px 'ProximaNova';
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:25px 50px;
+    color:#FFFFFF;
+    border-radius:5px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.1em;
+    background: -webkit-linear-gradient(left, #961e25, #ea6a56);
+    background: -o-linear-gradient(left, #961e25, #ea6a56);
+    background: -moz-linear-gradient(left, #961e25, #ea6a56);
+    background: linear-gradient(left, #961e25, #ea6a56);
+}
+
+#join-now .joinbutton:hover{
+    cursor:pointer;
+}
+
+
+@media screen and (max-width:90em){
+        .divisi-container{
+            width: 64em;
+            height: auto;
+            margin: 0px auto;
+            overflow: hidden;
+        }
+    
+}
+
+@media screen and (max-width:70em){
+    .divisi-container{
+        display:none;
+    }
+    .divisi-container-small{
+        display: block;
+    }
+    #header-wrapper .inner-wrapper .judulutama{font-size:48px;}
+}
+
+@media screen and (max-width:30em){
+    .divisi-container-small .textbox{
+        width:auto;
+        max-width:60%;
+     }
+     #header-wrapper .inner-wrapper .judulutama{font-size:36px;}
+    .divisi-floating-small{
+        min-height:29em;
+    }
+}
+
+@media screen and (max-width:25em){
+     
+    #header-wrapper{
+        background-size: contain;
+        background-attachment: fixed;
+    }
+    
+
+    .divisi-container-small .textbox{
+        width:auto;
+        max-width:80%;
+     }
+     #header-wrapper .inner-wrapper .judulutama{font-size:30px;}
+}

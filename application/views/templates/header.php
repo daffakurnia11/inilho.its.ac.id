@@ -19,8 +19,6 @@
   <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="icon" type="ipng" href="<?= base_url(); ?>assets/img/logogram.png">
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
 </head>
 
 <body id="page-top">

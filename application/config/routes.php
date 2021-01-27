@@ -53,10 +53,19 @@ $route['default_controller'] = 'comingsoon';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['comingsoon'] = 'comingsoon';
 $route['auth'] = 'auth';
 $route['admin2021'] = 'admin2021';
-$route['merchant'] = 'merchant';
+$route['merch'] = 'merch';
 $route['merchandise'] = 'merchandise';
 $route['shortenlink'] = 'shortenlink';
+
+/* REGIS TALKSHOW */
+$route['DaftarTalkshowILITS2021'] = 'talkshow/talkshow';
+$route['formtalkshow'] = 'talkshow/form_ts';
+$route['inputtalkshow'] = 'talkshow/input_talkshow';
+$route['caritalkshow'] = 'talkshow/search_talkshow';
+$route['hasiltalkshow'] = 'talkshow/talkshow_hasil';
+$route['terdaftartalkshow'] = 'talkshow/talkshow_available';
 
 $route['(:any)'] = 'redirect/short/$1';
