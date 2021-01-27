@@ -7,14 +7,13 @@ const viewcart = url + 'merchandise/viewcart';
 if (flashdata) {
   if (flashdata == 'Dihapus') {
     Swal.fire({
-      icon: 'warning',
+      icon: 'success',
       title: 'Keranjang ' + flashdata,
-      text: 'Barang berhasil ' + flashdata + ' dalam keranjang!',
-      footer: '<a href=' + viewcart + '>Cek keranjang belanja</a>'
+      text: 'Barang berhasil ' + flashdata + ' dari keranjang!'
     })
   } else if (flashdata == 'Dikosongkan') {
     Swal.fire({
-      icon: 'warning',
+      icon: 'success',
       title: 'Keranjang ' + flashdata,
       text: 'Keranjang belanja ' + flashdata + '! Silakan kembali berbelanja'
     })
@@ -27,6 +26,40 @@ if (flashdata) {
     })
   }
 }
+
+$('.btn-delete').on('click', function(e) {
+  e.preventDefault();
+  const href = $(this).attr('href');
+  Swal.fire({
+    title: 'Apakah barang ingin dihapus?',
+    text: "Barang akan segera dihapus.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#OCOC6D',
+    cancelButtonColor: '#f6014f',
+    confirmButtonText: 'Hapus Barang',
+    cancelButtonText: 'Batalkan'
+  }).then((result) => {
+    document.location.href = href;
+  })
+})
+
+$('.btn-red').on('click', function(e) {
+  e.preventDefault();
+  const href = $(this).attr('href');
+  Swal.fire({
+    title: 'Apakah keranjang ingin dikosongkan?',
+    text: "Barang akan dihapus semua dari keranjang belanja",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#OCOC6D',
+    cancelButtonColor: '#f6014f',
+    confirmButtonText: 'Hapus Barang',
+    cancelButtonText: 'Batalkan'
+  }).then((result) => {
+    document.location.href = href;
+  })
+})
 
 $(function() {
   $('.detailProduct').on('click', function() {
