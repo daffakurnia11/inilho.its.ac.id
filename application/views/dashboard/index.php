@@ -24,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title"><strong>Merchandise Selling</strong></h5>
           <p class="card-text">Data Penjualan <i>merchandise</i> Ini Lho ITS! 2021</p>
-          <a href="<?= base_url('merchant'); ?>" class="btn btn-primary">Liat Data!</a>
+          <a href="<?= base_url('merch'); ?>" class="btn btn-primary">Liat Data!</a>
         </div>
       </div>
     </div>

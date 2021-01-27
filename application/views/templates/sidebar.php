@@ -65,7 +65,7 @@
           <?php else : ?>
           <li class="nav-item">
           <?php endif; ?>
-          <a class="nav-link" href="<?= base_url('merch/product'); ?>">
+          <a class="nav-link" href="<?= base_url('merch'); ?>">
             <i class="fas fa-fw fa-tshirt"></i>
             <span>Products</span></a>
           </li>

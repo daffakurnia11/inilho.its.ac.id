@@ -1,6 +1,33 @@
 const url = 'http://localhost/inilho.its.ac.id/';
 // Please change the URL with Our Base URL!!
 
+// Sweetalert
+const flashdata = $('#flash-data').data('flashdata');
+const viewcart = url + 'merchandise/viewcart';
+if (flashdata) {
+  if (flashdata == 'Dihapus') {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Keranjang ' + flashdata,
+      text: 'Barang berhasil ' + flashdata + ' dalam keranjang!',
+      footer: '<a href=' + viewcart + '>Cek keranjang belanja</a>'
+    })
+  } else if (flashdata == 'Dikosongkan') {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Keranjang ' + flashdata,
+      text: 'Keranjang belanja ' + flashdata + '! Silakan kembali berbelanja'
+    })
+  }else {
+    Swal.fire({
+      icon: 'success',
+      title: 'Keranjang ' + flashdata,
+      text: 'Barang berhasil ' + flashdata + ' dalam keranjang!',
+      footer: '<a href=' + viewcart + '>Cek keranjang belanja</a>'
+    })
+  }
+}
+
 $(function() {
   $('.detailProduct').on('click', function() {
     const code = $(this).data('id');

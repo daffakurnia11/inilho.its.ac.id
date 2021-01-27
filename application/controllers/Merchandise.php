@@ -45,7 +45,7 @@ class Merchandise extends CI_Controller
       );
     }
     $this->cart->insert($data);
-    sleep(3);
+    $this->session->set_flashdata('flash', 'Ditambahkan');
     redirect($redirect_page);
   }
 
@@ -60,6 +60,7 @@ class Merchandise extends CI_Controller
   public function delete($rowid)
   {
     $this->cart->remove($rowid);
+    $this->session->set_flashdata('flash', 'Dihapus');
     redirect('merchandise/viewcart');
   }
 
@@ -72,6 +73,7 @@ class Merchandise extends CI_Controller
         'qty'   => $this->input->post($i . '[qty]')
       );
       $this->cart->update($data);
+      $this->session->set_flashdata('flash', 'Diubah');
       $i++;
     }
     redirect('merchandise/viewcart');
@@ -80,6 +82,7 @@ class Merchandise extends CI_Controller
   public function clear()
   {
     $this->cart->destroy();
+    $this->session->set_flashdata('flash', 'Dikosongkan');
     redirect('merchandise');
   }
 

@@ -81,6 +81,9 @@
 
   <!-- CATALOG -->
   <div id="merch-catalog">
+    <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>">
+      <?= $this->session->unset_userdata('flash'); ?>
+    </div>
     <div class="catalog-header">
       <h1 class="catalog-title">CATALOG</h1>
     </div>
@@ -272,7 +275,7 @@
                 Kaos tiedye "Future Engineer" ini cocok buat kamu yang suka dengan perpaduan warna yang unik!
                 Diproduksi menggunakan bahan cotton combed 30s premium, tentunya membuat kenyamanan tersendiri buat kalian yang beli kaos ini.
                 Tunggu apalagi? Yuk segera diorder merchnyaa!</p>
-              <button type="submit" class="btn btn-warning btn-block swalDefaultSuccess">Add to Cart !</button>
+              <button type="submit" class="btn btn-warning btn-block">Add to Cart !</button>
               <?= form_close(); ?>
             </div>
             <!-- END OF PRODUCT DETAILS -->
@@ -374,7 +377,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
-  <script src="<?= base_url('assets/') ?>js/sweetalert2.min.js"></script>
+  <script src="<?= base_url('assets/') ?>js/sweetalert2.all.min.js"></script>
   <script src="<?= base_url('assets/') ?>js/merch-modal.js"></script>
 </body>
 

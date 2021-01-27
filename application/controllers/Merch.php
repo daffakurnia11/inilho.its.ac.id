@@ -9,7 +9,7 @@ class Merch extends CI_Controller
     is_logged_in();
   }
 
-  public function product()
+  public function index()
   {
     $data['title'] = 'Merchandise Products';
     $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
@@ -50,7 +50,7 @@ class Merch extends CI_Controller
       ];
       $this->db->insert('tabel_product', $data);
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil ditambahkan!</div>');
-      redirect('merch/product');
+      redirect('merch');
     }
   }
 
@@ -64,7 +64,7 @@ class Merch extends CI_Controller
     $this->db->where('id', $id);
     $this->db->delete('tabel_product');
     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Produk berhasil dihapus!</div>');
-    redirect('merch/product');
+    redirect('merch');
   }
 
   public function editproduct($id)
@@ -111,7 +111,7 @@ class Merch extends CI_Controller
       $this->db->where('id', $this->input->post('id'));
       $this->db->update('tabel_product', $data);
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil diubah!</div>');
-      redirect('merch/product');
+      redirect('merch');
     }
   }
 
