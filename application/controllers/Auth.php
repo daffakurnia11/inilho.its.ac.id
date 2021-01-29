@@ -12,9 +12,9 @@ class Auth extends CI_Controller
     $this->form_validation->set_rules('password', 'Password', 'required|trim');
     if ($this->form_validation->run() == FALSE) {
       $data['title'] = 'Ini Lho ITS! Dashboard Login';
-      $this->load->view('templates/auth_header', $data);
-      $this->load->view('dashboard/login');
-      $this->load->view('templates/auth_footer');
+      $this->load->view('admin/templates/auth_header', $data);
+      $this->load->view('admin/dashboard/login');
+      $this->load->view('admin/templates/auth_footer');
     } else {
       $this->_login();
     }

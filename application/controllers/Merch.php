@@ -18,11 +18,11 @@ class Merch extends CI_Controller
     $this->form_validation->set_rules('price', 'Harga', 'required|trim|numeric');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar');
-      $this->load->view('templates/navbar');
-      $this->load->view('merch/product');
-      $this->load->view('templates/footer');
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar');
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/merch/product');
+      $this->load->view('admin/templates/footer');
     } else {
       $upload = $_FILES['img']['name'];
 
@@ -76,11 +76,11 @@ class Merch extends CI_Controller
     $this->form_validation->set_rules('price', 'Harga', 'required|trim|numeric');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar');
-      $this->load->view('templates/navbar');
-      $this->load->view('merch/edit-product', $data);
-      $this->load->view('templates/footer');
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar');
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/merch/edit-product', $data);
+      $this->load->view('admin/templates/footer');
     } else {
       $upload = $_FILES['img']['name'];
 
@@ -125,11 +125,11 @@ class Merch extends CI_Controller
     $this->form_validation->set_rules('address', 'Alamat Pengirim', 'required|trim');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar');
-      $this->load->view('templates/navbar');
-      $this->load->view('merch/settings', $data);
-      $this->load->view('templates/footer');
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar');
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/merch/settings', $data);
+      $this->load->view('admin/templates/footer');
     } else {
       $data = [
         'sender' => $this->input->post('sender'),
@@ -149,11 +149,11 @@ class Merch extends CI_Controller
     $data['title'] = 'Merchandise Order';
     $data['data_order'] = $this->db->get('data_order')->result_array();
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
-    $this->load->view('templates/navbar');
-    $this->load->view('merch/order', $data);
-    $this->load->view('templates/footer');
+    $this->load->view('admin/templates/header', $data);
+    $this->load->view('admin/templates/sidebar');
+    $this->load->view('admin/templates/navbar');
+    $this->load->view('admin/merch/order', $data);
+    $this->load->view('admin/templates/footer');
   }
 
   public function detail($id_order)
@@ -166,11 +166,11 @@ class Merch extends CI_Controller
     $this->form_validation->set_rules('status', 'Status', 'required');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar');
-      $this->load->view('templates/navbar');
-      $this->load->view('merch/detail_order', $data);
-      $this->load->view('templates/footer');
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar');
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/merch/detail_order', $data);
+      $this->load->view('admin/templates/footer');
     } else {
     }
   }

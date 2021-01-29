@@ -19,11 +19,11 @@ class Shortenlink extends CI_Controller
     $this->form_validation->set_rules('urllink', 'URL Asli', 'required|trim|valid_url');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar');
-      $this->load->view('templates/navbar');
-      $this->load->view('shortenlink/index', $data);
-      $this->load->view('templates/footer');
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar');
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/shortenlink/index', $data);
+      $this->load->view('admin/templates/footer');
     } else {
       $data = [
         'namalink' => $this->input->post('namalink'),
@@ -54,11 +54,11 @@ class Shortenlink extends CI_Controller
     $this->form_validation->set_rules('urllink', 'URL Asli', 'required|trim|valid_url');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar');
-      $this->load->view('templates/navbar');
-      $this->load->view('shortenlink/edit-link', $data);
-      $this->load->view('templates/footer');
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar');
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/shortenlink/edit-link', $data);
+      $this->load->view('admin/templates/footer');
     } else {
       $data = [
         'namalink' => $this->input->post('namalink'),
@@ -126,10 +126,10 @@ class Shortenlink extends CI_Controller
       $data['shorten_link'] = $this->db->get('shorten_link', $config['per_page'], $data['start'])->result_array();
     }
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
-    $this->load->view('templates/navbar');
-    $this->load->view('shortenlink/list', $data);
-    $this->load->view('templates/footer');
+    $this->load->view('admin/templates/header', $data);
+    $this->load->view('admin/templates/sidebar');
+    $this->load->view('admin/templates/navbar');
+    $this->load->view('admin/shortenlink/list', $data);
+    $this->load->view('admin/templates/footer');
   }
 }

@@ -84,9 +84,275 @@
     <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>">
       <?= $this->session->unset_userdata('flash'); ?>
     </div>
+
+    <!-- CATALOG BUNDLE ITEMS -->
+    <div class="catalog-header">
+      <h1 class="catalog-title">BUNDLE PACK</h1>
+    </div>
+    <div class="container catalog-menu text-center mb-3">
+      <?= form_open('merchandise/addBundle') ?>
+      <?= form_hidden('redirect_page', str_replace('index.php/', '', current_url())) ?>
+      <div class="row bundle-menu">
+        <div class="col-md-4">
+          <!-- BUTTON GROUP BUNDLE PACKS -->
+          <h2>Pilihan Pack</h2>
+          <?php $i = 1; ?>
+          <?php foreach ($tabel_bundle as $items) : ?>
+            <button id="heading<?= $i; ?>" class="bundle-button" type="button" data-toggle="collapse" data-target="#<?= $items['data-target'] ?>">
+              <label class="form-check-label" for="<?= $items['product'] ?>">
+                <input class="form-check-input bundle-button-pack" name="productBundle" type="radio" value="<?= $items['product'] ?>" id="<?= $items['product'] ?>">
+                <input type="hidden" name="idBundle" value="<?= $items['id'] ?>">
+                <input type="hidden" name="priceBundle" value="<?= $items['price'] ?>">
+                <?= $items['product'] ?> (IDR : <?= $items['price'] ?>)
+              </label>
+            </button>
+            <?php $i++; ?>
+          <?php endforeach; ?>
+          <?= form_error('productBundle'); ?>
+          <!-- END OF BUTTON GROUP BUNDLE PACKS -->
+        </div>
+        <div class="col-md-8">
+          <!-- BUNDLE PACK DETAIL ITEMS -->
+          <div class="accordion text-left" id="bundleMenu">
+            <?php foreach ($tabel_bundle as $items) : ?>
+              <div id="<?= $items['data-target'] ?>" class="bundle-detail collapse" aria-labelledby="heading1" data-parent="#bundleMenu">
+                <h2 class="text-center"><?= $items['product']; ?> Bundle</h2>
+                <fieldset class="form-group">
+
+                  <!-- HOODIE ITEMS -->
+                  <?php if ($items['hoodie'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $hoodie = $this->db->get_where('tabel_product', ['category' => 'Hoodie'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Hoodie</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($hoodie as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="hoodie" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF HOODIE ITEMS -->
+
+                  <!-- T-SHIRT ITEMS -->
+                  <?php if ($items['shirt'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $tshirt = $this->db->get_where('tabel_product', ['category' => 'T-Shirt'])->result_array();
+                      $tiedye = $this->db->get_where('tabel_product', ['category' => 'Tie Dye T-Shirt'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">
+                        <div class="form-group" style="width: 80px;">T-Shirt</div>
+                      </legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($tshirt as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tshirt" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                        <?php foreach ($tiedye as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tshirt" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF T-SHIRT ITEMS -->
+
+                  <!-- TOTEBAG ITEMS -->
+                  <?php if ($items['totebag'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $totebag = $this->db->get_where('tabel_product', ['category' => 'Totebag'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Totebag</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($totebag as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="totebag" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF TOTEBAG ITEMS -->
+
+                  <!-- DAD CAP ITEMS -->
+                  <?php if ($items['cap'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $cap = $this->db->get_where('tabel_product', ['category' => 'Dad Cap'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Dad Cap</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($cap as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cap" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF DAD CAP ITEMS -->
+
+                  <!-- KEYCHAIN ITEMS -->
+                  <?php if ($items['keychain'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $keychain = $this->db->get_where('tabel_product', ['category' => 'Keychain'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Keychain</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($keychain as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="keychain" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF KEYCHAIN ITEMS -->
+
+                  <!-- BRACELET ITEMS -->
+                  <?php if ($items['bracelet'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $gelang = $this->db->get_where('tabel_product', ['category' => 'Gelang'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Gelang</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($gelang as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bracelet" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF BRACELET ITEMS -->
+
+                  <!-- LANYARD ITEMS -->
+                  <?php if ($items['lanyard'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $lanyard = $this->db->get_where('tabel_product', ['category' => 'Lanyard'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Lanyard</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($lanyard as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="lanyard" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF LANYARD ITEMS -->
+
+                  <!-- STICKERBOOK -->
+                  <?php if ($items['stickerbook'] == 1) : ?>
+                    <div class="row bundle-items">
+                      <?php
+                      $sticker = $this->db->get_where('tabel_product', ['category' => 'Stiker'])->result_array();
+                      ?>
+                      <legend class="col-form-label col-sm-3 pt-0">Stickerbook</legend>
+                      <div class="col-sm-9">
+                        <?php foreach ($sticker as $name) : ?>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="stickerbook" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                            <label class="form-check-label">
+                              <?= $name['product']; ?>
+                            </label>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <!-- END OF STICKER BOOK -->
+
+                  <!-- SIZE OPTIONS -->
+                  <div class="row bundle-items">
+                    <legend class="col-form-label col-sm-3 pt-0">Size</legend>
+                    <div class="col-sm-9">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="S" value="S">
+                        <label class="form-check-label" for="S">
+                          S
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="M" value="M">
+                        <label class="form-check-label" for="M">
+                          M
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="L" value="L">
+                        <label class="form-check-label" for="L">
+                          L
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="XL" value="XL">
+                        <label class="form-check-label" for="XL">
+                          XL
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="XXL" value="XXL">
+                        <label class="form-check-label" for="XXL">
+                          XXL
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END OF SIZE OPTIONS -->
+
+                </fieldset>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-blue">Add to Cart!</button>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+      <?= form_close(); ?>
+    </div>
+
+    <!-- CATALOG SINGLE ITEMS -->
     <div class="catalog-header">
       <h1 class="catalog-title">CATALOG</h1>
     </div>
+
     <!-- CATALOG ITEMS -->
     <div class="container catalog-menu text-center">
       <button id="headingOne" class="catalog-button collapsed" type="button" data-toggle="collapse" data-target="#catalog-hoodie">
@@ -105,6 +371,7 @@
         SMALL MERCH
       </button>
       <div class="accordion" id="catalogMenu">
+
         <!-- HOODIE & T-SHIRT -->
         <div id="catalog-hoodie" class="collapse show" aria-labelledby="headingOne" data-parent="#catalogMenu">
           <div class="row">
@@ -124,6 +391,7 @@
           </div>
         </div>
         <!-- END OF HOODIE & T-SHIRT -->
+
         <!-- TIEDYE -->
         <div id="catalog-tiedye" class="collapse" aria-labelledby="headingTwo" data-parent="#catalogMenu">
           <div class="row">
@@ -143,6 +411,7 @@
           </div>
         </div>
         <!-- END OF TIEDYE -->
+
         <!-- TOTEBAG -->
         <div id="catalog-totebag" class="collapse" aria-labelledby="headingThree" data-parent="#catalogMenu">
           <div class="row">
@@ -162,6 +431,7 @@
           </div>
         </div>
         <!-- END OF TOTEBAG -->
+
         <!-- KEYCHAIN -->
         <div id="catalog-keychain" class="collapse" aria-labelledby="headingFour" data-parent="#catalogMenu">
           <div class="row">
@@ -181,11 +451,12 @@
           </div>
         </div>
         <!-- END OF KEYCHAIN -->
+
         <!-- ETC -->
         <div id="catalog-etc" class="collapse" aria-labelledby="headingFive" data-parent="#catalogMenu">
           <div class="row">
             <?php foreach ($tabel_product as $items) : ?>
-              <?php if ($items['category'] == 'Stiker' || $items['category'] == 'Lanyard' || $items['category'] == 'Gelang') : ?>
+              <?php if ($items['category'] == 'Dad Cap' || $items['category'] == 'Stiker' || $items['category'] == 'Lanyard' || $items['category'] == 'Gelang') : ?>
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 280px;">
@@ -200,6 +471,7 @@
           </div>
         </div>
         <!-- END OF ETC -->
+
       </div>
     </div>
     <!-- END OF CATALOG ITEMS -->
@@ -339,10 +611,7 @@
   </div>
   <!-- END OF SCROLL TO TOP -->
 
-
-
   <!-- FOOTER -->
-
   <div id="footer">
     <div id="footer-logo">
       <img src="<?= base_url('assets/img/') ?>logo.png" alt="Logo ILITS2021" />

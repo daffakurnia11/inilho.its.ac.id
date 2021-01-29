@@ -138,8 +138,8 @@
                       <tr>
                         <td class="text-left">
                           <?= $items['product'] ?><br>
-                          <?php if ($items['options'] != 'null') {
-                            echo 'Size : ' . $items['options'];
+                          <?php if ($items['notes'] != 'null') {
+                            echo 'Size : ' . $items['notes'];
                           } ?>
                         </td>
                         <td><?= $items['qty'] ?></td>
@@ -158,6 +158,60 @@
                         </td>
                       </tr>
                     <?php endforeach; ?>
+                    <?php if ($order_bundle) : ?>
+                      <?php foreach ($order_bundle as $items) : ?>
+                        <?php
+                        $product = $this->db->get_where('tabel_bundle', ['id' => $items['product_id']])->row_array();
+                        $subtotal += ($product['price'] * $items['qty']);
+                        ?>
+                        <tr>
+                          <td class="text-left">
+                            <?= $items['bundle'] ?><br>
+                            <p><?= 'Size : ' . $items['size']; ?></p>
+                            <p>
+                              <?php if ($items['hoodie']) : ?>
+                                <?= $items['hoodie'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['tshirt']) : ?>
+                                <?= $items['tshirt'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['totebag']) : ?>
+                                <?= $items['totebag'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['cap']) : ?>
+                                <?= $items['cap'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['keychain']) : ?>
+                                <?= $items['keychain'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['bracelet']) : ?>
+                                <?= $items['bracelet'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['lanyard']) : ?>
+                                <?= $items['lanyard'] ?><br>
+                              <?php endif; ?>
+                              <?php if ($items['stickerbook']) : ?>
+                                <?= $items['stickerbook'] ?><br>
+                              <?php endif; ?>
+                            </p>
+                          </td>
+                          <td><?= $items['qty'] ?></td>
+                          <td><?= number_format($product['weight'], 0) ?> gr.</td>
+                          <td>
+                            <div class="d-flex justify-content-between">
+                              <span>Rp. </span>
+                              <span><?= number_format($product['price'], 2) ?></span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="d-flex justify-content-between">
+                              <span>Rp. </span>
+                              <span><?= number_format(($product['price'] * $items['qty']), 2) ?></span>
+                            </div>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
+                    <?php endif; ?>
                     <tr>
                       <td colspan="4" class="text-right font-weight-bold">Sub Total : </td>
                       <td class="d-flex justify-content-between">
@@ -173,6 +227,11 @@
                         <span>Rp. </span>
                         <span><?= number_format($data_order['shipping'], 2) ?></span>
                       </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" class="text-left"><strong>Kode Referral : </strong><span class="font-italic"><?= $data_order['referral'] ?></span></td>
+                      <?php $discount =  $this->db->get_where('tabel_referral', ['code' => $data_order['referral']])->result_array()[0]; ?>
+                      <td class="text-right font-weight-bold">Diskon <?= $discount["discount"] ?>%</td>
                     </tr>
                     <tr>
                       <td colspan="4" class="text-right font-weight-bolder">Total Payment : </td>

@@ -172,17 +172,57 @@
               ?>
               <?php foreach ($this->cart->contents() as $items) : ?>
                 <?php
-                $product = $this->db->get_where('tabel_product', ['id' => $items['id']])->row_array();
+                if ($items['options']['Category'] != 'Bundle') {
+                  $product = $this->db->get_where('tabel_product', ['id' => $items['id']])->row_array();
+                } else {
+                  $product = $this->db->get_where('tabel_bundle', ['id' => $items['id']])->row_array();
+                }
                 $weight += $items['qty'] * $product['weight'];
                 ?>
                 <!-- CART ITEMS -->
                 <tr>
                   <td scope="row"><?= $items['qty'] ?></td>
-                  <td class="text-left">
+                  <td class="text-left" width="30%">
                     <?= $items['options']['Category'] . ' ' . $items['name']; ?>
                     <br>
                     <?php if ($items['options']['Size'] != 'null') : ?>
                       <p class="text-uppercase">Size : <?= $items['options']['Size'] ?></p>
+                    <?php endif; ?>
+                    <?php if ($items['options']['Category'] == 'Bundle') : ?>
+                      <p>
+                        <?php if ($items['options']['Hoodie']) : ?>
+                          <?= $items['options']['Hoodie'] ?>
+                          <?= form_hidden('bundle-items' . 1, $items['options']['Hoodie']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['T-Shirt']) : ?>
+                          <?= $items['options']['T-Shirt'] ?>
+                          <?= form_hidden('bundle-items' . 2, $items['options']['T-Shirt']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['Totebag']) : ?>
+                          <?= $items['options']['Totebag'] ?>
+                          <?= form_hidden('bundle-items' . 3, $items['options']['Totebag']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['Dad Cap']) : ?>
+                          <?= $items['options']['Dad Cap'] ?>
+                          <?= form_hidden('bundle-items' . 4, $items['options']['Dad Cap']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['Keychain']) : ?>
+                          <?= $items['options']['Keychain'] ?>
+                          <?= form_hidden('bundle-items' . 5, $items['options']['Keychain']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['Bracelet']) : ?>
+                          <?= $items['options']['Bracelet'] ?>
+                          <?= form_hidden('bundle-items' . 6, $items['options']['Bracelet']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['Lanyard']) : ?>
+                          <?= $items['options']['Lanyard'] ?>
+                          <?= form_hidden('bundle-items' . 7, $items['options']['Lanyard']); ?><br>
+                        <?php endif; ?>
+                        <?php if ($items['options']['Stickerbook']) : ?>
+                          <?= $items['options']['Stickerbook'] ?>
+                          <?= form_hidden('bundle-items' . 8, $items['options']['Stickerbook']); ?>
+                        <?php endif; ?>
+                      </p>
                     <?php endif; ?>
                   </td>
                   <td>IDR <?= number_format($items['price'], 2); ?></td>
@@ -213,7 +253,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">Kode Referral : </span>
                     </div>
-                    <input id="code_referral" type="text" class="form-control" placeholder="Masukkan Kode Referral">
+                    <input id="code_referral" name="referral" type="text" class="form-control" placeholder="Masukkan Kode Referral">
                   </div>
                 </td>
                 <td>
@@ -309,7 +349,7 @@
               $('input[name=etd]').val(estimate + ' Hari');
               $('input[name=shipping]').val(shipping);
               $('input[name=total]').val(payment);
-            });
+            })
           });
         </script>
       </div>

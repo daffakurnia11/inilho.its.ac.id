@@ -17,7 +17,13 @@ if (flashdata) {
       title: 'Keranjang ' + flashdata,
       text: 'Keranjang belanja ' + flashdata + '! Silakan kembali berbelanja'
     })
-  }else {
+  } else if (flashdata == 'Bundle') {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Keranjang Gagal Ditambah',
+      text: 'Silakan pilih Bundle serta produk yang disediakan!'
+    })
+  } else {
     Swal.fire({
       icon: 'success',
       title: 'Keranjang ' + flashdata,
@@ -105,6 +111,8 @@ $(function() {
     });
   })
 
+  $('.bundle-detail').first().addClass('show');
+
   $('#check-code').on('click', function() {
     var code = $('#code_referral').val();
     $.ajax({
@@ -123,6 +131,9 @@ $(function() {
           var total = parseInt(shipping) + (parseInt(payment) * ((100 - parseInt(data.discount)) / 100));
 
           $('#total-payment').html('Rp. ' + total + ',00');
+          $('input[name=shipping]').val(shipping);
+
+          $('input[name=total]').val(total);
         } else {
           $('#referral').html('Tidak Ditemukan');
           var total = parseInt(shipping) + parseInt(payment);
@@ -132,20 +143,8 @@ $(function() {
       }
     });
   })
-});
-
-$(function() {
-  var Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
-  });
-
-  $('.swalDefaultSuccess').click(function() {
-    Toast.fire({
-      icon: 'success',
-      title: 'Barang berhasil ditambahkan ke Keranjang !'
-    })
-  });
+  $('#check-code').on('click', function() {
+    var total = $('#total-payment').html();
+    $('input[name=total]').val(total);
+  })
 });

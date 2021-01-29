@@ -75,6 +75,56 @@
 	text-transform: uppercase;
 }
 
+/* BUNDLE MENU */
+#merch-catalog .catalog-menu .bundle-menu .bundle-button {
+	padding: 5px 0;
+	border: 2px solid black;
+	width: 100%;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #EFEFEF;
+	transition: all 0.3s;
+	margin-bottom: 1rem;
+}
+
+#merch-catalog .catalog-menu .bundle-menu .bundle-button:focus,
+#merch-catalog .catalog-menu .bundle-menu .bundle-button:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
+#merch-catalog .catalog-menu .accordion .bundle-items {
+	border-bottom: 1px solid rgb(49, 49, 49);
+	padding: 1rem 2rem;
+}
+
+#merch-catalog .catalog-menu .accordion h2 {
+	color: #f6014f;
+	font-weight: 500;
+}
+
+#merch-catalog .catalog-menu .accordion .col-form-label {
+	color: #f99121;
+	font-weight: 500;
+}
+
+#merch-catalog .catalog-menu .bundle-menu .btn-blue {
+	padding: 5px 20px;
+	border: 3px solid black;
+	color: white;
+	border-radius: 50px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#merch-catalog .catalog-menu .bundle-menu .btn-blue:hover {
+	color: black;
+	background-color: #FCFC54;
+}
+
+/* END OF BUNDLE MENU */
+
 /* CATALOG MENU */
 #merch-catalog .catalog-menu .catalog-button {
 	padding: 5px 15px;
@@ -87,7 +137,8 @@
 	margin-bottom: 2rem;
 }
 
-#merch-catalog .catalog-menu .catalog-button:hover {
+#merch-catalog .catalog-menu .catalog-button:hover,
+#merch-catalog .catalog-menu .catalog-button:focus {
 	color: white;
 	background-color: #F60D4F;
 }
