@@ -59,20 +59,20 @@
   <!-- END OF NAVBAR -->
 
   <!-- LANDING HEADER SECTION -->
-  <div id="merch-header" class="section">
+  <div id="merch-catalog-header" class="section">
     <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
       <div class="merch-head row aic">
         <div class="col-xl-6 pb-3">
           <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merch-official" src="<?= base_url('assets/img/') ?>product/merch-official.png">
+          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
         <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/img/') ?>product/kaos-tiedye.png" alt="">
+          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
         </div>
       </div>
     </div>
@@ -135,7 +135,7 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="courier">Kurir</label>
+              <label for="courier">Ekspedisi</label>
               <select name="courier" id="courier" class="form-control">
                 <option value="">--Pilih Kurir--</option>
                 <option value="jne">JNE</option>
@@ -405,8 +405,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="<?= base_url('assets/') ?>js/sweetalert2.min.js"></script>
-    <script src="<?= base_url('assets/') ?>js/merch-modal.js"></script>
+    <script src="<?= base_url('assets/merchandise/js/') ?>sweetalert2.min.js"></script>
+    <script src="<?= base_url('assets/merchandise/js/') ?>merch-modal.js"></script>
 </body>
 
 </html>

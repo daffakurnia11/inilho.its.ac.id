@@ -59,20 +59,20 @@
   <!-- END OF NAVBAR -->
 
   <!-- LANDING HEADER SECTION -->
-  <div id="merch-header" class="section">
+  <div id="merch-catalog-header" class="section">
     <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
       <div class="merch-head row aic">
         <div class="col-xl-6 pb-3">
           <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merch-official" src="<?= base_url('assets/img/') ?>product/merch-official.png">
+          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
         <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/img/') ?>product/kaos-tiedye.png" alt="">
+          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
         </div>
       </div>
     </div>
@@ -298,43 +298,45 @@
                   <?php endif; ?>
                   <!-- END OF STICKER BOOK -->
 
-                  <!-- SIZE OPTIONS -->
-                  <div class="row bundle-items">
-                    <legend class="col-form-label col-sm-3 pt-0">Size</legend>
-                    <div class="col-sm-9">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="S" value="S">
-                        <label class="form-check-label" for="S">
-                          S
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="M" value="M">
-                        <label class="form-check-label" for="M">
-                          M
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="L" value="L">
-                        <label class="form-check-label" for="L">
-                          L
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="XL" value="XL">
-                        <label class="form-check-label" for="XL">
-                          XL
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="XXL" value="XXL">
-                        <label class="form-check-label" for="XXL">
-                          XXL
-                        </label>
+                  <?php if ($items['product'] != 'Peach Pack') : ?>
+                    <!-- SIZE OPTIONS -->
+                    <div class="row bundle-items">
+                      <legend class="col-form-label col-sm-3 pt-0">Size</legend>
+                      <div class="col-sm-9">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sizeBundle" id="S" value="S">
+                          <label class="form-check-label" for="S">
+                            S
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sizeBundle" id="M" value="M">
+                          <label class="form-check-label" for="M">
+                            M
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sizeBundle" id="L" value="L">
+                          <label class="form-check-label" for="L">
+                            L
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sizeBundle" id="XL" value="XL">
+                          <label class="form-check-label" for="XL">
+                            XL
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sizeBundle" id="XXL" value="XXL">
+                          <label class="form-check-label" for="XXL">
+                            XXL
+                          </label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <!-- END OF SIZE OPTIONS -->
+                    <!-- END OF SIZE OPTIONS -->
+                  <?php endif; ?>
 
                 </fieldset>
                 <div class="text-center">
@@ -380,7 +382,7 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 300px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
+                    <img src="<?= base_url('assets/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -400,7 +402,7 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 200px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
+                    <img src="<?= base_url('assets/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -420,7 +422,7 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 300px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="" height="300px">
+                    <img src="<?= base_url('assets/merchandise/img/product/') . $items['catalog'] ?>" alt="" height="300px">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -440,7 +442,7 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 350px;">
-                    <img class="p-5" src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
+                    <img class="p-5" src="<?= base_url('assets/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -460,7 +462,7 @@
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                   <div class="d-flex jcc aic" style="height: 280px;">
-                    <img src="<?= base_url('assets/img/product/') . $items['catalog'] ?>" alt="">
+                    <img src="<?= base_url('assets/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -481,7 +483,7 @@
   <!-- PRODUCT DETAILS (MODAL) -->
   <div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content" style="border: 3px solid black; border-radius: 20px">
+      <div class="modal-content" style="border: 3px solid black; overflow: auto;">
         <!-- MODAL HEADER -->
         <div class="modal-header p-1" style="background-color: #7FDAEF">
           <span class="red-circle ml-3 p-3" style="background-color: #F6014F; border-radius: 50%"></span>
@@ -646,8 +648,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
-  <script src="<?= base_url('assets/') ?>js/sweetalert2.all.min.js"></script>
-  <script src="<?= base_url('assets/') ?>js/merch-modal.js"></script>
+  <script src="<?= base_url('assets/merchandise/js/') ?>sweetalert2.all.min.js"></script>
+  <script src="<?= base_url('assets/merchandise/js/') ?>merch-modal.js"></script>
 </body>
 
 </html>

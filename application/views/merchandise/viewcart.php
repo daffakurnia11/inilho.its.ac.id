@@ -59,20 +59,20 @@
   <!-- END OF NAVBAR -->
 
   <!-- LANDING HEADER SECTION -->
-  <div id="merch-header" class="section">
+  <div id="merch-catalog-header" class="section">
     <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
       <div class="merch-head row aic">
         <div class="col-xl-6 pb-3">
           <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merch-official" src="<?= base_url('assets/img/') ?>product/merch-official.png">
+          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
         <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/img/') ?>product/kaos-tiedye.png" alt="">
+          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@
         <div class="row cart-details">
           <?php if ($items['options']['Category'] != 'Bundle') :  ?>
             <div class="col-md-4 text-center">
-              <img class="cart-images" src="<?= base_url('assets/img/product/') . $product['catalog'] ?>">
+              <img class="cart-images" src="<?= base_url('assets/merchandise/img/product/') . $product['catalog'] ?>">
             </div>
           <?php endif; ?>
           <div class="col-md cart-desc d-flex flex-column jcc">

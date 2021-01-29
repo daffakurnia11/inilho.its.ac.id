@@ -1,0 +1,516 @@
+@import "bootstrap-4.min.css";
+
+/* #merch-header {
+	position: relative;
+} */
+
+/* CSS FOR MERCHANDISE CATALOG */
+
+/* CATALOG HEADER */
+#merch-catalog-header {
+	width: 100%;
+	min-height: 100vh;
+	background: url('http://localhost/inilho.its.ac.id/assets/merchandise/img/departemen-top.png');
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+	padding: 0;
+}
+
+#merch-catalog-header .merch-head {
+	padding-top: 100px;
+}
+
+#merch-catalog-header .merch-title {
+	font-size: 3.5rem;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+
+#merch-catalog-header .merch-official {
+	width: 100%;
+}
+
+#merch-catalog-header .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#merch-catalog-header .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#merch-catalog-header .clothes img {
+	max-width: 100%;
+}
+
+/* ENF OF CATALOG HEADER */
+
+/* CATALOG CONTENTS */
+#merch-catalog .catalog-header {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	z-index: 1;
+	position: relative;
+}
+
+#merch-catalog .catalog-header .catalog-title {
+	/* display-3 d-inline-block px-5 font-weight-bold border-bottom */
+	font-size: 2.5rem;
+	padding: 0 2rem 1rem;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	text-transform: uppercase;
+}
+
+/* BUNDLE MENU */
+#merch-catalog .catalog-menu .bundle-menu .bundle-button {
+	padding: 5px 0;
+	border: 2px solid black;
+	width: 100%;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #EFEFEF;
+	transition: all 0.3s;
+	margin-bottom: 1rem;
+}
+
+#merch-catalog .catalog-menu .bundle-menu .bundle-button:focus,
+#merch-catalog .catalog-menu .bundle-menu .bundle-button:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
+#merch-catalog .catalog-menu .accordion .bundle-items {
+	border-bottom: 1px solid rgb(49, 49, 49);
+	padding: 1rem 2rem;
+}
+
+#merch-catalog .catalog-menu .accordion h2 {
+	color: #f6014f;
+	font-weight: 500;
+}
+
+#merch-catalog .catalog-menu .accordion .col-form-label {
+	color: #f99121;
+	font-weight: 500;
+}
+
+#merch-catalog .catalog-menu .bundle-menu .btn-blue {
+	padding: 5px 20px;
+	border: 3px solid black;
+	color: white;
+	border-radius: 50px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#merch-catalog .catalog-menu .bundle-menu .btn-blue:hover {
+	color: black;
+	background-color: #FCFC54;
+}
+
+/* END OF BUNDLE MENU */
+
+/* CATALOG MENU */
+#merch-catalog .catalog-menu .catalog-button {
+	padding: 5px 15px;
+	border: 2px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #EFEFEF;
+	transition: all 0.3s;
+	margin-bottom: 2rem;
+}
+
+#merch-catalog .catalog-menu .catalog-button:hover,
+#merch-catalog .catalog-menu .catalog-button:focus {
+	color: white;
+	background-color: #F60D4F;
+}
+
+#merch-catalog .catalog-menu .catalog-items {
+	/* border: 1px solid black; */
+	position: relative;
+	margin-bottom: 2rem;
+}
+
+#merch-catalog .catalog-menu .catalog-items .pre-order {
+	position: absolute;
+	color: #f99121;
+	font-weight: 500;
+}
+
+#merch-catalog .catalog-menu .catalog-items h4 {
+	color: #f6014f;
+	font-weight: 500;
+}
+
+#merch-catalog .catalog-menu .catalog-items img {
+	max-width: 100%;
+}
+
+#merch-catalog .catalog-menu .catalog-items .btn-blue {
+	padding: 5px 20px;
+	border: 3px solid black;
+	color: white;
+	border-radius: 50px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#merch-catalog .catalog-menu .catalog-items .btn-blue:hover {
+	color: black;
+	background-color: #FCFC54;
+}
+
+/* END OF CATALOG MENU */
+
+.btn-cart {
+	position: fixed;
+	bottom: 20px;
+	right: 90px;
+	z-index: 1000;
+	height: 3rem;
+	width: 3rem;
+	background-color: #f60d4f;
+	border-radius: 100%;
+	transition: opacity 0.5s;
+}
+
+#add-to-cart .media img.cart-image {
+	max-width: 250px;
+}
+
+/* END OF CATALOG CONTENTS */
+
+/* END OF MERCHANDISE CATALOG */
+
+/* CSS FOR VIEWCART */
+
+#cart-lists .cart-items {
+	position: relative;
+}
+
+#cart-lists .cart-items .btn-delete {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 10px;
+	color: white;
+	background-color: #0c0c6d;
+	transition: 0.3s;
+}
+
+#cart-lists .cart-items .btn-delete:hover {
+	color: black;
+	background-color: #f60d4f;
+}
+
+#cart-lists .cart-items .btn-update {
+	position: absolute;
+	top: 30px;
+	right: 0;
+	font-size: 10px;
+	color: white;
+	background-color: #0c0c6d;
+	transition: 0.3s;
+}
+
+#cart-lists .cart-items .btn-update:hover {
+	color: black;
+	background-color: #f60d4f;
+}
+
+#cart-lists .cart-items .cart-details .cart-images {
+	width: 100%;
+}
+
+#cart-lists .cart-details .cart-desc .form-group .form-control {
+	width: 60px;
+}
+
+#cart-lists .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#cart-lists .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#cart-lists .btn-red {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: #ffffff;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #f6014f;
+	transition: all 0.3s;
+}
+
+#cart-lists .btn-red:hover {
+	color: #ffffff;
+	background-color: #0C0C6D;
+}
+
+#cart-lists .btn-green {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #13bf2b;
+	transition: all 0.3s;
+}
+
+#cart-lists .btn-green:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+/* END OF VIEWCART */
+
+/* CSS FOR CHECKOUT */
+
+/* CHECKOUT FORM CUSTOMER */
+#checkout-body .checkout-header {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	z-index: 1;
+	position: relative;
+}
+
+#checkout-body .checkout-header .checkout-title {
+	font-size: 2.5rem;
+	padding: 0 2rem 1rem;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	text-transform: uppercase;
+}
+
+#checkout-body .checkout-form .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#checkout-body .checkout-form .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#checkout-body .checkout-form .btn-green {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #13bf2b;
+	transition: all 0.3s;
+}
+
+#checkout-body .checkout-form .btn-green:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#checkout-body .checkout-form .checkout-cart .input-group .input-group-text,
+#checkout-body .checkout-form .checkout-cart .input-group .form-control {
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+#checkout-body .checkout-form .checkout-cart .btn-blue {
+	padding: 3px 0;
+	width: 100%;
+	border: 3px solid black;
+	color: white;
+	font-size: 14px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#checkout-body .checkout-form .checkout-cart .btn-blue:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
+/* END OF CHECKOUT FORM CUSTOMER */
+
+/* END OF CHECKOUT */
+
+/* CSS FOR INVOICE */
+
+#invoice-body .invoice-card {
+	border: 2px solid black;
+	max-width: 900px;
+	padding: 1rem;
+}
+
+#invoice-body .invoice-card .invoice-content .invoice-logo {
+	width: 100px;
+}
+
+#invoice-body .invoice-card .invoice-content .invoice-details th,
+#invoice-body .invoice-card .invoice-content .invoice-details p {
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+#invoice-body .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#invoice-body .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+#invoice-body .btn-green {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #13bf2b;
+	transition: all 0.3s;
+}
+
+#invoice-body .btn-green:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+/* END OF INVOICE */
+
+/* CSS FOR TRACKING */
+
+#tracking-body .tracking-search {
+	max-width: 500px;
+}
+
+#tracking-body .tracking-search .btn-blue {
+	padding: 5px 20px;
+	border: 3px solid black;
+	color: white;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#tracking-body .tracking-search .btn-blue:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
+#tracking-body .tracking-result .tracking-card {
+	border: 2px solid black;
+	max-width: 900px;
+	padding: 1rem;
+}
+
+#tracking-body .tracking-result .tracking-card .tracking-content .tracking-logo {
+	width: 100px;
+}
+
+#tracking-body .tracking-result .tracking-card .tracking-content .tracking-details th,
+#tracking-body .tracking-result .tracking-card .tracking-content .tracking-details p {
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+#tracking-body .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#tracking-body .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+
+
+/* END OF TRACKING */
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 769px) {
+	#merch-header .merch-title {
+		font-size: 4.5rem;
+		font-weight: bold;
+		color: white;
+		text-align: center;
+	}
+
+	#merch-header .clothes img {
+		width: 85%;
+	}
+
+	#merch-header .btn-yellow {
+		padding: 10px 20px;
+		border: 3px solid black;
+		color: black;
+		font-weight: 600;
+		border-radius: 50px;
+		background-color: #FCFC54;
+		transition: all 0.3s;
+	}
+
+	.catalog-title {
+		/* display-3 d-inline-block px-5 font-weight-bold border-bottom */
+		font-size: 4.5rem;
+		padding: 0 5rem 1rem;
+		margin-bottom: 1.5rem;
+		display: inline-block;
+		font-weight: bold;
+		border-bottom: 1px solid gray;
+		text-transform: uppercase;
+	}
+
+	#add-to-cart .media img.cart-image {
+		width: 150px;
+	}
+}

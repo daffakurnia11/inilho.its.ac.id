@@ -22,7 +22,7 @@
 @import 'section.css';
 @import 'landing_header.css';
 @import 'landing_fakultas.css';
-@import 'merch.css';
+@import '../merchandise/css/merch.css';
 
 * {
 	font-family: Poppins;
