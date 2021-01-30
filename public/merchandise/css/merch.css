@@ -202,6 +202,11 @@
 
 /* CSS FOR VIEWCART */
 
+#cart-lists {
+	padding-top: 10rem;
+	padding-bottom: 5rem;
+}
+
 #cart-lists .cart-items {
 	position: relative;
 }
@@ -303,6 +308,7 @@
 	margin-bottom: 1rem;
 	z-index: 1;
 	position: relative;
+	padding: 10rem 0 5rem 0;
 }
 
 #checkout-body .checkout-header .checkout-title {
@@ -371,6 +377,9 @@
 /* END OF CHECKOUT */
 
 /* CSS FOR INVOICE */
+#invoice-body {
+	padding: 10rem 0 5rem 0;
+}
 
 #invoice-body .invoice-card {
 	border: 2px solid black;
@@ -422,6 +431,9 @@
 /* END OF INVOICE */
 
 /* CSS FOR TRACKING */
+#tracking-body {
+	padding: 12rem 0 2rem 0;
+}
 
 #tracking-body .tracking-search {
 	max-width: 500px;

@@ -155,3 +155,11 @@ html {
 	color: #ffffff !important;
 	transform: translateY(-5px);
 }
+
+.scrollable {
+	overflow: scroll !important;
+}
+
+.scrollable::-webkit-scrollbar {
+	width: 0;
+}

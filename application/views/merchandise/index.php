@@ -483,7 +483,7 @@
   <!-- PRODUCT DETAILS (MODAL) -->
   <div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content" style="border: 3px solid black; overflow: auto;">
+      <div class="modal-content scrollable" style="border: 3px solid black">
         <!-- MODAL HEADER -->
         <div class="modal-header p-1" style="background-color: #7FDAEF">
           <span class="red-circle ml-3 p-3" style="background-color: #F6014F; border-radius: 50%"></span>
