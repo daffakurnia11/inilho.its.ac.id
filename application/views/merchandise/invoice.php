@@ -243,11 +243,10 @@
         <h6 class="mb-4">Silakan ditunggu atau hubungi kami lebih lanjut. Terima Kasih.</h6>
       <?php endif; ?>
     </div>
-  </div>
-  <div class="text-center my-5">
-    <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
-    <a href="<?= base_url('merchandise/tracking') ?>" class="mx-2 btn btn-green">Cek Status Pesanan</a>
-  </div>
+    <div class="text-center my-5">
+      <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
+      <a href="<?= base_url('merchandise/tracking') ?>" class="mx-2 btn btn-green">Cek Status Pesanan</a>
+    </div>
   </div>
 
   <!-- SCROLL TO TOP -->

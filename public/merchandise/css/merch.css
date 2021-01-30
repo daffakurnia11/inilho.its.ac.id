@@ -563,6 +563,18 @@ html {
 	background-color: #F60D4F;
 }
 
+#tracking-body .tracking-result .btn-blue {
+	padding: 5px 20px;
+	color: white;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#tracking-body .tracking-result .btn-blue:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
 #tracking-body .tracking-result .tracking-card {
 	border: 2px solid black;
 	max-width: 900px;
