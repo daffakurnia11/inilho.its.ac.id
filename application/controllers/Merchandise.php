@@ -8,6 +8,7 @@ class Merchandise extends CI_Controller
     $data['title'] = 'Merchandise';
     $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
     $data['tabel_bundle'] = $this->db->get('tabel_bundle')->result_array();
+		$data['slider'] = $this->db->get('merchandise_slider')->result_array();
 
     $this->load->view('merchandise/index', $data);
   }
