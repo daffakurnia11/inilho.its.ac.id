@@ -59,8 +59,8 @@
   <!-- END OF NAVBAR -->
 
   <!-- LANDING HEADER SECTION -->
-  <div id="merch-catalog-header" class="section">
-    <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
+  <div id="merch-catalog-header" class="section d-lg-flex aic">
+    <div id="big-text" class="container-fluid d-lg-flex" style="z-index: 1; position: relative">
       <div class="merch-head row aic">
         <div class="col-xl-6 pb-3">
           <h1 class="merch-title">
@@ -72,8 +72,34 @@
             <a href="<?= base_url('merchandise/tracking') ?>" class="btn btn-yellow mx-2 mb-2">Liat Pesananmu!</a>
           </div>
         </div>
-        <div class="col-xl-6 clothes">
-          <img src="<?= base_url('public/merchandise/img/') ?>kaos-tiedye.png" alt="">
+        <div class="col-xl-6">
+          <div class="container-fluid w-100">
+              <!-- Carousel -->
+              <div
+                id="merchandise-carousel"
+                data-interval="false"
+                class="carousel slide"
+                data-ride="carousel"
+              >
+                <div class="carousel-inner" style="border: 4px solid #12042d; height:50vh">
+                  <?php foreach ($slider as $sl => $value) { 
+                      $active = ($sl == 0) ? 'active' : ''; 
+                      ?>    
+                  <div class="carousel-item <?= $active ?> h-100">
+                      <img style="object-fit: cover;" class="w-100 h-100" src="<?= base_url() ?>public/merchandise/img/slider/<?php echo $value['nama_foto'] ?>" alt="">
+                  </div> 
+                  <?php } ?>
+                </div>
+                <div class="dots carousel-indicators w-100 mb-5" style="margin-top:-2rem;">
+                    <?php foreach ($slider as $sl => $value) { 
+                    $active = ($sl == 0) ? 'active' : ''; 
+                    ?>  
+                    <i data-target="#merchandise-carousel" data-slide-to="<?= $sl ?>" class="dot-item <?= $active ?>"></i>
+                    <?php } ?>
+                </div>
+              </div>
+              <!-- END OF Carousel -->          
+            </div>
         </div>
       </div>
     </div>
