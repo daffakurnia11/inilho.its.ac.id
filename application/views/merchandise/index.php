@@ -68,7 +68,8 @@
           </h1>
           <img class="merch-official" src="<?= base_url('public/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
-            <button class="btn btn-yellow">Beli Sekarang !</button>
+            <a href="#catalog" class="btn btn-yellow mx-2 mb-2">Beli Sekarang !</a>
+            <a href="<?= base_url('merchandise/tracking') ?>" class="btn btn-yellow mx-2 mb-2">Liat Pesananmu!</a>
           </div>
         </div>
         <div class="col-xl-6 clothes">
@@ -86,7 +87,7 @@
     </div>
 
     <!-- CATALOG BUNDLE ITEMS -->
-    <div class="catalog-header">
+    <div id="catalog" class="pt-4 catalog-header">
       <h1 class="catalog-title">BUNDLE PACK</h1>
     </div>
     <div class="container catalog-menu text-center mb-3">
@@ -301,7 +302,10 @@
                   <?php if ($items['product'] != 'Peach Pack' && $items['product'] != 'Yellow Pack') : ?>
                     <!-- SIZE OPTIONS -->
                     <div class="row bundle-items">
-                      <legend class="col-form-label col-sm-3 pt-0">Size</legend>
+                      <legend class="col-form-label col-sm-3 pt-0">
+                        Size<br>
+                        <a href="<?= base_url('public/merchandise/img/size-chart.jpg') ?>" style="text-decoration: none;" target="_blank">Lihat Size Chart</a>
+                      </legend>
                       <div class="col-sm-9">
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="sizeBundle" id="S" value="S">
@@ -372,7 +376,9 @@
       <button id="headingFive" class="catalog-button collapsed" type="button" data-toggle="collapse" data-target="#catalog-etc">
         SMALL MERCH
       </button>
-      <div class="accordion" id="catalogMenu">
+      <br>
+      <a class="size-chart btn button-red my-3" href="<?= base_url('public/merchandise/img/size-chart.jpg') ?>" target="_blank">Lihat Size Chart</a>
+      <div class="accordion mt-3" id="catalogMenu">
 
         <!-- HOODIE & T-SHIRT -->
         <div id="catalog-hoodie" class="collapse show" aria-labelledby="headingOne" data-parent="#catalogMenu">
@@ -381,7 +387,7 @@
               <?php if ($items['category'] == 'Hoodie' || $items['category'] == 'T-Shirt') : ?>
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
-                  <div class="d-flex jcc aic" style="height: 300px;">
+                  <div class="d-flex jcc aic">
                     <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
@@ -401,7 +407,7 @@
               <?php if ($items['category'] == 'Tie Dye T-Shirt') : ?>
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
-                  <div class="d-flex jcc aic" style="height: 200px;">
+                  <div class="d-flex jcc aic">
                     <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
@@ -421,8 +427,8 @@
               <?php if ($items['category'] == 'Totebag') : ?>
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
-                  <div class="d-flex jcc aic" style="height: 300px;">
-                    <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="" height="300px">
+                  <div class="d-flex jcc aic">
+                    <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -441,8 +447,8 @@
               <?php if ($items['category'] == 'Keychain') : ?>
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
-                  <div class="d-flex jcc aic" style="height: 350px;">
-                    <img class="p-5" src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
+                  <div class="d-flex jcc aic">
+                    <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                   <h5>IDR <?= $items['price'] ?></h5>
@@ -461,7 +467,7 @@
               <?php if ($items['category'] == 'Dad Cap' || $items['category'] == 'Stiker' || $items['category'] == 'Lanyard' || $items['category'] == 'Gelang') : ?>
                 <div class="col-md-4 catalog-items text-center">
                   <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
-                  <div class="d-flex jcc aic" style="height: 280px;">
+                  <div class="d-flex jcc aic">
                     <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                   </div>
                   <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
@@ -477,13 +483,38 @@
       </div>
     </div>
     <!-- END OF CATALOG ITEMS -->
+
+    <!-- CONTACT PERSON -->
+    <div class="contact-person text-center mb-5">
+      <h1 class="cp-title">Ada Kendala?</h1>
+      <p>Silakan hubungi kami untuk pertanyaan dan informasi selengkapnya. Kami tunggu ya!</p>
+      <div class="container cp-content text-center">
+        <div class="row ">
+          <div class="col-sm-6">
+            <a class="cp-link" href="https://line.me/R/ti/p/@679jhhqc" target="_blank">
+              <i class="fab fa-3x fa-line"></i><br>
+              <p>Admin Merchandise Ini Lho ITS! 2021</p>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="cp-link" href="https://wa.me/6289531413410?text=Saya%20tertarik%20dengan%20Merchandise%20Ini%20Lho%20ITS!%202021" target="_blank">
+              <i class="fab fa-3x fa-whatsapp-square"></i>
+              <p>Admin Merchandise Ini Lho ITS! 2021</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF CONTACT PERSON -->
+
   </div>
   <!-- END OF CATALOG -->
+
 
   <!-- PRODUCT DETAILS (MODAL) -->
   <div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content scrollable" style="border: 3px solid black">
+      <div class="modal-content scrollable">
         <!-- MODAL HEADER -->
         <div class="modal-header p-1" style="background-color: #7FDAEF">
           <span class="red-circle ml-3 p-3" style="background-color: #F6014F; border-radius: 50%"></span>
@@ -522,9 +553,9 @@
               <input type="hidden" id="nameForm" name="name" value="">
               <input type="hidden" id="categoryForm" name="category" value="">
               <?= form_hidden('redirect_page', str_replace('index.php/', '', current_url())) ?>
-              <h5 class="text-left" id="code" style="color: #0c0c6d;">xx</h5>
+              <h3 class="text-left" id="code">xx</h3>
               <h1 id="product">Hoodie Arek Cak!</h1>
-              <h4 id="priceValue" style="color: #F60D4F;">IDR 140.000</h4>
+              <h2 id="priceValue">IDR 140.000</h2>
               <div class="row">
                 <div class="col">
                   <div class="form-group">
@@ -546,7 +577,7 @@
                 </div>
               </div>
               <p id="descProduct"></p>
-              <button type="submit" class="btn btn-warning btn-block">Add to Cart !</button>
+              <button type="submit" class="btn btn-yellow btn-block">Add to Cart !</button>
               <?= form_close(); ?>
             </div>
             <!-- END OF PRODUCT DETAILS -->

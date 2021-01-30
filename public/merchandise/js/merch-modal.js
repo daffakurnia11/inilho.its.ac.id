@@ -102,8 +102,8 @@ $(function() {
         // console.log(data);
         $('.carousel-inner').empty();
         $.each(data,function(index, value) {
-          const element = `<div class="carousel-item d-flex jcc aic" data-interval="1000">
-          <img src="`+ url + `public/merchandise/img/product/` + value.image + `" class="h-100 d-inline-block">
+          const element = `<div class="carousel-item text-center d-flex" data-interval="1000">
+          <img src="`+ url + `public/merchandise/img/product/` + value.image + `" class="mx-auto my-auto img-fluid d-inline-block">
         </div>`
           $('.carousel-inner').append(element);
         });
