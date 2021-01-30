@@ -11,108 +11,21 @@ class Merch extends CI_Controller
 
   public function index()
   {
-    $data['title'] = 'Merchandise Products';
-    $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
+    $data['title'] = 'Merchandise Order';
+    $config['base_url'] = base_url('merch');
+    $config['total_rows'] = $this->db->get('data_order')->num_rows();
+    $config['per_page'] = 5;
 
-    $this->form_validation->set_rules('product', 'Produk', 'required|trim');
-    $this->form_validation->set_rules('price', 'Harga', 'required|trim|numeric');
+    $this->pagination->initialize($config);
 
-    if ($this->form_validation->run() == FALSE) {
-      $this->load->view('admin/templates/header', $data);
-      $this->load->view('admin/templates/sidebar');
-      $this->load->view('admin/templates/navbar');
-      $this->load->view('admin/merch/product');
-      $this->load->view('admin/templates/footer');
-    } else {
-      $upload = $_FILES['img']['name'];
+    $data['start'] = $this->uri->segment(3);
+    $data['data_order'] = $this->db->get('data_order', $config['per_page'], $data['start'])->result_array();
 
-      if ($upload) {
-        $config['allowed_types'] = 'gif|jpg|png|JPG';
-        $config['max_size'] = '2048';
-        $config['upload_path'] = './assets/img/products/';
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('img')) {
-          $img = $this->upload->data('file_name');
-          $this->db->set('img', $img);
-        } else {
-          echo $this->upload->display_errors();
-        }
-      } else {
-        $this->db->set('img', 'no-image.jpg');
-      }
-
-      $data = [
-        'product' => $this->input->post('product'),
-        'price' => $this->input->post('price'),
-        'category' => $this->input->post('category')
-      ];
-      $this->db->insert('tabel_product', $data);
-      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil ditambahkan!</div>');
-      redirect('merch');
-    }
-  }
-
-  public function deleteproduct($id)
-  {
-    $data['tabel_product'] = $this->db->get_where('tabel_product', ['id' => $id])->row_array();
-    $old_image = $data['tabel_product']['img'];
-    if ($old_image != 'no-image.jpg') {
-      unlink(FCPATH . 'assets/img/products/' . $old_image);
-    }
-    $this->db->where('id', $id);
-    $this->db->delete('tabel_product');
-    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Produk berhasil dihapus!</div>');
-    redirect('merch');
-  }
-
-  public function editproduct($id)
-  {
-    $data['title'] = 'Merchandise Products';
-    $data['tabel_product'] = $this->db->get_where('tabel_product', ['id' => $id])->row_array();
-
-    $this->form_validation->set_rules('product', 'Produk', 'required|trim');
-    $this->form_validation->set_rules('price', 'Harga', 'required|trim|numeric');
-
-    if ($this->form_validation->run() == FALSE) {
-      $this->load->view('admin/templates/header', $data);
-      $this->load->view('admin/templates/sidebar');
-      $this->load->view('admin/templates/navbar');
-      $this->load->view('admin/merch/edit-product', $data);
-      $this->load->view('admin/templates/footer');
-    } else {
-      $upload = $_FILES['img']['name'];
-
-      if ($upload) {
-        $config['allowed_types'] = 'gif|jpg|png|JPG';
-        $config['max_size'] = '2048';
-        $config['upload_path'] = './assets/img/products/';
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('img')) {
-          $old_image = $data['tabel_product']['img'];
-          if ($old_image != 'no-image.jpg') {
-            unlink(FCPATH . 'assets/img/products/' . $old_image);
-          }
-          $img = $this->upload->data('file_name');
-          $this->db->set('img', $img);
-        } else {
-          echo $this->upload->display_errors();
-        }
-      }
-
-      $data = [
-        'product' => $this->input->post('product'),
-        'price' => $this->input->post('price'),
-        'category' => $this->input->post('category')
-      ];
-      $this->db->where('id', $this->input->post('id'));
-      $this->db->update('tabel_product', $data);
-      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil diubah!</div>');
-      redirect('merch');
-    }
+    $this->load->view('admin/templates/header', $data);
+    $this->load->view('admin/templates/sidebar');
+    $this->load->view('admin/templates/navbar');
+    $this->load->view('admin/merch/order', $data);
+    $this->load->view('admin/templates/footer');
   }
 
   public function settings()
@@ -144,23 +57,12 @@ class Merch extends CI_Controller
     }
   }
 
-  public function order()
-  {
-    $data['title'] = 'Merchandise Order';
-    $data['data_order'] = $this->db->get('data_order')->result_array();
-
-    $this->load->view('admin/templates/header', $data);
-    $this->load->view('admin/templates/sidebar');
-    $this->load->view('admin/templates/navbar');
-    $this->load->view('admin/merch/order', $data);
-    $this->load->view('admin/templates/footer');
-  }
-
   public function detail($id_order)
   {
     $data['title'] = 'Merchandise Order';
     $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id_order])->row_array();
     $data['order_detail'] = $this->db->get_where('order_detail', ['no_order' => $id_order])->result_array();
+    $data['order_bundle'] = $this->db->get_where('order_bundle', ['no_order' => $id_order])->result_array();
     $data['product'] = $this->db->get('tabel_product')->result_array();
 
     $this->form_validation->set_rules('status', 'Status', 'required');
@@ -197,7 +99,7 @@ class Merch extends CI_Controller
 
     $this->db->where('no_order', $this->input->post('no_order'));
     $this->db->update('data_order', $data);
-    redirect('merch/order');
+    redirect('merch');
   }
 
   public function delete($id_order)
@@ -208,5 +110,75 @@ class Merch extends CI_Controller
     $this->db->delete('order_detail');
     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Pesanan berhasil dihapus!</div>');
     redirect('merch/order');
+  }
+
+  public function referral()
+  {
+    $data['title'] = 'Merchandise Referral Code';
+
+    $config['base_url'] = base_url('merch/referral');
+    $config['total_rows'] = $this->db->get('tabel_referral')->num_rows();
+    $config['per_page'] = 5;
+
+    $this->pagination->initialize($config);
+
+    $data['start'] = $this->uri->segment(3);
+    $data['tabel_referral'] = $this->db->get('tabel_referral', $config['per_page'], $data['start'])->result_array();
+
+    $this->form_validation->set_rules('code', 'Kode Referral', 'required|trim');
+    $this->form_validation->set_rules('forda', 'Asal Forda', 'required|trim');
+    $this->form_validation->set_rules('discount', 'Diskon', 'required|trim|numeric');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar', $data);
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/merch/referral', $data);
+      $this->load->view('admin/templates/footer');
+    } else {
+      $data = [
+        'code' => $this->input->post('code'),
+        'forda' => $this->input->post('forda'),
+        'discount' => $this->input->post('discount'),
+      ];
+      $this->db->insert('tabel_referral', $data);
+      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kode Referral berhasil ditambahkan!</div>');
+      redirect('merch/referral');
+    }
+  }
+  public function deletereferral($id)
+  {
+    $this->db->where('id', $id);
+    $this->db->delete('tabel_referral');
+    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kode Referral berhasil dihapus!</div>');
+    redirect('merch/referral');
+  }
+
+  public function editreferral($id)
+  {
+    $data['title'] = 'Merchandise Referral Code';
+    $data['tabel_referral'] = $this->db->get_where('tabel_referral', ['id' => $id])->row_array();
+
+    $this->form_validation->set_rules('code', 'Kode Referral', 'required|trim');
+    $this->form_validation->set_rules('forda', 'Asal Forda', 'required|trim');
+    $this->form_validation->set_rules('discount', 'Diskon', 'required|trim|numeric');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('admin/templates/header', $data);
+      $this->load->view('admin/templates/sidebar', $data);
+      $this->load->view('admin/templates/navbar');
+      $this->load->view('admin/merch/edit_referral', $data);
+      $this->load->view('admin/templates/footer');
+    } else {
+      $data = [
+        'code' => $this->input->post('code'),
+        'forda' => $this->input->post('forda'),
+        'discount' => $this->input->post('discount'),
+      ];
+      $this->db->where('id', $this->input->post('id'));
+      $this->db->update('tabel_referral', $data);
+      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kode Referral berhasil diubah!</div>');
+      redirect('merch/referral');
+    }
   }
 }

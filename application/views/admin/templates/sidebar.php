@@ -59,15 +59,15 @@
           Merchandise
         </div>
 
-        <!-- Merchandise - Products -->
-        <?php if ($title == 'Merchandise Products') : ?>
+        <!-- Merchandise - Order -->
+        <?php if ($title == 'Merchandise Order') : ?>
           <li class="nav-item active">
           <?php else : ?>
           <li class="nav-item">
           <?php endif; ?>
           <a class="nav-link" href="<?= base_url('merch'); ?>">
-            <i class="fas fa-fw fa-tshirt"></i>
-            <span>Products</span></a>
+            <i class="fas fa-fw fa-cart-arrow-down"></i>
+            <span>Order</span></a>
           </li>
 
           <!-- Merchandise - Settings -->
@@ -80,15 +80,16 @@
               <i class="fas fa-fw fa-user-cog"></i>
               <span>Settings</span></a>
             </li>
-            <!-- Merchandise - Settings -->
-            <?php if ($title == 'Merchandise Order') : ?>
+
+            <!-- Merchandise - Referral -->
+            <?php if ($title == 'Merchandise Referral Code') : ?>
               <li class="nav-item active">
               <?php else : ?>
               <li class="nav-item">
               <?php endif; ?>
-              <a class="nav-link" href="<?= base_url('merch/order'); ?>">
-                <i class="fas fa-fw fa-cart-arrow-down"></i>
-                <span>Order</span></a>
+              <a class="nav-link" href="<?= base_url('merch/referral'); ?>">
+                <i class="fas fa-fw fa-percentage"></i>
+                <span>Referral Code</span></a>
               </li>
 
               <!-- Divider -->

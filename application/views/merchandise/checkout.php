@@ -66,13 +66,13 @@
           <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
+          <img class="merch-official" src="<?= base_url('public/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
         <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
+          <img src="<?= base_url('public/merchandise/img/') ?>kaos-tiedye.png" alt="">
         </div>
       </div>
     </div>
@@ -95,42 +95,42 @@
             <div class="form-group">
               <label for="receiver">Nama Penerima</label>
               <input type="text" class="form-control" id="receiver" name="receiver">
-              <?= form_error('receiver'); ?>
+              <?= form_error('receiver', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <label for="phone">No Telpon</label>
               <input type="text" class="form-control" id="phone" name="phone">
-              <?= form_error('phone'); ?>
+              <?= form_error('phone', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
         </div>
         <div class="form-group">
           <label for="address">Alamat Penerima</label>
           <textarea class="form-control" id="addres" rows="3" name="address"></textarea>
-          <?= form_error('address'); ?>
+          <?= form_error('address', '<p style="color: red">', '</p>'); ?>
         </div>
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
               <label for="province">Provinsi</label>
               <select name="province" id="province" class="form-control"></select>
-              <?= form_error('province'); ?>
+              <?= form_error('province', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <label for="city">Kota</label>
               <select name="city" id="city" class="form-control"></select>
-              <?= form_error('city'); ?>
+              <?= form_error('city', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <label for="postal">Kode Pos</label>
               <input name="postal" id="postal" class="form-control">
-              <?= form_error('postal'); ?>
+              <?= form_error('postal', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
           <div class="col-sm-6">
@@ -142,14 +142,14 @@
                 <option value="tiki">TIKI</option>
                 <option value="pos">Pos Indonesia</option>
               </select>
-              <?= form_error('courier'); ?>
+              <?= form_error('courier', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <label for="package">Paket</label>
               <select name="package" id="package" class="form-control"></select>
-              <?= form_error('package'); ?>
+              <?= form_error('package', '<p style="color: red">', '</p>'); ?>
             </div>
           </div>
         </div>
@@ -405,8 +405,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="<?= base_url('assets/merchandise/js/') ?>sweetalert2.min.js"></script>
-    <script src="<?= base_url('assets/merchandise/js/') ?>merch-modal.js"></script>
+    <script src="<?= base_url('public/merchandise/js/') ?>sweetalert2.min.js"></script>
+    <script src="<?= base_url('public/merchandise/js/') ?>merch-modal.js"></script>
 </body>
 
 </html>

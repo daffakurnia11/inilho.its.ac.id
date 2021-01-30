@@ -66,13 +66,13 @@
           <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
+          <img class="merch-official" src="<?= base_url('public/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
         <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
+          <img src="<?= base_url('public/merchandise/img/') ?>kaos-tiedye.png" alt="">
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@
     </div>
     <div class="invoice-card container-sm">
       <div class="invoice-content">
-        <img class="invoice-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
+        <img class="invoice-logo ml-2" src="<?= base_url('public/img/logo.png') ?>" alt="">
         <div class="invoice-details mt-2">
           <div class="row">
             <div class="col">

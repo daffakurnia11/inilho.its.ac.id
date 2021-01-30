@@ -75,8 +75,6 @@ class Shortenlink extends CI_Controller
   public function list()
   {
     // Pagination
-    $this->load->library('pagination');
-
     $data['keyword'] = $this->input->post('keyword');
     if ($data['keyword']) {
       $data['title'] = 'List Shorten Link';
@@ -87,37 +85,10 @@ class Shortenlink extends CI_Controller
     } else {
       $this->db->like('namalink', $data['keyword']);
       $this->db->from('shorten_link');
+
       $config['base_url'] = base_url('shortenlink/list');
       $config['total_rows'] = $this->db->count_all_results();
       $config['per_page'] = 5;
-
-      // Styling Pagination
-      $config['full_tag_open'] = '<nav><ul class="pagination">';
-      $config['full_tag_close'] = '</ul></nav>';
-
-      $config['first_link'] = 'Pertama';
-      $config['first_tag_open'] = '<li class="page-item">';
-      $config['first_tag_close'] = '</li>';
-
-      $config['last_link'] = 'Terakhir';
-      $config['last_tag_open'] = '<li class="page-item">';
-      $config['last_tag_close'] = '</li>';
-
-      $config['next_link'] = '&raquo';
-      $config['next_tag_open'] = '<li class="page-item">';
-      $config['next_tag_close'] = '</li>';
-
-      $config['prev_link'] = '&laquo';
-      $config['prev_tag_open'] = '<li class="page-item">';
-      $config['prev_tag_close'] = '</li>';
-
-      $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-      $config['cur_tag_close'] = '</a></li>';
-
-      $config['num_tag_open'] = '<li class="page-item">';
-      $config['num_tag_close'] = '</li>';
-
-      $config['attributes'] = array('class' => 'page-link');
 
       $this->pagination->initialize($config);
 

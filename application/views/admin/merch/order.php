@@ -1,10 +1,11 @@
 <!-- Begin Page Content -->
 <div class="container text-center text-gray-800">
+  <h1 class="mb-3 ">Ini Lho ITS! Official Merchandise</h1>
   <h3 class="mb-3 text-left">Daftar Pesanan</h3>
-
+  <?= $this->pagination->create_links(); ?>
   <?= $this->session->flashdata('message'); ?>
   <?= $this->session->unset_userdata('message'); ?>
-  <table class="table table-hover bg-white text-dark">
+  <table class="table table-hover bg-white text-dark" style="font-size: 15px;">
     <thead>
       <tr>
         <th scope="col">No</th>
@@ -23,11 +24,11 @@
           <td><?= $items['receiver'] ?></td>
           <td><?= $items['status'] ?></td>
           <td>
-            <a href="<?= base_url('merch/detail/') . $items['no_order'] ?>" class="btn btn-primary my-0">
-              <i class="fas fa-eye"></i>
+            <a href="<?= base_url('merch/detail/') . $items['no_order'] ?>">
+              <i class="mx-2 fas fa-lg fa-eye"></i>
             </a>
-            <a href="<?= base_url('merch/delete/') . $items['no_order'] ?>" class="btn btn-danger my-0" onclick="return confirm('Are you sure to delete the order?');">
-              <i class="fas fa-trash"></i>
+            <a href="<?= base_url('merch/delete/') . $items['no_order'] ?>" onclick="return confirm('Are you sure to delete the order?');">
+              <i class="mx-2 fas fa-lg fa-trash"></i>
             </a>
           </td>
         </tr>

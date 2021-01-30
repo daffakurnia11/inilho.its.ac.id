@@ -66,13 +66,13 @@
           <h1 class="merch-title">
             Ini Lho ITS! 2021
           </h1>
-          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
+          <img class="merch-official" src="<?= base_url('public/merchandise/img/') ?>merch-official.png">
           <div class="text-center">
             <button class="btn btn-yellow">Beli Sekarang !</button>
           </div>
         </div>
         <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
+          <img src="<?= base_url('public/merchandise/img/') ?>kaos-tiedye.png" alt="">
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@
         <div class="row cart-details">
           <?php if ($items['options']['Category'] != 'Bundle') :  ?>
             <div class="col-md-4 text-center">
-              <img class="cart-images" src="<?= base_url('assets/merchandise/img/product/') . $product['catalog'] ?>">
+              <img class="cart-images" src="<?= base_url('public/merchandise/img/product/') . $product['catalog'] ?>">
             </div>
           <?php endif; ?>
           <div class="col-md cart-desc d-flex flex-column jcc">
@@ -214,8 +214,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
-  <script src="<?= base_url('assets/') ?>js/sweetalert2.all.min.js"></script>
-  <script src="<?= base_url('assets/') ?>js/merch-modal.js"></script>
+  <script src="<?= base_url('public/merchandise/js/') ?>sweetalert2.all.min.js"></script>
+  <script src="<?= base_url('public/merchandise/js/') ?>merch-modal.js"></script>
 </body>
 
 </html>

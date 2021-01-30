@@ -11,14 +11,14 @@
       <div class="form-group">
         <label for="sender">Nama Pengirim</label>
         <input type="text" class="form-control" id="sender" name="sender" value="<?= $data_store['sender'] ?>">
-        <?= form_error('sender'); ?>
+        <?= form_error('sender', '<p style="color: red">', '</p>'); ?>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
         <label for="phone">No Telpon</label>
         <input type="text" class="form-control" id="phone" name="phone" value="<?= $data_store['phone'] ?>">
-        <?= form_error('phone'); ?>
+        <?= form_error('phone', '<p style="color: red">', '</p>'); ?>
       </div>
     </div>
     <div class="col-sm-6">
@@ -39,7 +39,7 @@
   <div class="form-group">
     <label for="addres">Alamat Pengirim</label>
     <textarea class="form-control" id="addres" rows="3" name="address"><?= $data_store['address'] ?></textarea>
-    <?= form_error('address'); ?>
+    <?= form_error('address', '<p style="color: red">', '</p>'); ?>
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Atur Pengiriman!</button>
   </form>

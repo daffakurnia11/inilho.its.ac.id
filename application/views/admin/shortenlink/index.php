@@ -10,7 +10,7 @@
         <div class="form-group">
           <label for="namalink">Nama URL</label>
           <input type="text" class="form-control" id="namalink" placeholder="Example URL" name="namalink">
-          <?= form_error('namalink'); ?>
+          <?= form_error('namalink', '<p style="color: red">', '</p>'); ?>
         </div>
       </div>
       <div class="col-sm-6">
@@ -22,14 +22,14 @@
             </div>
             <input type="text" class="form-control" id="shortenurl" placeholder="example" name="shortenurl">
           </div>
-          <?= form_error('shortenurl'); ?>
+          <?= form_error('shortenurl', '<p style="color: red">', '</p>'); ?>
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="urllink">URL Asli</label>
       <input type="url" class="form-control" id="urllink" placeholder="http://example.com" name="urllink">
-      <?= form_error('urllink'); ?>
+      <?= form_error('urllink', '<p style="color: red">', '</p>'); ?>
     </div>
     <button type="submit" name="submit" class="btn btn-primary">Buat LINK!</button>
   </form>

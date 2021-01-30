@@ -102,7 +102,7 @@ $(function() {
         $('.carousel-inner').empty();
         $.each(data,function(index, value) {
           const element = `<div class="carousel-item d-flex jcc aic" data-interval="1000">
-          <img src="`+ url + `assets/merchandise/img/product/` + value.image + `" class="h-100 d-inline-block">
+          <img src="`+ url + `public/merchandise/img/product/` + value.image + `" class="h-100 d-inline-block">
         </div>`
           $('.carousel-inner').append(element);
         });
