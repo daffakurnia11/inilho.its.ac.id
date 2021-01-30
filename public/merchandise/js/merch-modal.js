@@ -82,6 +82,7 @@ $(function() {
         $('#categoryForm').val(data.category);
         $('#product').html(data.category + ' ' + data.product);
         $('#priceValue').html('IDR ' + data.price);
+        $('#descProduct').html(data.description);
         $('#code').html(data.code);
         if(data.category === 'Tie Dye T-Shirt' || data.category === 'Hoodie' || data.category === 'T-Shirt') {
           document.getElementById("sizeOption").style.display = "block";

@@ -298,7 +298,7 @@
                   <?php endif; ?>
                   <!-- END OF STICKER BOOK -->
 
-                  <?php if ($items['product'] != 'Peach Pack') : ?>
+                  <?php if ($items['product'] != 'Peach Pack' && $items['product'] != 'Yellow Pack') : ?>
                     <!-- SIZE OPTIONS -->
                     <div class="row bundle-items">
                       <legend class="col-form-label col-sm-3 pt-0">Size</legend>
@@ -545,10 +545,7 @@
                   </div>
                 </div>
               </div>
-              <p>
-                Kaos tiedye "Future Engineer" ini cocok buat kamu yang suka dengan perpaduan warna yang unik!
-                Diproduksi menggunakan bahan cotton combed 30s premium, tentunya membuat kenyamanan tersendiri buat kalian yang beli kaos ini.
-                Tunggu apalagi? Yuk segera diorder merchnyaa!</p>
+              <p id="descProduct"></p>
               <button type="submit" class="btn btn-warning btn-block">Add to Cart !</button>
               <?= form_close(); ?>
             </div>

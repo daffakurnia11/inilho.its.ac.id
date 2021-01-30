@@ -87,7 +87,7 @@
     </div>
     <div class="invoice-card container-sm">
       <div class="invoice-content">
-        <img class="invoice-logo ml-2" src="<?= base_url('public/img/logo.png') ?>" alt="">
+        <img class="invoice-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
         <div class="invoice-details mt-2">
           <div class="row">
             <div class="col">
