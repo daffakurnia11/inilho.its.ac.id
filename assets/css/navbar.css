@@ -5,6 +5,11 @@
 	overflow: hidden;
 }
 
+.navbar.no-header:not(.mobile) {
+	padding: 0;
+	background: #f60d4f;
+}
+
 .navbar.mobile {
 	height: 100vh;
 	overflow: scroll;
@@ -25,11 +30,11 @@
 } */
 
 .navbar-toggler-icon {
-	background-image: url('../images/burgerbar.svg') !important;
+	background-image: url("../images/burgerbar.svg") !important;
 }
 
 .navbar-toggler-icon.active {
-	background-image: url('../images/plus.svg') !important;
+	background-image: url("../images/plus.svg") !important;
 }
 
 .navbar-toggler.left {
@@ -42,6 +47,11 @@
 .nav-link {
 	color: white !important;
 	text-transform: uppercase;
+}
+
+.nav-item {
+	display: flex;
+	align-items: center;
 }
 
 .nav-item.active > .nav-link {
@@ -60,6 +70,12 @@
 	border-radius: 0px 0px 0px 10px;
 	margin: 0;
 	padding: 0 1.2rem;
+}
+
+.navbar-brand.no-header:not(.mobile) {
+	padding: 0.5rem 2rem 1rem 2rem;
+	border-radius: 0;
+	background: white;
 }
 
 .navbar-brand.active:not(.mobile) {
@@ -111,6 +127,8 @@
 }
 
 .nav-dropdown {
+	padding: 0;
+	margin: 0;
 	width: auto;
 	justify-self: center;
 	position: relative;
@@ -123,7 +141,7 @@
 }
 
 .nav-dropdown::after {
-	content: '';
+	content: "";
 	position: relative;
 	top: 16px;
 	left: 15px;

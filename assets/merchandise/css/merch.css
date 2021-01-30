@@ -10,7 +10,7 @@
 #merch-catalog-header {
 	width: 100%;
 	min-height: 100vh;
-	background: url('http://localhost/inilho.its.ac.id/assets/merchandise/img/departemen-top.png');
+	background: url("http://localhost/inilho.its.ac.id/assets/merchandise/img/departemen-top.png");
 	background-repeat: no-repeat, repeat;
 	background-size: cover;
 	padding: 0;
@@ -37,13 +37,13 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 	transition: all 0.3s;
 }
 
 #merch-catalog-header .btn-yellow:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 #merch-catalog-header .clothes img {
@@ -83,7 +83,7 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #EFEFEF;
+	background-color: #efefef;
 	transition: all 0.3s;
 	margin-bottom: 1rem;
 }
@@ -91,7 +91,7 @@
 #merch-catalog .catalog-menu .bundle-menu .bundle-button:focus,
 #merch-catalog .catalog-menu .bundle-menu .bundle-button:hover {
 	color: white;
-	background-color: #F60D4F;
+	background-color: #f60d4f;
 }
 
 #merch-catalog .catalog-menu .accordion .bundle-items {
@@ -120,7 +120,7 @@
 
 #merch-catalog .catalog-menu .bundle-menu .btn-blue:hover {
 	color: black;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 }
 
 /* END OF BUNDLE MENU */
@@ -132,7 +132,7 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #EFEFEF;
+	background-color: #efefef;
 	transition: all 0.3s;
 	margin-bottom: 2rem;
 }
@@ -140,7 +140,7 @@
 #merch-catalog .catalog-menu .catalog-button:hover,
 #merch-catalog .catalog-menu .catalog-button:focus {
 	color: white;
-	background-color: #F60D4F;
+	background-color: #f60d4f;
 }
 
 #merch-catalog .catalog-menu .catalog-items {
@@ -175,7 +175,7 @@
 
 #merch-catalog .catalog-menu .catalog-items .btn-blue:hover {
 	color: black;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 }
 
 /* END OF CATALOG MENU */
@@ -201,6 +201,11 @@
 /* END OF MERCHANDISE CATALOG */
 
 /* CSS FOR VIEWCART */
+
+#cart-lists {
+	padding-top: 10rem;
+	padding-bottom: 5rem;
+}
 
 #cart-lists .cart-items {
 	position: relative;
@@ -250,13 +255,13 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 	transition: all 0.3s;
 }
 
 #cart-lists .btn-yellow:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 #cart-lists .btn-red {
@@ -271,7 +276,7 @@
 
 #cart-lists .btn-red:hover {
 	color: #ffffff;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 #cart-lists .btn-green {
@@ -286,7 +291,7 @@
 
 #cart-lists .btn-green:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 /* END OF VIEWCART */
@@ -294,6 +299,7 @@
 /* CSS FOR CHECKOUT */
 
 /* CHECKOUT FORM CUSTOMER */
+
 #checkout-body .checkout-header {
 	display: flex;
 	text-align: center;
@@ -303,6 +309,7 @@
 	margin-bottom: 1rem;
 	z-index: 1;
 	position: relative;
+	padding: 10rem 0 5rem 0;
 }
 
 #checkout-body .checkout-header .checkout-title {
@@ -321,13 +328,13 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 	transition: all 0.3s;
 }
 
 #checkout-body .checkout-form .btn-yellow:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 #checkout-body .checkout-form .btn-green {
@@ -342,7 +349,7 @@
 
 #checkout-body .checkout-form .btn-green:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 #checkout-body .checkout-form .checkout-cart .input-group .input-group-text,
@@ -363,7 +370,7 @@
 
 #checkout-body .checkout-form .checkout-cart .btn-blue:hover {
 	color: white;
-	background-color: #F60D4F;
+	background-color: #f60d4f;
 }
 
 /* END OF CHECKOUT FORM CUSTOMER */
@@ -371,6 +378,9 @@
 /* END OF CHECKOUT */
 
 /* CSS FOR INVOICE */
+#invoice-body {
+	padding: 10rem 0 5rem 0;
+}
 
 #invoice-body .invoice-card {
 	border: 2px solid black;
@@ -395,13 +405,13 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 	transition: all 0.3s;
 }
 
 #invoice-body .btn-yellow:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 #invoice-body .btn-green {
@@ -416,12 +426,15 @@
 
 #invoice-body .btn-green:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
 
 /* END OF INVOICE */
 
 /* CSS FOR TRACKING */
+#tracking-body {
+	padding: 12rem 0 2rem 0;
+}
 
 #tracking-body .tracking-search {
 	max-width: 500px;
@@ -437,7 +450,7 @@
 
 #tracking-body .tracking-search .btn-blue:hover {
 	color: white;
-	background-color: #F60D4F;
+	background-color: #f60d4f;
 }
 
 #tracking-body .tracking-result .tracking-card {
@@ -446,12 +459,26 @@
 	padding: 1rem;
 }
 
-#tracking-body .tracking-result .tracking-card .tracking-content .tracking-logo {
+#tracking-body
+	.tracking-result
+	.tracking-card
+	.tracking-content
+	.tracking-logo {
 	width: 100px;
 }
 
-#tracking-body .tracking-result .tracking-card .tracking-content .tracking-details th,
-#tracking-body .tracking-result .tracking-card .tracking-content .tracking-details p {
+#tracking-body
+	.tracking-result
+	.tracking-card
+	.tracking-content
+	.tracking-details
+	th,
+#tracking-body
+	.tracking-result
+	.tracking-card
+	.tracking-content
+	.tracking-details
+	p {
 	font-size: 14px;
 	margin: 0;
 	padding: 0;
@@ -463,15 +490,14 @@
 	color: black;
 	font-weight: 600;
 	border-radius: 50px;
-	background-color: #FCFC54;
+	background-color: #fcfc54;
 	transition: all 0.3s;
 }
 
 #tracking-body .btn-yellow:hover {
 	color: white;
-	background-color: #0C0C6D;
+	background-color: #0c0c6d;
 }
-
 
 /* END OF TRACKING */
 
@@ -495,7 +521,7 @@
 		color: black;
 		font-weight: 600;
 		border-radius: 50px;
-		background-color: #FCFC54;
+		background-color: #fcfc54;
 		transition: all 0.3s;
 	}
 

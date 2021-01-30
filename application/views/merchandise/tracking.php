@@ -14,12 +14,12 @@
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light position-absolute w-100 p-lg-2 p-0" style="z-index: 1000">
+  <nav class="navbar navbar-expand-lg navbar-light position-absolute w-100 no-header" style="z-index: 1000">
     <div id="mobileNavContainer" class="d-flex justify-content-between order-0 order-lg-1 bp">
       <button id="navbar-button" class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand bp" href="#">
+      <a class="navbar-brand bp no-header" href="#">
         <img src="<?= base_url() ?>assets/img/logo.png" alt="Logo ILITS2021" loading="lazy" />
       </a>
     </div>
@@ -57,28 +57,7 @@
   </nav>
 
   <!-- END OF NAVBAR -->
-
-  <!-- LANDING HEADER SECTION -->
-  <div id="merch-catalog-header" class="section">
-    <div id="big-text" class="container-fluid d-lg-flex " style="z-index: 1; position: relative">
-      <div class="merch-head row aic">
-        <div class="col-xl-6 pb-3">
-          <h1 class="merch-title">
-            Ini Lho ITS! 2021
-          </h1>
-          <img class="merch-official" src="<?= base_url('assets/merchandise/img/') ?>merch-official.png">
-          <div class="text-center">
-            <button class="btn btn-yellow">Beli Sekarang !</button>
-          </div>
-        </div>
-        <div class="col-xl-6 clothes">
-          <img src="<?= base_url('assets/merchandise/img/') ?>kaos-tiedye.png" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END OF LANDING HEADER -->
-
+  
   <!-- INVOICE CONTENT -->
   <div id="tracking-body" class="mb-5">
     <div class="tracking-header text-center">

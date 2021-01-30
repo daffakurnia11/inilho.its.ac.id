@@ -14,15 +14,15 @@
 	
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-@import 'navbar.css';
-@import 'footer.css';
-@import 'carousel.css';
-@import 'container.css';
-@import 'section.css';
-@import 'landing_header.css';
-@import 'landing_fakultas.css';
-@import '../merchandise/css/merch.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+@import "navbar.css";
+@import "footer.css";
+@import "carousel.css";
+@import "container.css";
+@import "section.css";
+@import "landing_header.css";
+@import "landing_fakultas.css";
+@import "../merchandise/css/merch.css";
 
 * {
 	font-family: Poppins;
@@ -154,4 +154,12 @@ html {
 	box-shadow: 8px 8px 0px -2px rgba(18, 4, 45, 1);
 	color: #ffffff !important;
 	transform: translateY(-5px);
+}
+
+.scrollable {
+	overflow: scroll !important;
+}
+
+.scrollable::-webkit-scrollbar {
+	width: 0;
 }
