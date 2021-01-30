@@ -67,16 +67,49 @@
     <div class="tracking-search container">
       <form action="" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Masukkan No Invoice" name="keyword" autofocus>
+          <input type="text" class="form-control" placeholder="Masukkan No Invoice" name="keyword" autofocus required>
           <div class="input-group-append">
             <input class="btn btn-blue" type="submit" name="submit">
           </div>
         </div>
       </form>
     </div>
+
     <div class="tracking-result">
-      <?php if ($this->input->post('submit')) : ?>
-        <?php if (isset($data_order)) : ?>
+      <?php if ($this->input->post('submit')) :  ?>
+        <?php if ($data_order) : ?>
+          <div class="container invoice-transfer text-center my-3">
+            <h5>Status pemesanan kamu adalah <strong><?= $data_order['status'] ?></strong>.</h5>
+            <?php if ($data_order['status'] == 'Belum Bayar') : ?>
+              <h6>Silakan lakukan pembayaran dengan cara transfer pada berikut ini.</h6>
+              <p>
+                <strong>BCA :</strong> 8221052552 (Erlina Nabila Puteri)<br>
+                <strong>BNI :</strong> 0842439585 (Amalia Lutvita Nia)<br>
+                <strong>OVO :</strong> 081357259614 (M. Firman Fardiansyah)
+              </p>
+              <h6>Upload bukti pembayaran kamu pada kolom upload berikut.</h6>
+              <div class="container text-center" style="max-width: 500px;">
+                <?= form_open_multipart('merchandise/transferupload'); ?>
+                <div class="input-group">
+                  <input type="hidden" name="no_order" value="<?= $data_order['no_order'] ?>">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="transfer" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                    <label class="custom-file-label text-left" for="inputGroupFile04">Choose file</label>
+                  </div>
+                  <div class="input-group-append mb-4">
+                    <button class="btn btn-blue" type="submit" id="inputGroupFileAddon04">Upload!</button>
+                  </div>
+                </div>
+                <?= form_close() ?>
+              </div>
+            <?php elseif ($data_order['status'] == 'Ditolak') : ?>
+              <h6 class="mb-4">Silakan hubungi kami terkait masalah dan keluhan anda. Terima kasih.</h6>
+            <?php elseif ($data_order['status'] == 'Selesai') : ?>
+              <h6 class="mb-4">Terima kasih telah melakukan pemesanan, kami tunggu <i>next order!</i></h6>
+            <?php else : ?>
+              <h6 class="mb-4">Silakan ditunggu atau hubungi kami lebih lanjut. Terima Kasih.</h6>
+            <?php endif; ?>
+          </div>
           <div class="tracking-card container-sm">
             <div class="tracking-content">
               <img class="tracking-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
@@ -224,13 +257,35 @@
               </div>
             </div>
           </div>
-        <?php else : ?>
+        <?php elseif (!$data_order) : ?>
           <div class="tracking-notfound container text-center">
             <h4>Pesanan tidak ditemukan!</h4>
           </div>
         <?php endif; ?>
       <?php endif; ?>
     </div>
+    <!-- CONTACT PERSON -->
+    <div class="contact-person text-center my-5">
+      <h1 class="cp-title">Ada Kendala?</h1>
+      <p>Silakan hubungi kami untuk pertanyaan dan informasi selengkapnya. Kami tunggu ya!</p>
+      <div class="container cp-content text-center">
+        <div class="row ">
+          <div class="col-sm-6">
+            <a class="cp-link" href="https://line.me/R/ti/p/@679jhhqc" target="_blank">
+              <i class="fab fa-3x fa-line"></i><br>
+              <p>Admin Merchandise Ini Lho ITS! 2021</p>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="cp-link" href="https://wa.me/6289531413410?text=Saya%20tertarik%20dengan%20Merchandise%20Ini%20Lho%20ITS!%202021" target="_blank">
+              <i class="fab fa-3x fa-whatsapp-square"></i>
+              <p>Admin Merchandise Ini Lho ITS! 2021</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF CONTACT PERSON -->
     <div class="text-center my-5">
       <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
     </div>

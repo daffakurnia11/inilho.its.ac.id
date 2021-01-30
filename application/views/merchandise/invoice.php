@@ -211,10 +211,43 @@
         </div>
       </div>
     </div>
-    <div class="text-center my-5">
-      <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
-      <a href="<?= base_url('merchandise/tracking') ?>" class="mx-2 btn btn-green">Cek Status Pesanan</a>
+    <div class="container invoice-transfer text-center mt-3">
+      <h5>Status pemesanan kamu adalah <strong><?= $data_order['status'] ?></strong></h5>
+      <?php if ($data_order['status'] == 'Belum Bayar') : ?>
+        <h6>Silakan lakukan pembayaran dengan cara transfer pada berikut ini.</h6>
+        <p>
+          <strong>BCA :</strong> 8221052552 (Erlina Nabila Puteri)<br>
+          <strong>BNI :</strong> 0842439585 (Amalia Lutvita Nia)<br>
+          <strong>OVO :</strong> 081357259614 (M. Firman Fardiansyah)
+        </p>
+        <h6>Upload bukti pembayaran kamu pada kolom upload berikut.</h6>
+        <div class="container text-center" style="max-width: 500px;">
+          <?= form_open_multipart('merchandise/transferupload'); ?>
+          <div class="input-group">
+            <input type="hidden" name="no_order" value="<?= $data_order['no_order'] ?>">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" name="transfer" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+              <label class="custom-file-label text-left" for="inputGroupFile04">Choose file</label>
+            </div>
+            <div class="input-group-append">
+              <button class="btn btn-blue" type="submit" id="inputGroupFileAddon04">Upload!</button>
+            </div>
+          </div>
+          <?= form_close() ?>
+        </div>
+      <?php elseif ($data_order['status'] == 'Ditolak') : ?>
+        <h6 class="mb-4">Silakan hubungi kami terkait masalah dan keluhan anda. Terima kasih.</h6>
+      <?php elseif ($data_order['status'] == 'Selesai') : ?>
+        <h6 class="mb-4">Terima kasih telah melakukan pemesanan, kami tunggu <i>next order!</i></h6>
+      <?php else : ?>
+        <h6 class="mb-4">Silakan ditunggu atau hubungi kami lebih lanjut. Terima Kasih.</h6>
+      <?php endif; ?>
     </div>
+  </div>
+  <div class="text-center my-5">
+    <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
+    <a href="<?= base_url('merchandise/tracking') ?>" class="mx-2 btn btn-green">Cek Status Pesanan</a>
+  </div>
   </div>
 
   <!-- SCROLL TO TOP -->
@@ -266,8 +299,14 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
-  <script src="<?= base_url('assets/') ?>js/sweetalert2.min.js"></script>
-  <script src="<?= base_url('assets/') ?>js/merch-modal.js"></script>
+  <script src="<?= base_url('public/merchandise/js') ?>sweetalert2.min.js"></script>
+  <script src="<?= base_url('public/merchandise/js') ?>merch-modal.js"></script>
+  <script>
+    $('.custom-file-input').on('change', function() {
+      let fileName = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+  </script>
 </body>
 
 </html>

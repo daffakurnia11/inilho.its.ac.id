@@ -527,11 +527,23 @@ html {
 	background-color: #0C0C6D;
 }
 
+#invoice-body .invoice-transfer .btn-blue {
+	padding: 5px 20px;
+	color: white;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#invoice-body .invoice-transfer .btn-blue:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
 /* END OF INVOICE */
 
 /* CSS FOR TRACKING */
 #tracking-body {
-	padding: 12rem 0 2rem 0;
+	padding: 8rem 0 2rem 0;
 }
 
 #tracking-body .tracking-search {

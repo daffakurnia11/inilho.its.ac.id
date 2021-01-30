@@ -52,7 +52,6 @@ class Merchandise extends CI_Controller
   public function addBundle()
   {
     $this->form_validation->set_rules('productBundle', 'Bundle Pack', 'required');
-    $this->form_validation->set_rules('sizeBundle', 'Size', 'required');
 
     if ($this->form_validation->run() == FALSE) {
       $this->session->set_flashdata('flash', 'Bundle');
@@ -215,15 +214,15 @@ class Merchandise extends CI_Controller
   public function tracking()
   {
     $this->form_validation->set_rules('keyword', 'Invoice', 'required|exact_length[12]');
+
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('merchandise/tracking');
     } else {
       $keyword = $this->input->post('keyword');
-
       $this->db->select('*');
       $this->db->from('data_order');
       $this->db->like('no_order', $keyword);
-      $data['data_order'] = $this->db->get()->result_array()[0];
+      $data['data_order'] = $this->db->get()->row_array();
 
       $this->db->select('*');
       $this->db->from('order_detail');
@@ -237,5 +236,43 @@ class Merchandise extends CI_Controller
 
       $this->load->view('merchandise/tracking', $data);
     }
+  }
+
+  public function transferupload()
+  {
+    $data_order = $this->db->get_where('data_order', ['no_order' => $this->input->post('no_order')])->row_array();
+
+    $upload_image = $_FILES['transfer']['name'];
+
+    $data = [
+      'id' => $data_order['id'],
+      'no_order' => $data_order['no_order'],
+      'receiver' => $data_order['receiver'],
+      'phone' => $data_order['phone'],
+      'address' => $data_order['address'],
+      'province' => $data_order['province'],
+      'city' => $data_order['city'],
+      'postal' => $data_order['postal'],
+      'courier' => $data_order['courier'],
+      'package' => $data_order['package'],
+      'weight' => $data_order['weight'],
+      'shipping' => $data_order['shipping'],
+      'subtotal' => $data_order['subtotal'],
+      'referral' => $data_order['referral'],
+      'total' => $data_order['total'],
+      'status' => $data_order['status'],
+      'transfer' => $upload_image
+    ];
+
+    $config['allowed_types'] = 'gif|jpg|png';
+    $config['upload_path'] = 'public/merchandise/img/transfer/';
+
+    $this->load->library('upload', $config);
+    $this->upload->do_upload('transfer');
+    $this->upload->data('file_name');
+
+    $this->db->where('no_order', $this->input->post('no_order'));
+    $this->db->update('data_order', $data);
+    $this->load->view('merchandise/transfer');
   }
 }

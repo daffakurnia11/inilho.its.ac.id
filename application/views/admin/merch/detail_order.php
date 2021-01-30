@@ -24,6 +24,11 @@
           <option value="Ditolak">Ditolak</option>
           <option value="Selesai">Selesai</option>
         </select>
+        <?php if ($data_order['transfer'] != null) : ?>
+          <div class="mt-2 ml-3">
+            <a class="text-gray-800" style="text-decoration: none;" href="<?= base_url('public/merchandise/img/transfer/' . $data_order['transfer']) ?>" target="_blank"><strong>Klik untuk lihat bukti pembayaran</strong></a>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
@@ -168,7 +173,7 @@
   <input type="hidden" name="shipping" value="<?= $data_order['shipping']; ?>">
   <input type="hidden" name="subtotal" value="<?= $data_order['subtotal']; ?>">
   <input type="hidden" name="total" value="<?= $data_order['total']; ?>">
-  <a href="<?= base_url('merch/order') ?>" class="btn btn-warning mb-5">
+  <a href="<?= base_url('merch') ?>" class="btn btn-warning mb-5">
     <i class="fas fa-edit pr-3"></i>Kembali
   </a>
   <button type="submit" class="btn btn-primary mb-5">

@@ -46,7 +46,9 @@ $('.btn-delete').on('click', function(e) {
     confirmButtonText: 'Hapus Barang',
     cancelButtonText: 'Batalkan'
   }).then((result) => {
-    document.location.href = href;
+    if (result.isConfirmed) {
+      document.location.href = href;
+    }
   })
 })
 
@@ -63,7 +65,9 @@ $('.btn-red').on('click', function(e) {
     confirmButtonText: 'Hapus Barang',
     cancelButtonText: 'Batalkan'
   }).then((result) => {
-    document.location.href = href;
+    if (result.isConfirmed) {
+      document.location.href = href;
+    }
   })
 })
 
