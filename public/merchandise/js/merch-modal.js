@@ -104,14 +104,14 @@ $(function() {
       dataType: 'json',
       success: function(data) {
         // console.log(data);
-        $('.carousel-inner').empty();
+        $('.product-images').empty();
         $.each(data,function(index, value) {
-          const element = `<div class="carousel-item text-center d-flex" data-interval="1000">
-          <img src="`+ url + `public/merchandise/img/product/` + value.image + `" class="mx-auto my-auto img-fluid d-inline-block">
+          const element = `<div class="carousel-item image-detail text-center d-flex" data-interval="2000">
+          <img src="`+ url + `public/merchandise/img/product/` + value.image + `" class="max-auto d-block w-100">
         </div>`
-          $('.carousel-inner').append(element);
+          $('.product-images').append(element);
         });
-        $('.carousel-item').first().addClass('active');
+        $('.image-detail').first().addClass('active');
       }
     });
   })

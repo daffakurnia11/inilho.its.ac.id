@@ -74,32 +74,27 @@
         </div>
         <div class="col-xl-6">
           <div class="container-fluid w-100">
-              <!-- Carousel -->
-              <div
-                id="merchandise-carousel"
-                data-interval="false"
-                class="carousel slide"
-                data-ride="carousel"
-              >
-                <div class="carousel-inner" style="border: 4px solid #12042d; height:50vh">
-                  <?php foreach ($slider as $sl => $value) { 
-                      $active = ($sl == 0) ? 'active' : ''; 
-                      ?>    
+            <!-- Carousel -->
+            <div id="merchandise-carousel" data-interval="false" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" style="border: 4px solid #12042d; height:50vh">
+                <?php foreach ($slider as $sl => $value) {
+                  $active = ($sl == 0) ? 'active' : '';
+                ?>
                   <div class="carousel-item <?= $active ?> h-100">
-                      <img style="object-fit: cover;" class="w-100 h-100" src="<?= base_url() ?>public/merchandise/img/slider/<?php echo $value['nama_foto'] ?>" alt="">
-                  </div> 
-                  <?php } ?>
-                </div>
-                <div class="dots carousel-indicators w-100 mb-5" style="margin-top:-2rem;">
-                    <?php foreach ($slider as $sl => $value) { 
-                    $active = ($sl == 0) ? 'active' : ''; 
-                    ?>  
-                    <i data-target="#merchandise-carousel" data-slide-to="<?= $sl ?>" class="dot-item <?= $active ?>"></i>
-                    <?php } ?>
-                </div>
+                    <img style="object-fit: cover;" class="w-100 h-100" src="<?= base_url() ?>public/merchandise/img/slider/<?php echo $value['nama_foto'] ?>" alt="">
+                  </div>
+                <?php } ?>
               </div>
-              <!-- END OF Carousel -->          
+              <div class="dots carousel-indicators w-100 mb-5" style="margin-top:-2rem;">
+                <?php foreach ($slider as $sl => $value) {
+                  $active = ($sl == 0) ? 'active' : '';
+                ?>
+                  <i data-target="#merchandise-carousel" data-slide-to="<?= $sl ?>" class="dot-item <?= $active ?>"></i>
+                <?php } ?>
+              </div>
             </div>
+            <!-- END OF Carousel -->
+          </div>
         </div>
       </div>
     </div>
@@ -553,17 +548,17 @@
         <div class="container-fluid p-3">
           <div class="row">
             <!-- PRODUCT PICTURE -->
-            <div class="col-md-7 text-center">
+            <div class="col-md-6 text-center">
               <div class="detail-picture">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                  <div class="carousel-inner">
+                <div id="productImages" class="carousel slide carousel-fade" data-ride="carousel">
+                  <div class="carousel-inner product-images">
                     <!-- ITEMS SLIDER (FROM JS) -->
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                  <a class="carousel-control-prev" href="#productImages" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                   </a>
-                  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                  <a class="carousel-control-next" href="#productImages" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                   </a>
@@ -572,7 +567,7 @@
             </div>
             <!-- END OF PRODUCT PICTURE -->
             <!-- PRODUCT DETAILS -->
-            <div class="col-md-5 d-flex jcc aic flex-column">
+            <div class="col-md-6 d-flex jcc aic flex-column">
               <?= form_open('merchandise/add') ?>
               <input type="hidden" id="idForm" name="id" value="">
               <input type="hidden" id="priceForm" name="price" value="">
