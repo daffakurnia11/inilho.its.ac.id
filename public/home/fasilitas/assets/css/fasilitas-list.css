@@ -1,0 +1,43 @@
+#fasilitas{
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    /* background-color: aqua; */
+}
+
+#head-fasilitas-list .col.bg-title{
+    height: 8rem;
+    padding: 0;
+    background-color: #0C0C6D;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.bg-title img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.bg-title div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+}
+
+.bg-title div p{
+    margin: auto;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.fasilitas-card{
+    cursor: pointer;
+    margin: 3rem auto;
+    width: 100%;
+    height: auto;
+} 

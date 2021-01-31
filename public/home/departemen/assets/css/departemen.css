@@ -1,0 +1,195 @@
+#departemen-header{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: auto;
+}
+
+#departemen-header .container-fluid{
+    padding-top: 80px;
+    padding-bottom: 3rem;
+}
+
+#departemen-header .departemen-header-bg{
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+#profil-departemen{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+#profil-departemen .departemen-profil-bg{
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: 0;  
+}
+
+#alumni{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;   
+}
+
+#alumni .departemen-alumni-bg{
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+#departemen-prestasi{
+    width: 100%;
+    height: auto;
+    position: relative; 
+}
+
+#laboratorium{
+    width: 100%;
+    height: auto;
+    position: relative;    
+}
+
+.panah{
+    position: absolute;
+    bottom: 20px;
+    right: 80px;
+    transform: scale(0.7);
+}
+
+#departemen-foto{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.departemen-carousel-frame{
+    height: 80vh;
+    width: 70vw;
+    border: 4px solid black;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 60px;
+}
+
+.departemen-carousel-frame .carousel-item{
+    height: 100%;
+}
+
+.departemen-carousel-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+#departemen-foto .departemen-carousel-frame .dots{
+    position: absolute;
+    padding-bottom: 20px;    
+}
+
+.collector{
+    display: flex;
+    justify-content: space-around;
+}
+
+.collector img{
+    width: 25%;
+}
+
+.departemen-header-desc{
+    font-size: 1.5rem;
+    flex: 1;
+    text-align: justify;
+}
+
+.departemen-header-img{
+    flex: 3;
+    text-align: right;
+    position: relative;
+}   
+
+body>div{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}   
+
+#departemen-end{
+    height: auto;
+}
+
+.funfact-card{
+    width: 50%;
+    height: fit-content;
+    background-color: white;
+    display: flex;
+}
+
+.funfact-card .color-square{
+    width: 30%;
+    border: 4px solid black;
+    background-color: #F99121;
+}
+
+.funfact-card .text-square{
+    width: fit-content;
+    padding: 0.6rem;
+    border: 4px solid black;
+    border-left: none;
+    display: flex;
+}
+
+.funfact-card .text-square p{
+    font-weight: bold;
+    font-size: 2.1rem;
+    margin:auto;
+}
+
+.panah-laboratorium{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.panah-laboratorium img{
+    transform: scale(0.7);
+}
+
+@media only screen and (max-width: 992px){ 
+    
+    #departemen-header{
+        height: auto;
+    }
+
+    #profil-departemen{
+        height: auto;
+    }
+
+    #alumni{
+        height: auto;
+    }
+
+    #departemen-header .departemen-header-bg{
+        height: 100%;
+    }
+    
+    #profil-departemen .departemen-profil-bg{
+        height: 100%;
+    }
+
+    #alumni .departemen-alumni-bg{
+        height: 100%;
+    }
+
+    .departemen-carousel-frame{
+        height: 50vh;
+    }
+
+    .panah-laboratorium{
+        flex-direction: column;
+    }
+}
+
