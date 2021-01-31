@@ -24,10 +24,10 @@
           <h5 class="mt-2"><?= $items['options']['Category'] . ' ' . $items['name']; ?></h5>
           <span class="form-group d-flex aic">
             <?= form_input(array('name' => $i . '[qty]', 'type' => 'number', 'class' => 'form-control', 'value' => $items['qty'], 'maxlength' => '3', 'min' => '1')); ?>
-            <span class="mx-3">x IDR <?= number_format($items['price'], 2); ?></span>
+            <span class="mx-3">x IDR <?= number_format($items['price'], 2, ',', '.'); ?></span>
           </span>
-          <p class="text-muted">Berat : <?= number_format($product['weight'], 0) ?> gr</p>
-          <p class="text-muted">Total : <?= number_format($items['subtotal'], 2) ?></p>
+          <p class="text-muted">Berat : <?= number_format($product['weight'], 0, ',', '.') ?> gr</p>
+          <p class="text-muted">Total : IDR <?= number_format($items['subtotal'], 2, ',', '.') ?></p>
           <?php if ($items['options']['Size'] != null) : ?>
             <p class="text-uppercase">Size : <?= $items['options']['Size'] ?></p>
           <?php endif; ?>
@@ -74,7 +74,7 @@
   <?php endforeach; ?>
   <?= form_close(); ?>
   <div class="cart-total text-right mb-3">
-    <h4>Total : Rp. <?= number_format($this->cart->total(), 2) ?></h4>
+    <h4>Total : Rp. <?= number_format($this->cart->total(), 2, ',', '.') ?></h4>
   </div>
   <div class="text-center mb-5">
     <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>

@@ -4,6 +4,8 @@ const url = 'http://localhost/inilho.its.ac.id/';
 // Sweetalert
 const flashdata = $('#flash-data').data('flashdata');
 const viewcart = url + 'merchandise/viewcart';
+const numberFormatter = new Intl.NumberFormat('id-ID','currency');
+
 if (flashdata) {
   if (flashdata == 'Dihapus') {
     Swal.fire({
@@ -91,7 +93,7 @@ $(function() {
         $('#nameForm').val(data.product);
         $('#categoryForm').val(data.category);
         $('#product').html(data.category + ' ' + data.product);
-        $('#priceValue').html('IDR ' + data.price);
+        $('#priceValue').html('IDR ' + numberFormatter.format(data.price) + ',00');
         $('#descProduct').html(data.description);
         $('#code').html(data.code);
         if(data.category === 'Tie Dye T-Shirt' || data.category === 'Hoodie' || data.category === 'T-Shirt') {

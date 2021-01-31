@@ -144,9 +144,19 @@
                     </p>
                   <?php endif; ?>
                 </td>
-                <td>IDR <?= number_format($items['price'], 2); ?></td>
-                <td><?= number_format(($items['qty'] * $product['weight']), 0); ?> gr</td>
-                <td>IDR <?= number_format($items['subtotal'], 2) ?></td>
+                <td>
+                  <div>
+                    <span>IDR</span>
+                    <span><?= number_format($items['price'], 2, ',', '.'); ?></span>
+                  </div>
+                </td>
+                <td><?= number_format(($items['qty'] * $product['weight']), 0, ',', '.'); ?> gr</td>
+                <td>
+                  <div class="d-flex justify-content-between">
+                    <span>IDR</span>
+                    <span><?= number_format($items['subtotal'], 2, ',', '.') ?></span>
+                  </div>
+                </td>
               </tr>
               <!-- END OF CART ITEMS -->
               <?php $i++; ?>
@@ -154,17 +164,24 @@
             <tr>
               <td colspan="4" class="text-right">Total Harga : </td>
               <td class="font-weight-bold">
-                Rp.
-                <span id="total-price"><?= $this->cart->total() ?></span>,00
+                <div class="d-flex justify-content-between">
+                  <span>IDR</span>
+                  <span id="total-price"><?= number_format($this->cart->total(), 2, ',', '.') ?></span>
+                </div>
               </td>
             </tr>
             <tr>
               <td colspan="4" class="text-right">Total Berat : </td>
-              <td><?= number_format($weight) ?> gr</td>
+              <td class="text-right"><?= number_format($weight, 0, ',', '.') ?> gr</td>
             </tr>
             <tr>
               <td colspan="4" class="text-right">Ongkos Kirim : </td>
-              <td id="cost-courier" class="font-weight-bold"></td>
+              <td class="font-weight-bold">
+                <div class="d-flex justify-content-between">
+                  <span>IDR</span>
+                  <span id="cost-courier"></span>
+                </div>
+              </td>
             </tr>
             <tr>
               <td colspan="2">
@@ -179,11 +196,16 @@
                 <button type="button" id="check-code" class="btn btn-blue">Cek Kode!</button>
               </td>
               <td class="text-right d-flex justify-content-end align-items-center h-100"><span>Potongan : </span></td>
-              <td id="referral" class="font-weight-bold"></td>
+              <td id="referral" class="font-weight-bold text-right"></td>
             </tr>
             <tr class="font-weight-bolder">
               <td colspan="4" class="text-right">Total Pembayaran : </td>
-              <td id="total-payment"></td>
+              <td>
+                <div class="d-flex justify-content-between">
+                  <span>IDR</span>
+                  <span id="total-payment"></span>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -212,6 +234,8 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
       <script>
         $(document).ready(function() {
+          const numberFormatter = new Intl.NumberFormat('id-ID', "currency");
+
           // Province Data
           $.ajax({
             url: '<?= base_url('shipping/province') ?>',
@@ -258,11 +282,11 @@
           // Cost Data
           $('#package').on('change', function() {
             var shipping = $("option:selected", this).attr("cost");
-            $("#cost-courier").html('Rp. ' + shipping + ',00');
+            $("#cost-courier").html(numberFormatter.format(shipping) + ',00');
 
             // Get Total Payment
             var payment = parseInt(shipping) + parseInt(<?= $this->cart->total() ?>);
-            $('#total-payment').html('Rp. ' + payment + ',00');
+            $('#total-payment').html(numberFormatter.format(payment) + ',00');
 
             var estimate = $("option:selected", this).attr("estimate");
             $('input[name=etd]').val(estimate + ' Hari');

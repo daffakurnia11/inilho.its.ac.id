@@ -99,17 +99,17 @@
                         } ?>
                       </td>
                       <td><?= $items['qty'] ?></td>
-                      <td><?= number_format($product['weight'], 0) ?> gr.</td>
+                      <td><?= number_format($product['weight'], 0, ',', '.') ?> gr.</td>
                       <td>
                         <div class="d-flex justify-content-between">
-                          <span>Rp. </span>
-                          <span><?= number_format($product['price'], 2) ?></span>
+                          <span>IDR</span>
+                          <span><?= number_format($product['price'], 2, ',', '.') ?></span>
                         </div>
                       </td>
                       <td>
                         <div class="d-flex justify-content-between">
-                          <span>Rp. </span>
-                          <span><?= number_format(($product['price'] * $items['qty']), 2) ?></span>
+                          <span>IDR</span>
+                          <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
                         </div>
                       </td>
                     </tr>
@@ -152,17 +152,17 @@
                           </p>
                         </td>
                         <td><?= $items['qty'] ?></td>
-                        <td><?= number_format($product['weight'], 0) ?> gr.</td>
+                        <td><?= number_format($product['weight'], 0, ',', '.') ?> gr.</td>
                         <td>
                           <div class="d-flex justify-content-between">
-                            <span>Rp. </span>
-                            <span><?= number_format($product['price'], 2) ?></span>
+                            <span>IDR</span>
+                            <span><?= number_format($product['price'], 2, ',', '.') ?></span>
                           </div>
                         </td>
                         <td>
                           <div class="d-flex justify-content-between">
-                            <span>Rp. </span>
-                            <span><?= number_format(($product['price'] * $items['qty']), 2) ?></span>
+                            <span>IDR</span>
+                            <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
                           </div>
                         </td>
                       </tr>
@@ -171,29 +171,35 @@
                   <tr>
                     <td colspan="4" class="text-right font-weight-bold">Sub Total : </td>
                     <td class="d-flex justify-content-between">
-                      <span>Rp. </span>
-                      <span><?= number_format($subtotal, 2) ?></span>
+                      <span>IDR</span>
+                      <span><?= number_format($subtotal, 2, ',', '.') ?></span>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" class="text-uppercase text-left"><strong>Kurir : </strong> <?= $data_order['courier'] . ' - ' . $data_order['package'] ?></td>
-                    <td><?= number_format($data_order['weight'], 0) ?> gr.</td>
+                    <td><?= number_format($data_order['weight'], 0, ',', '.') ?> gr.</td>
                     <td></td>
                     <td class="d-flex justify-content-between">
-                      <span>Rp. </span>
-                      <span><?= number_format($data_order['shipping'], 2) ?></span>
+                      <span>IDR</span>
+                      <span><?= number_format($data_order['shipping'], 2, ',', '.') ?></span>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="4" class="text-left"><strong>Kode Referral : </strong><span class="font-italic"><?= $data_order['referral'] ?></span></td>
-                    <?php $discount =  $this->db->get_where('tabel_referral', ['code' => $data_order['referral']])->result_array()[0]; ?>
-                    <td class="text-right font-weight-bold">Diskon <?= $discount["discount"] ?>%</td>
+                    <?php if (isset($data_order['referral'])) : ?>
+                      <?php $discount = $this->db->get_where('tabel_referral', ['code' => $data_order['referral']])->result_array()[0]; ?>
+
+                      <td class="text-right font-weight-bold">Diskon <?= $discount["discount"] ?>%</td>
+                    <?php else : ?>
+                      <td class="text-right font-weight-bold">Tidak ada</td>
+
+                    <?php endif; ?>
                   </tr>
                   <tr>
                     <td colspan="4" class="text-right font-weight-bolder">Total Payment : </td>
                     <td class="d-flex justify-content-between">
-                      <span>Rp. </span>
-                      <span class="font-weight-bolder"><?= number_format($data_order['total'], 2) ?></span>
+                      <span>IDR</span>
+                      <span class="font-weight-bolder"><?= number_format($data_order['total'], 2, ',', '.') ?></span>
                     </td>
                   </tr>
                 </tbody>

@@ -20,7 +20,7 @@
               <?php foreach ($slider as $sl => $value) {
                 $active = ($sl == 0) ? 'active' : '';
               ?>
-                <div class="carousel-item <?= $active ?> h-100">
+                <div class="carousel-item <?= $active ?> h-100" data-interval="2000">
                   <img style="object-fit: cover;" class="w-100 h-100" src="<?= base_url() ?>public/merchandise/img/slider/<?php echo $value['nama_foto'] ?>" alt="">
                 </div>
               <?php } ?>
@@ -65,7 +65,7 @@
               <input class="form-check-input bundle-button-pack" name="productBundle" type="radio" value="<?= $items['product'] ?>" id="<?= $items['product'] ?>">
               <input type="hidden" name="idBundle" value="<?= $items['id'] ?>">
               <input type="hidden" name="priceBundle" value="<?= $items['price'] ?>">
-              <?= $items['product'] ?> (IDR : <?= $items['price'] ?>)
+              <?= $items['product'] ?> (IDR : <?= number_format($items['price'], 2, ',', '.') ?>)
             </label>
           </button>
           <?php $i++; ?>
@@ -352,7 +352,7 @@
                   <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
-                <h5>IDR <?= $items['price'] ?></h5>
+                <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
                 <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
               </div>
             <?php endif; ?>
@@ -372,7 +372,7 @@
                   <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
-                <h5>IDR <?= $items['price'] ?></h5>
+                <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
                 <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
               </div>
             <?php endif; ?>
@@ -392,7 +392,7 @@
                   <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
-                <h5>IDR <?= $items['price'] ?></h5>
+                <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
                 <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
               </div>
             <?php endif; ?>
@@ -412,7 +412,7 @@
                   <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
-                <h5>IDR <?= $items['price'] ?></h5>
+                <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
                 <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
               </div>
             <?php endif; ?>
@@ -432,7 +432,7 @@
                   <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
-                <h5>IDR <?= $items['price'] ?></h5>
+                <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
                 <button class="btn btn-blue detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>">Detail !</button>
               </div>
             <?php endif; ?>
@@ -568,7 +568,7 @@
               <h5 class="dropdown-item-title mt-2">
                 <?= $items['options']['Category'] . ' ' . $items['name']; ?>
               </h5>
-              <span class="text-sm"><?= $items['qty'] ?> x IDR <?= $this->cart->format_number($items['price']); ?></span>
+              <span class="text-sm"><?= $items['qty'] ?> x IDR <?= number_format($items['price'], 2, ',', '.'); ?></span>
               <br>
               <?php if ($items['options']['Size'] != 'null') : ?>
                 <span class="text-sm text-muted">Size : <?= $items['options']['Size'] ?></span>
@@ -580,7 +580,7 @@
         <div class="dropdown-divider my-0"></div>
       <?php endforeach; ?>
       <a href="#" class="dropdown-item dropdown-footer text-center">
-        Total : <?= $this->cart->format_number($this->cart->total()); ?>
+        Total : <?= number_format($this->cart->total(), 2, ',', '.'); ?>
       </a>
       <div class="dropdown-divider my-0"></div>
       <a href="<?= base_url('merchandise/viewcart') ?>" class="dropdown-item dropdown-footer text-center">

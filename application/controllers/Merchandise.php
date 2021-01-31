@@ -137,9 +137,9 @@ class Merchandise extends CI_Controller
   public function checkout()
   {
     $this->form_validation->set_rules('receiver', 'Nama Penerima', 'required|trim');
-    $this->form_validation->set_rules('phone', 'No Penerima', 'required|trim');
+    $this->form_validation->set_rules('phone', 'No Penerima', 'required|trim|numeric');
     $this->form_validation->set_rules('address', 'Alamat Penerima', 'required|trim');
-    $this->form_validation->set_rules('postal', 'Kode Pos', 'required|trim');
+    $this->form_validation->set_rules('postal', 'Kode Pos', 'required|trim|numeric');
     $this->form_validation->set_rules('province', 'Provinsi', 'required');
     $this->form_validation->set_rules('city', 'Kota', 'required');
     $this->form_validation->set_rules('courier', 'Kurir', 'required');
@@ -171,7 +171,7 @@ class Merchandise extends CI_Controller
         'weight' => $this->input->post('weight'),
         'shipping' => $this->input->post('shipping'),
         'subtotal' => $this->input->post('subtotal'),
-        'referral' => $this->input->post('referral'),
+        'referral' => $this->input->post('referral') ? $this->input->post('referral') : null,
         'total' => $this->input->post('total'),
         'status' => 'Belum Bayar'
       ];
