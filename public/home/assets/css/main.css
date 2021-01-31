@@ -24,6 +24,9 @@
 /* @import 'landing_header.css';
 @import 'landing_fakultas.css'; */
 
+/* CSS FOR MERCHANDISE */
+@import '../../../merchandise/css/merch.css';
+
 * {
 	font-family: Poppins;
 	box-sizing: border-box;
@@ -72,21 +75,27 @@ html {
 	0% {
 		transform: scale(1, 1) translateY(0);
 	}
+
 	10% {
 		transform: scale(1.1, 0.9) translateY(0);
 	}
+
 	30% {
 		transform: scale(0.9, 1.1) translateY(-50px);
 	}
+
 	50% {
 		transform: scale(1, 1) translateY(0);
 	}
+
 	60% {
 		transform: scale(1, 1) translateY(-7px);
 	}
+
 	64% {
 		transform: scale(1, 1) translateY(0);
 	}
+
 	100% {
 		transform: scale(1, 1) translateY(0);
 	}

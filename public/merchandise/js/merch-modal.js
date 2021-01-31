@@ -23,6 +23,12 @@ if (flashdata) {
       title: 'Keranjang Gagal Ditambah',
       text: 'Silakan pilih Bundle serta produk yang disediakan!'
     })
+  } else if (flashdata == 'Salah') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal Upload!',
+      text: 'Bukti Transfer yang dikirim salah format! Gunakan format jpg/png/JPG'
+    })
   } else {
     Swal.fire({
       icon: 'success',

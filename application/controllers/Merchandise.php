@@ -8,9 +8,14 @@ class Merchandise extends CI_Controller
     $data['title'] = 'Merchandise';
     $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
     $data['tabel_bundle'] = $this->db->get('tabel_bundle')->result_array();
-		$data['slider'] = $this->db->get('merchandise_slider')->result_array();
+    $data['slider'] = $this->db->get('merchandise_slider')->result_array();
+    $data['nav'] = 1;
+    $data['merch_footer'] = true;
 
+    $this->load->view('home/template/header');
+    $this->load->view('home/template/navbar', $data);
     $this->load->view('merchandise/index', $data);
+    $this->load->view('home/template/footer', $data);
   }
 
   public function details()
@@ -90,7 +95,14 @@ class Merchandise extends CI_Controller
     if (empty($this->cart->contents())) {
       redirect('merchandise');
     }
+    $data['nav'] = 1;
+    $data['merchandise'] = true;
+    $data['merch_footer'] = true;
+
+    $this->load->view('home/template/header');
+    $this->load->view('home/template/navbar', $data);
     $this->load->view('merchandise/viewcart');
+    $this->load->view('home/template/footer', $data);
   }
 
   public function delete($rowid)
@@ -137,7 +149,14 @@ class Merchandise extends CI_Controller
       if (empty($this->cart->contents())) {
         redirect('merchandise');
       }
+      $data['nav'] = 1;
+      $data['merchandise'] = true;
+      $data['merch_footer'] = true;
+
+      $this->load->view('home/template/header');
+      $this->load->view('home/template/navbar', $data);
       $this->load->view('merchandise/checkout');
+      $this->load->view('home/template/footer', $data);
     } else {
       $data = [
         'no_order' => $this->input->post('no_order'),
@@ -209,7 +228,14 @@ class Merchandise extends CI_Controller
     $data['product'] = $this->db->get('tabel_product')->result_array();
     $data['tabel_referral'] = $this->db->get('tabel_referral')->result_array();
 
+    $data['nav'] = 1;
+    $data['merchandise'] = true;
+    $data['merch_footer'] = true;
+
+    $this->load->view('home/template/header');
+    $this->load->view('home/template/navbar', $data);
     $this->load->view('merchandise/invoice', $data);
+    $this->load->view('home/template/footer', $data);
   }
 
   public function tracking()
@@ -217,7 +243,14 @@ class Merchandise extends CI_Controller
     $this->form_validation->set_rules('keyword', 'Invoice', 'required|exact_length[12]');
 
     if ($this->form_validation->run() == FALSE) {
+      $data['nav'] = 1;
+      $data['merchandise'] = true;
+      $data['merch_footer'] = true;
+
+      $this->load->view('home/template/header');
+      $this->load->view('home/template/navbar', $data);
       $this->load->view('merchandise/tracking');
+      $this->load->view('home/template/footer', $data);
     } else {
       $keyword = $this->input->post('keyword');
       $this->db->select('*');
@@ -235,7 +268,14 @@ class Merchandise extends CI_Controller
       $this->db->like('no_order', $keyword);
       $data['order_bundle'] = $this->db->get()->result_array();
 
+      $data['nav'] = 1;
+      $data['merchandise'] = true;
+      $data['merch_footer'] = true;
+
+      $this->load->view('home/template/header');
+      $this->load->view('home/template/navbar', $data);
       $this->load->view('merchandise/tracking', $data);
+      $this->load->view('home/template/footer', $data);
     }
   }
 
@@ -265,15 +305,30 @@ class Merchandise extends CI_Controller
       'transfer' => $upload_image
     ];
 
-    $config['allowed_types'] = 'gif|jpg|png';
+    $config['allowed_types'] = 'jpg|png|JPG';
     $config['upload_path'] = 'public/merchandise/img/transfer/';
 
     $this->load->library('upload', $config);
-    $this->upload->do_upload('transfer');
-    $this->upload->data('file_name');
 
-    $this->db->where('no_order', $this->input->post('no_order'));
-    $this->db->update('data_order', $data);
-    $this->load->view('merchandise/transfer');
+    if ($this->upload->do_upload('transfer')) {;
+      $this->upload->data('file_name');
+
+      $this->db->where('no_order', $this->input->post('no_order'));
+      $this->db->update('data_order', $data);
+
+      $data['nav'] = 1;
+      $data['merchandise'] = true;
+      $data['merch_footer'] = true;
+
+      $this->load->view('home/template/header');
+      $this->load->view('home/template/navbar', $data);
+      $this->load->view('merchandise/transfer');
+      $this->load->view('home/template/footer', $data);
+    } else {
+      $redirect_page = $this->input->post('redirect_page');
+
+      $this->session->set_flashdata('flash', 'Salah');
+      redirect($redirect_page);
+    }
   }
 }

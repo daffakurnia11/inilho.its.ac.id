@@ -42,14 +42,14 @@
 <!-- END OF FOOTER -->
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-<script src="<?php echo base_url().'public/home/assets/js/jquery-3.5.1.js'?>" type="text/javascript"></script>
-<script src="<?php echo base_url().'public/home/assets/js/jquery-ui.js'?>" type="text/javascript"></script>
+<script src="<?php echo base_url() . 'public/home/assets/js/jquery-3.5.1.js' ?>" type="text/javascript"></script>
+<script src="<?php echo base_url() . 'public/home/assets/js/jquery-ui.js' ?>" type="text/javascript"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#departemen').autocomplete({
-      source: "<?php echo site_url('home/complete');?>",
+      source: "<?php echo site_url('home/complete'); ?>",
 
       select: function(event, ui) {
         $(this).val(ui.item.label);
@@ -58,6 +58,19 @@
     });
   });
 </script>
+
+<?php if (isset($merch_footer)) : ?>
+  <!-- MERCHANDISE JAVASCRIPT -->
+  <script src="<?= base_url('public/merchandise/js/') ?>jquery-3.2.1.min.js"></script>
+  <script src="<?= base_url('public/merchandise/js/') ?>sweetalert2.all.min.js"></script>
+  <script src="<?= base_url('public/merchandise/js/') ?>merch-modal.js"></script>
+  <script>
+    $('#transfer-input').on('change', function() {
+      let fileName = $(this).val().split('\\').pop();
+      $(this).next('#transfer-file').addClass("selected").html(fileName);
+    });
+  </script>
+<?php endif; ?>
 
 </body>
 
