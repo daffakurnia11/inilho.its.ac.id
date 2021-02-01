@@ -164,7 +164,6 @@ class Merch extends CI_Controller
 
     $this->form_validation->set_rules('code', 'Kode Referral', 'required|trim');
     $this->form_validation->set_rules('forda', 'Asal Forda', 'required|trim');
-    $this->form_validation->set_rules('discount', 'Diskon', 'required|trim|numeric');
 
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('admin/templates/header', $data);
@@ -176,7 +175,9 @@ class Merch extends CI_Controller
       $data = [
         'code' => $this->input->post('code'),
         'forda' => $this->input->post('forda'),
-        'discount' => $this->input->post('discount'),
+        'discount' => $this->input->post('discount') ? $this->input->post('discount') : null,
+        'max' => $this->input->post('max') ? $this->input->post('max') : null,
+        'free' => $this->input->post('free') ? $this->input->post('free') : null,
       ];
       $this->db->where('id', $this->input->post('id'));
       $this->db->update('tabel_referral', $data);

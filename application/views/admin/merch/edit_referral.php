@@ -22,6 +22,8 @@
           <?= form_error('forda', '<p style="color: red">', '</p>'); ?>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-4">
         <div class="form-group">
           <label for="discount">Diskon</label>
@@ -30,6 +32,30 @@
             <div class="input-group-append">
               <span class="input-group-text">&#37;</span>
             </div>
+          </div>
+          <?= form_error('discount', '<p style="color: red">', '</p>'); ?>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="max">Potongan Maksimal</label>
+          <div class="input-group">
+            <div class="input-group-append">
+              <span class="input-group-text">IDR</span>
+            </div>
+            <input type="text" class="form-control" id="max" name="max" value="<?= $tabel_referral['max'] ?>">
+          </div>
+          <?= form_error('discount', '<p style="color: red">', '</p>'); ?>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="free">Bonus Barang</label>
+          <div class="input-group">
+            <div class="input-group-append">
+              <span class="input-group-text">Free</span>
+            </div>
+            <input type="text" class="form-control" id="free" name="free" value="<?= $tabel_referral['free'] ?>">
           </div>
           <?= form_error('discount', '<p style="color: red">', '</p>'); ?>
         </div>
