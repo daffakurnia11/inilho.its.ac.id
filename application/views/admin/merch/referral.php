@@ -21,6 +21,8 @@
           <?= form_error('forda', '<p style="color: red">', '</p>'); ?>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-4">
         <div class="form-group">
           <label for="discount">Diskon</label>
@@ -29,6 +31,30 @@
             <div class="input-group-append">
               <span class="input-group-text">&#37;</span>
             </div>
+          </div>
+          <?= form_error('discount', '<p style="color: red">', '</p>'); ?>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="max">Potongan Maksimal</label>
+          <div class="input-group">
+            <div class="input-group-append">
+              <span class="input-group-text">IDR</span>
+            </div>
+            <input type="text" class="form-control" id="max" name="max">
+          </div>
+          <?= form_error('discount', '<p style="color: red">', '</p>'); ?>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="free">Bonus Barang</label>
+          <div class="input-group">
+            <div class="input-group-append">
+              <span class="input-group-text">Free</span>
+            </div>
+            <input type="text" class="form-control" id="free" name="free">
           </div>
           <?= form_error('discount', '<p style="color: red">', '</p>'); ?>
         </div>
@@ -45,7 +71,7 @@
         <th scope="col">No.</th>
         <th scope="col">Forda</th>
         <th scope="col">Kode Referral</th>
-        <th scope="col">Diskon</th>
+        <th scope="col">Bonus</th>
         <th scope="col">Aksi</th>
       </tr>
     </thead>
@@ -56,7 +82,13 @@
           <th scope="row"><?= $i; ?></th>
           <td><?= $referral["forda"]; ?></td>
           <td><?= $referral['code']; ?></td>
-          <td><?= $referral['discount']; ?>&#37;</td>
+          <td>
+            <?php if (isset($referral['discount'])) : ?>
+              <?= $referral['discount'] ?>&#37; (IDR <?= number_format($referral['max'], 2, ',', '.') ?>)
+            <?php elseif (isset($referral['free'])) : ?>
+              Free <?= $referral['free'] ?>
+            <?php endif; ?>
+          </td>
           <td>
             <a href="<?= base_url('merch/deletereferral/' . $referral['id']) ?>" onclick="return confirm('Are you sure to delete the order?');"><i class="mx-2 fas fa-lg fa-trash-alt"></i></a>
             <a href="<?= base_url('merch/editreferral/' . $referral['id']) ?>"><i class="mx-2 fas fa-lg fa-edit"></i></a>

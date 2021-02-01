@@ -138,14 +138,20 @@
               </td>
             </tr>
             <tr>
-              <td colspan="4" class="text-left"><strong>Kode Referral : </strong><span class="font-italic"><?= $data_order['referral'] ?></span></td>
+              <td colspan="2" class="text-left"><strong>Kode Referral : </strong><span class="font-italic"><?= $data_order['referral'] ?></span></td>
+              <td colspan="2" class="text-right">Bonus/Potongan : </td>
               <?php if (isset($data_order['referral'])) : ?>
                 <?php $discount = $this->db->get_where('tabel_referral', ['code' => $data_order['referral']])->result_array()[0]; ?>
-
-                <td class="text-right font-weight-bold">Diskon <?= $discount["discount"] ?>%</td>
+                <?php if (isset($discount['discount'])) : ?>
+                  <td class="text-right d-flex justify-content-between">
+                    <span>IDR</span>
+                    <span class="font-weight-bold"> - <?= $data_order["bonus"] ?></span>
+                  </td>
+                <?php elseif (isset($discount['free'])) : ?>
+                  <td class="text-right font-weight-bold">Free <?= $discount['free'] ?></td>
+                <?php endif; ?>
               <?php else : ?>
                 <td class="text-right font-weight-bold">Tidak ada</td>
-
               <?php endif; ?>
             </tr>
             <tr>

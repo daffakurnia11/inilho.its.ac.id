@@ -127,9 +127,8 @@ class Merch extends CI_Controller
     $data['start'] = $this->uri->segment(3);
     $data['tabel_referral'] = $this->db->get('tabel_referral', $config['per_page'], $data['start'])->result_array();
 
-    $this->form_validation->set_rules('code', 'Kode Referral', 'required|trim');
+    $this->form_validation->set_rules('code', 'Kode Referral', 'required|trim|is_unique[tabel_referral.code]');
     $this->form_validation->set_rules('forda', 'Asal Forda', 'required|trim');
-    $this->form_validation->set_rules('discount', 'Diskon', 'required|trim|numeric');
 
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('admin/templates/header', $data);
@@ -141,7 +140,9 @@ class Merch extends CI_Controller
       $data = [
         'code' => $this->input->post('code'),
         'forda' => $this->input->post('forda'),
-        'discount' => $this->input->post('discount'),
+        'discount' => $this->input->post('discount') ? $this->input->post('discount') : null,
+        'max' => $this->input->post('max') ? $this->input->post('max') : null,
+        'free' => $this->input->post('free') ? $this->input->post('free') : null,
       ];
       $this->db->insert('tabel_referral', $data);
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kode Referral berhasil ditambahkan!</div>');

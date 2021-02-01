@@ -137,21 +137,39 @@ $(function() {
       dataType: 'json',
       success: function(data) {
         var shipping = $("option:selected",'#package').attr("cost");
-        var payment = $('#total-price').html();
+        var payment = $('#total-price').attr("value");
         if (data) {
-          $('#referral').html('Diskon ' + data.discount + '%');
-          
-          var total = parseInt(shipping) + (parseInt(payment) * ((100 - parseInt(data.discount)) / 100));
+          if (data.discount) {
+            var discount = parseInt(payment) * (parseInt(data.discount)/100);
+            if (discount >= parseInt(data.max)) {
+              discount = parseInt(data.max);
+            }
 
-          $('#total-payment').html('Rp. ' + total + ',00');
-          $('input[name=shipping]').val(shipping);
+            var total = parseInt(shipping) + (parseInt(payment) - discount);
+            
+            $('#referral').html('<span>IDR</span>' + '<span> - ' + numberFormatter.format(discount) + ',00</span>');
+            
+            $('#total-payment').html(numberFormatter.format(total) + ',00');
+            
+            $('input[name=shipping]').val(shipping);
+            $('input[name=bonus]').val(discount);
+            $('input[name=total]').val(total);
+          } else if (data.free) {
+            var total = parseInt(shipping) + parseInt(payment);
+            
+            $('#referral').html('<span>FREE</span>' + '<span class="font-weight-normal">' + data.free + '</span>');
+            
+            $('#total-payment').html(numberFormatter.format(total) + ',00');
+            
+            $('input[name=shipping]').val(shipping);
+            $('input[name=bonus]').val(data.free);
+            $('input[name=total]').val(total);
+          } else {
+            $('#referral').html('Tidak Ditemukan');
+            var total = parseInt(shipping) + parseInt(payment);
 
-          $('input[name=total]').val(total);
-        } else {
-          $('#referral').html('Tidak Ditemukan');
-          var total = parseInt(shipping) + parseInt(payment);
-
-          $('#total-payment').html('Rp. ' + parseInt(total) + ',00');
+            $('#total-payment').html(numberFormatter.format(parseInt(total)) + ',00');
+          }
         }
       }
     });

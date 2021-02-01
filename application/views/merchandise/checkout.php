@@ -166,7 +166,7 @@
               <td class="font-weight-bold">
                 <div class="d-flex justify-content-between">
                   <span>IDR</span>
-                  <span id="total-price"><?= number_format($this->cart->total(), 2, ',', '.') ?></span>
+                  <span id="total-price" value="<?= $this->cart->total() ?>"><?= number_format($this->cart->total(), 2, ',', '.') ?></span>
                 </div>
               </td>
             </tr>
@@ -195,8 +195,11 @@
               <td>
                 <button type="button" id="check-code" class="btn btn-blue">Cek Kode!</button>
               </td>
-              <td class="text-right d-flex justify-content-end align-items-center h-100"><span>Potongan : </span></td>
-              <td id="referral" class="font-weight-bold text-right"></td>
+              <td class="text-right">Bonus / Potongan :</td>
+              <td class="font-weight-bold text-right">
+                <div id="referral" class="d-flex justify-content-between">
+                </div>
+              </td>
             </tr>
             <tr class="font-weight-bolder">
               <td colspan="4" class="text-right">Total Pembayaran : </td>
@@ -216,6 +219,7 @@
       <input type="hidden" name="weight" value="<?= $weight ?>">
       <input type="hidden" name="shipping">
       <input type="hidden" name="subtotal" value="<?= $this->cart->total() ?>">
+      <input type="hidden" name="bonus">
       <input type="hidden" name="total">
       <!-- END OF HIDDEN FORM -->
 

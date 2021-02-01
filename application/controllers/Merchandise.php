@@ -172,6 +172,7 @@ class Merchandise extends CI_Controller
         'shipping' => $this->input->post('shipping'),
         'subtotal' => $this->input->post('subtotal'),
         'referral' => $this->input->post('referral') ? $this->input->post('referral') : null,
+        'bonus' => $this->input->post('bonus') ? $this->input->post('bonus') : null,
         'total' => $this->input->post('total'),
         'status' => 'Belum Bayar'
       ];
