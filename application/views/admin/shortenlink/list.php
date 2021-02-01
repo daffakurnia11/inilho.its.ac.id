@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container text-center text-gray-800">
+<div class="container text-center" style="color: black;">
   <h3 class="mb-3 mt-3">Shorten List</h3>
   <div class="d-flex justify-content-between text-center">
     <form action="" method="post">
@@ -15,7 +15,7 @@
   <?php if (isset($total)) : ?>
     <h3 class="text-left">Total Pencarian : <?= $total; ?></h3>
   <?php endif; ?>
-  <table class="table table-hover bg-white text-dark" style="font-size: 15px;">
+  <table class="table table-hover bg-white" style="font-size: 15px; color: black;">
     <thead>
       <tr>
         <th scope="col">No.</th>

@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container text-center text-gray-800">
+<div class="container text-center" style="color: black;">
   <h1 class="mb-3 ">Ini Lho ITS! Official Merchandise</h1>
   <h3 class="mb-3 text-left">Pengaturan Kode Referral</h3>
 

@@ -1,11 +1,11 @@
 <!-- Begin Page Content -->
-<div class="container text-center text-gray-800">
+<div class="container text-center" style="color: black;">
   <h1 class="mb-3 ">Ini Lho ITS! Official Merchandise</h1>
   <h3 class="mb-3 text-left">Daftar Pesanan</h3>
   <?= $this->pagination->create_links(); ?>
   <?= $this->session->flashdata('message'); ?>
   <?= $this->session->unset_userdata('message'); ?>
-  <table class="table table-hover bg-white text-dark" style="font-size: 15px;">
+  <table class="table table-hover bg-white" style="color: black;font-size: 15px;">
     <thead>
       <tr>
         <th scope="col">No</th>

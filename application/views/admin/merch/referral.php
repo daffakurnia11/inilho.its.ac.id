@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container text-center text-gray-800">
+<div class="container text-center" style="color: black;">
   <h1 class="mb-3 ">Ini Lho ITS! Official Merchandise</h1>
   <h3 class="mb-3 text-left">Pengaturan Kode Referral</h3>
 
@@ -39,7 +39,7 @@
       <button type="submit" name="submit" class="btn btn-primary">Tambah Kode!</button>
     </div>
   </form>
-  <table class="mt-3 table table-hover bg-white text-dark" style="font-size: 15px;">
+  <table class="mt-3 table table-hover bg-white" style="color: black;font-size: 15px;">
     <thead>
       <tr>
         <th scope="col">No.</th>

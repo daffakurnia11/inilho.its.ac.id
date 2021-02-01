@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container text-center text-gray-800">
+<div class="container text-center" style="color: black;">
   <h4 class="mb-3 text-left">Pesanan : <?= $data_order['no_order'] ?></h4>
 
   <?= $this->session->flashdata('message'); ?>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="table-responsive invoice-cart">
-    <table class="table mt-2 table-hover bg-white text-dark" style="font-size: 15px;">
+    <table class="table mt-2 table-hover bg-white" style="color: black; font-size: 15px;">
       <thead>
         <tr class="text-center">
           <th scope="col">Nama</th>
