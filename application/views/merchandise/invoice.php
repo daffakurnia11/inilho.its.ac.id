@@ -4,10 +4,14 @@
     <?= $this->session->unset_userdata('flash'); ?>
   </div>
   <div class="invoice-header text-center">
-    <h3>Terimakasih telah melakukan pemesanan.</h3>
+    <h2>Terimakasih telah melakukan pemesanan.</h2>
+    <h4>Nomor Invoice Anda : <span style="color: #f60d4f; font-weight: 600;"><?= $data_order['no_order']; ?></span></h4>
     <p>Selanjutnya, silakan melakukan pembayaran sesuai dengan petunjuk dibawah ini.</p>
   </div>
-  <div class="invoice-card container-sm">
+  <div class="invoice-card container-sm mb-5" id="printArea">
+    <div class="btn-area">
+      <button type="button" onclick="printDiv('printArea')" class="btn-print"><i class="fas fa-print pr-2"></i>Cetak Invoice</button>
+    </div>
     <div class="invoice-content">
       <img class="invoice-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
       <div class="invoice-details mt-2">
@@ -145,7 +149,7 @@
                 <?php if (isset($discount['discount'])) : ?>
                   <td class="text-right d-flex justify-content-between">
                     <span>IDR</span>
-                    <span class="font-weight-bold"> - <?= $data_order["bonus"] ?></span>
+                    <span class="font-weight-bold"> - <?= number_format($data_order["bonus"], 2, ',', '.') ?></span>
                   </td>
                 <?php elseif (isset($discount['free'])) : ?>
                   <td class="text-right font-weight-bold">Free <?= $discount['free'] ?></td>

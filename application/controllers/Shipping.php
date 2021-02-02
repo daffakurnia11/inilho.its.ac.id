@@ -7,7 +7,7 @@ class Shipping extends CI_Controller
 
   public function province()
   {
-    echo "<option value''>--Pilih Provinsi--</option>";
+    echo "<option>--Pilih Provinsi--</option>";
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
@@ -33,11 +33,7 @@ class Shipping extends CI_Controller
     if ($err) {
       echo "cURL Error #:" . $err;
     } else {
-      // echo $response;
       $array_response = json_decode($response, true);
-      // echo '<pre>';
-      // print_r($array_response['rajaongkir']['results']);
-      // echo '</pre>';
       $data_province = $array_response['rajaongkir']['results'];
       foreach ($data_province as $province) {
         echo "<option value='" . $province['province'] . "' id_province='" . $province['province_id'] . "'>" . $province['province'] . "</option>";
@@ -47,7 +43,7 @@ class Shipping extends CI_Controller
 
   public function city()
   {
-    echo "<option value''>--Pilih Kota--</option>";
+    echo "<option value=''>--Pilih Kota--</option>";
     $id_province = $this->input->post('id_province');
 
     $curl = curl_init();
@@ -75,7 +71,6 @@ class Shipping extends CI_Controller
     if ($err) {
       echo "cURL Error #:" . $err;
     } else {
-      // echo $response;
       $array_response = json_decode($response, true);
       $data_city = $array_response['rajaongkir']['results'];
       foreach ($data_city as $city) {
@@ -84,9 +79,17 @@ class Shipping extends CI_Controller
     }
   }
 
+  public function expedition()
+  {
+    echo "<option value=''>--Pilih Ekspedisi--</option>";
+    echo "<option value='jne'>JNE</option>";
+    echo "<option value='tiki'>TIKI</option>";
+    echo "<option value='pos'>Pos Indonesia</option>";
+  }
+
   public function courier()
   {
-    echo "<option value''>--Pilih Paket--</option>";
+    echo "<option value=''>--Pilih Paket--</option>";
     $origin = $this->db->get_where('data_store', ['id' => 1])->row_array();
     $kurir = $this->input->post('courier');
     $city = $this->input->post('city');
@@ -118,11 +121,7 @@ class Shipping extends CI_Controller
     if ($err) {
       echo "cURL Error #:" . $err;
     } else {
-      // echo $response;
       $array_response = json_decode($response, true);
-      // echo '<pre>';
-      // print_r($array_response['rajaongkir']['results'][0]['costs']);
-      // echo '</pre>';
       $data_courier = $array_response['rajaongkir']['results'][0]['costs'];
       foreach ($data_courier as $courier) {
         echo "<option value='" . $courier['service'] . "' cost='" . $courier['cost'][0]['value'] . "' estimate='" . $courier['cost'][0]['etd'] . "'>" . $courier['service'] . " (" . $courier['cost'][0]['etd'] . " Hari)" . "</option>";

@@ -165,7 +165,7 @@
           <td colspan="4" class="text-right font-weight-bolder">Total Payment : </td>
           <td class="d-flex justify-content-between">
             <span>IDR</span>
-            <span><?= number_format($data_order['total'], 0, ',', '.') ?></span>
+            <span><?= number_format($data_order['total'], 2, ',', '.') ?></span>
           </td>
         </tr>
       </tbody>

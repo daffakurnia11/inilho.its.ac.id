@@ -52,8 +52,6 @@
     <h1 class="catalog-title">BUNDLE PACK</h1>
   </div>
   <div class="container catalog-menu text-center mb-3">
-    <?= form_open('merchandise/addBundle') ?>
-    <?= form_hidden('redirect_page', str_replace('index.php/', '', current_url())) ?>
     <div class="row bundle-menu">
       <div class="col-md-4">
         <!-- BUTTON GROUP BUNDLE PACKS -->
@@ -61,23 +59,23 @@
         <?php $i = 1; ?>
         <?php foreach ($tabel_bundle as $items) : ?>
           <button id="heading<?= $i; ?>" class="bundle-button" type="button" data-toggle="collapse" data-target="#<?= $items['data-target'] ?>">
-            <label class="form-check-label" for="<?= $items['product'] ?>">
-              <input class="form-check-input bundle-button-pack" name="productBundle" type="radio" value="<?= $items['product'] ?>" id="<?= $items['product'] ?>">
-              <input type="hidden" name="idBundle" value="<?= $items['id'] ?>">
-              <input type="hidden" name="priceBundle" value="<?= $items['price'] ?>">
-              <?= $items['product'] ?> (IDR : <?= number_format($items['price'], 2, ',', '.') ?>)
-            </label>
+            <?= $items['product'] ?> (IDR : <?= number_format($items['price'], 2, ',', '.') ?>)
           </button>
           <?php $i++; ?>
         <?php endforeach; ?>
-        <?= form_error('productBundle'); ?>
         <!-- END OF BUTTON GROUP BUNDLE PACKS -->
       </div>
       <div class="col-md-8">
         <!-- BUNDLE PACK DETAIL ITEMS -->
         <div class="accordion text-left" id="bundleMenu">
+          <?php $j = 1; ?>
           <?php foreach ($tabel_bundle as $items) : ?>
+            <?= form_open('merchandise/addBundle') ?>
+            <?= form_hidden('redirect_page', str_replace('index.php/', '', current_url())) ?>
             <div id="<?= $items['data-target'] ?>" class="bundle-detail collapse" aria-labelledby="heading1" data-parent="#bundleMenu">
+              <input type="hidden" name="productBundle" class="form-control-plaintext" value="<?= $items['product'] ?>">
+              <input type="hidden" name="idBundle" value="<?= $items['id'] ?>">
+              <input type="hidden" name="priceBundle" value="<?= $items['price'] ?>">
               <h2 class="text-center"><?= $items['product']; ?> Bundle</h2>
               <fieldset class="form-group">
 
@@ -91,12 +89,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($hoodie as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="hoodie" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="hoodie" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('hoodie', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -115,20 +114,21 @@
                     <div class="col-sm-9">
                       <?php foreach ($tshirt as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="tshirt" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="tshirt" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
                       <?php foreach ($tiedye as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="tshirt" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="tshirt" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('tshirt', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -144,12 +144,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($totebag as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="totebag" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="totebag" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('totebag', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -165,12 +166,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($cap as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="cap" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="cap" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('cap', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -186,12 +188,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($keychain as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="keychain" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="keychain" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('keychain', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -207,12 +210,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($gelang as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="bracelet" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="bracelet" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('bracelet', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -228,12 +232,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($lanyard as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="lanyard" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="lanyard" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('lanyard', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -249,12 +254,13 @@
                     <div class="col-sm-9">
                       <?php foreach ($sticker as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="stickerbook" value="<?= $name['category']; ?> <?= $name['product']; ?>">
-                          <label class="form-check-label">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="stickerbook" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
                         </div>
                       <?php endforeach; ?>
+                      <?= form_error('stickerbook', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -269,35 +275,36 @@
                     </legend>
                     <div class="col-sm-9">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="S" value="S">
-                        <label class="form-check-label" for="S">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="S<?= $j ?>" value="S">
+                        <label class="form-check-label" for="S<?= $j ?>">
                           S
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="M" value="M">
-                        <label class="form-check-label" for="M">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="M<?= $j ?>" value="M">
+                        <label class="form-check-label" for="M<?= $j ?>">
                           M
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="L" value="L">
-                        <label class="form-check-label" for="L">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="L<?= $j ?>" value="L">
+                        <label class="form-check-label" for="L<?= $j ?>">
                           L
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="XL" value="XL">
-                        <label class="form-check-label" for="XL">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="XL<?= $j ?>" value="XL">
+                        <label class="form-check-label" for="XL<?= $j ?>">
                           XL
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sizeBundle" id="XXL" value="XXL">
-                        <label class="form-check-label" for="XXL">
+                        <input class="form-check-input" type="radio" name="sizeBundle" id="XXL<?= $j ?>" value="XXL">
+                        <label class="form-check-label" for="XXL<?= $j ?>">
                           XXL
                         </label>
                       </div>
+                      <?= form_error('sizeBundle', '<p style="color: red">', '</p>'); ?>
                     </div>
                   </div>
                   <!-- END OF SIZE OPTIONS -->
@@ -305,14 +312,15 @@
 
               </fieldset>
               <div class="text-center">
-                <button type="submit" class="btn btn-blue">Add to Cart!</button>
+                <button type="submit" name="addBundleCart" class="btn btn-blue">Add to Cart!</button>
               </div>
             </div>
+            <?= form_close(); ?>
+            <?php $j++; ?>
           <?php endforeach; ?>
         </div>
       </div>
     </div>
-    <?= form_close(); ?>
   </div>
 
   <!-- CATALOG SINGLE ITEMS -->
@@ -349,7 +357,7 @@
               <div class="col-md-4 catalog-items text-center">
                 <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                 <div class="d-flex jcc aic">
-                  <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
+                  <img class="detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>" src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                 <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
@@ -369,7 +377,7 @@
               <div class="col-md-4 catalog-items text-center">
                 <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                 <div class="d-flex jcc aic">
-                  <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
+                  <img class="detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>" src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                 <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
@@ -389,7 +397,7 @@
               <div class="col-md-4 catalog-items text-center">
                 <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                 <div class="d-flex jcc aic">
-                  <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
+                  <img class="detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>" src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                 <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
@@ -409,7 +417,7 @@
               <div class="col-md-4 catalog-items text-center">
                 <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                 <div class="d-flex jcc aic">
-                  <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
+                  <img class="detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>" src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                 <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
@@ -429,7 +437,7 @@
               <div class="col-md-4 catalog-items text-center">
                 <h5 class="pre-order text-left">Pre Order<br><span style="font-size: 14px; color:#0c0c6d ;"><?= $items['code'] ?></span></h5>
                 <div class="d-flex jcc aic">
-                  <img src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
+                  <img class="detailProduct" data-toggle="modal" data-target="#detailModal" data-id="<?= $items['code']; ?>" src="<?= base_url('public/merchandise/img/product/') . $items['catalog'] ?>" alt="">
                 </div>
                 <h4 class="d-flex jcc aic" style="height: 60px;"><?= $items['category'] . ' ' . $items['product'] ?></h4>
                 <h5>IDR <?= number_format($items['price'], 2, ',', '.') ?></h5>
@@ -473,7 +481,7 @@
 
 
 <!-- PRODUCT DETAILS (MODAL) -->
-<div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
+<div class="modal fade" id="detailModal" data-keyboard="false" tabindex="-1">
   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content scrollable">
       <!-- MODAL HEADER -->
@@ -579,9 +587,9 @@
         <!-- Message End -->
         <div class="dropdown-divider my-0"></div>
       <?php endforeach; ?>
-      <a href="#" class="dropdown-item dropdown-footer text-center">
+      <p class="dropdown-item dropdown-footer text-center mb-0">
         Total : <?= number_format($this->cart->total(), 2, ',', '.'); ?>
-      </a>
+      </p>
       <div class="dropdown-divider my-0"></div>
       <a href="<?= base_url('merchandise/viewcart') ?>" class="dropdown-item dropdown-footer text-center">
         View Cart

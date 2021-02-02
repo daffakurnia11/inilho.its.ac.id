@@ -23,9 +23,17 @@
         <div class="col-md cart-desc d-flex flex-column jcc">
           <h5 class="mt-2"><?= $items['options']['Category'] . ' ' . $items['name']; ?></h5>
           <span class="form-group d-flex aic">
-            <?= form_input(array('name' => $i . '[qty]', 'type' => 'number', 'class' => 'form-control', 'value' => $items['qty'], 'maxlength' => '3', 'min' => '1')); ?>
+            <?= form_input(array('name' => $i . '[qty]', 'type' => 'number', 'class' => 'quantity form-control my-0', 'value' => $items['qty'], 'maxlength' => '3', 'min' => '1', 'max' => '20')); ?>
             <span class="mx-3">x IDR <?= number_format($items['price'], 2, ',', '.'); ?></span>
           </span>
+          <div class="my-0">
+            <button type="submit" class="btn btn-update mb-2">
+              <i class="fas fa-fw fa-pen"></i> Ubah Jumlah Barang!
+            </button>
+            <a href="<?= base_url('merchandise/delete/') . $items['rowid'] ?>" class="btn btn-delete mb-2">
+              <i class="fas fa-fw fa-trash"></i> Hapus Barang!
+            </a>
+          </div>
           <p class="text-muted">Berat : <?= number_format($product['weight'], 0, ',', '.') ?> gr</p>
           <p class="text-muted">Total : IDR <?= number_format($items['subtotal'], 2, ',', '.') ?></p>
           <?php if ($items['options']['Size'] != null) : ?>
@@ -59,12 +67,6 @@
               <?php endif; ?>
             </p>
           <?php endif; ?>
-          <a href="<?= base_url('merchandise/delete/') . $items['rowid'] ?>" class="btn btn-delete">
-            <i class="fas fa-fw fa-trash"></i>
-          </a>
-          <button type="submit" class="btn btn-update">
-            <i class="fas fa-fw fa-pen"></i>
-          </button>
         </div>
       </div>
     </div>
@@ -88,7 +90,4 @@
     $('.navbar').addClass('no-header');
     $('.navbar-brand').addClass('no-header');
   });
-  // window.onload = function() {
-  //   document.getElementsByClassName('navbar').className = 'no-header';
-  // };
 </script>

@@ -154,6 +154,7 @@ $(function() {
             $('input[name=shipping]').val(shipping);
             $('input[name=bonus]').val(discount);
             $('input[name=total]').val(total);
+            $('input[name=referral]').val(code);
           } else if (data.free) {
             var total = parseInt(shipping) + parseInt(payment);
             
@@ -164,12 +165,15 @@ $(function() {
             $('input[name=shipping]').val(shipping);
             $('input[name=bonus]').val(data.free);
             $('input[name=total]').val(total);
-          } else {
-            $('#referral').html('Tidak Ditemukan');
-            var total = parseInt(shipping) + parseInt(payment);
+            $('input[name=referral]').val(code);
+          } 
+        } else {
+          $('#referral').html('<div class="text-center">Tidak Ditemukan</div>');
+          var total = parseInt(shipping) + parseInt(payment);
 
-            $('#total-payment').html(numberFormatter.format(parseInt(total)) + ',00');
-          }
+          $('#total-payment').html(numberFormatter.format(parseInt(total)) + ',00');
+          
+          $('input[name=referral]').val('');
         }
       }
     });
@@ -179,3 +183,14 @@ $(function() {
     $('input[name=total]').val(total);
   })
 });
+
+function printDiv(divName) {
+  var printContents = document.getElementById(divName).innerHTML;
+  var originalContents = document.body.innerHTML;
+
+  document.body.innerHTML = printContents;
+
+  window.print();
+
+  document.body.innerHTML = originalContents;
+}

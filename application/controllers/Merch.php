@@ -104,6 +104,9 @@ class Merch extends CI_Controller
 
   public function delete($id_order)
   {
+    $order = $this->db->get_where('data_order', ['no_order' => $id_order])->row_array()['transfer'];
+    unlink(FCPATH . 'public/merchandise/img/transfer/' . $order);
+
     $this->db->where('no_order', $id_order);
     $this->db->delete('data_order');
     $this->db->where('no_order', $id_order);

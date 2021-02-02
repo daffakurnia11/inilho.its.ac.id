@@ -54,7 +54,10 @@
             <h6 class="mb-4">Silakan ditunggu atau hubungi kami lebih lanjut. Terima Kasih.</h6>
           <?php endif; ?>
         </div>
-        <div class="tracking-card container-sm">
+        <div class="tracking-card container-sm" id="printArea">
+          <div class="btn-area">
+            <button type="button" onclick="printDiv('printArea')" class="btn-print"><i class="fas fa-print pr-2"></i>Cetak Invoice</button>
+          </div>
           <div class="tracking-content">
             <img class="tracking-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
             <div class="tracking-details mt-2">
@@ -191,7 +194,7 @@
                       <?php if (isset($discount['discount'])) : ?>
                         <td class="text-right d-flex justify-content-between">
                           <span>IDR</span>
-                          <span class="font-weight-bold"> - <?= $data_order["bonus"] ?></span>
+                          <span class="font-weight-bold"> - <?= number_format($data_order["bonus"], 2, ',', '.') ?></span>
                         </td>
                       <?php elseif (isset($discount['free'])) : ?>
                         <td class="text-right font-weight-bold">Free <?= $discount['free'] ?></td>

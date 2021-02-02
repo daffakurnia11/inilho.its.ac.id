@@ -59,6 +59,36 @@ class Merchandise extends CI_Controller
   {
     $this->form_validation->set_rules('productBundle', 'Bundle Pack', 'required');
 
+    $tabel_bundle = $this->db->get_where('tabel_bundle', ['product' => $this->input->post('productBundle')])->row_array();
+
+    if ($tabel_bundle['hoodie'] == 1) {
+      $this->form_validation->set_rules('hoodie', 'Hoodie', 'required');
+    }
+    if ($tabel_bundle['shirt'] == 1) {
+      $this->form_validation->set_rules('tshirt', 'T-Shirt', 'required');
+    }
+    if ($tabel_bundle['totebag'] == 1) {
+      $this->form_validation->set_rules('totebag', 'Totebag', 'required');
+    }
+    if ($tabel_bundle['cap'] == 1) {
+      $this->form_validation->set_rules('cap', 'Dad Cap', 'required');
+    }
+    if ($tabel_bundle['keychain'] == 1) {
+      $this->form_validation->set_rules('keychain', 'Keychain', 'required');
+    }
+    if ($tabel_bundle['bracelet'] == 1) {
+      $this->form_validation->set_rules('bracelet', 'Bracelet', 'required');
+    }
+    if ($tabel_bundle['lanyard'] == 1) {
+      $this->form_validation->set_rules('lanyard', 'Lanyard', 'required');
+    }
+    if ($tabel_bundle['stickerbook'] == 1) {
+      $this->form_validation->set_rules('stickerbook', 'Stickerbook', 'required');
+    }
+    if ($tabel_bundle['product'] != 'Peach Pack' && $tabel_bundle['product'] != 'Yellow Pack') {
+      $this->form_validation->set_rules('sizeBundle', 'Size', 'required');
+    }
+
     if ($this->form_validation->run() == FALSE) {
       $this->session->set_flashdata('flash', 'Bundle');
       redirect('merchandise');
@@ -136,8 +166,8 @@ class Merchandise extends CI_Controller
 
   public function checkout()
   {
-    $this->form_validation->set_rules('receiver', 'Nama Penerima', 'required|trim');
-    $this->form_validation->set_rules('phone', 'No Penerima', 'required|trim|numeric');
+    $this->form_validation->set_rules('receiver', 'Nama Penerima', 'required|trim|alpha_numeric_spaces');
+    $this->form_validation->set_rules('phone', 'No Penerima', 'required|trim|numeric|min_length[10]|max_length[12]');
     $this->form_validation->set_rules('address', 'Alamat Penerima', 'required|trim');
     $this->form_validation->set_rules('postal', 'Kode Pos', 'required|trim|numeric');
     $this->form_validation->set_rules('province', 'Provinsi', 'required');
@@ -223,6 +253,7 @@ class Merchandise extends CI_Controller
 
   public function invoice($id_order)
   {
+    $this->cart->destroy();
     $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id_order])->row_array();
     $data['order_detail'] = $this->db->get_where('order_detail', ['no_order' => $id_order])->result_array();
     $data['order_bundle'] = $this->db->get_where('order_bundle', ['no_order' => $id_order])->result_array();
@@ -307,6 +338,7 @@ class Merchandise extends CI_Controller
     ];
 
     $config['allowed_types'] = 'jpg|png|JPG';
+    $config['max_size'] = '5120';
     $config['upload_path'] = 'public/merchandise/img/transfer/';
 
     $this->load->library('upload', $config);

@@ -183,7 +183,15 @@ html {
 
 #merch-catalog .catalog-menu .catalog-items img {
 	max-width: 100%;
+	transition: ease-in-out 0.3s;
 }
+
+#merch-catalog .catalog-menu .catalog-items img:hover {
+	max-width: 100%;
+	cursor: pointer;
+	box-shadow: 0 0 15px #dfe3e4;
+}
+
 
 #merch-catalog .catalog-menu .catalog-items .btn-blue {
 	padding: 5px 20px;
@@ -311,25 +319,19 @@ html {
 }
 
 #cart-lists .cart-items .btn-delete {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 10px;
+	font-size: 14px;
 	color: white;
-	background-color: #0c0c6d;
+	background-color: #f60d4f;
 	transition: 0.3s;
 }
 
 #cart-lists .cart-items .btn-delete:hover {
 	color: black;
-	background-color: #f60d4f;
+	background-color: #FCFC54;
 }
 
 #cart-lists .cart-items .btn-update {
-	position: absolute;
-	top: 30px;
-	right: 0;
-	font-size: 10px;
+	font-size: 14px;
 	color: white;
 	background-color: #0c0c6d;
 	transition: 0.3s;
@@ -477,7 +479,7 @@ html {
 
 /* CSS FOR INVOICE */
 #invoice-body {
-	padding: 10rem 0 5rem 0;
+	padding: 8rem 0 5rem 0;
 }
 
 #invoice-body .invoice-card {
@@ -486,8 +488,53 @@ html {
 	padding: 1rem;
 }
 
+#invoice-body .invoice-card .btn-area {
+	position: relative;
+}
+
+#invoice-body .invoice-card .btn-area .btn-print {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 3px 7px;
+	border-radius: 20px;
+	border: 3px solid black;
+	color: white;
+	font-size: 14px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#invoice-body .invoice-card .btn-area .btn-print:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
 #invoice-body .invoice-card .invoice-content .invoice-logo {
 	width: 100px;
+}
+
+@media print {
+	.btn-area {
+		position: relative;
+	}
+
+	.btn-print {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 3px 7px;
+		border-radius: 20px;
+		border: 3px solid black;
+		color: white;
+		font-size: 14px;
+		background-color: #0c0c6d;
+		transition: all 0.3s;
+	}
+
+	.invoice-logo {
+		width: 150px;
+	}
 }
 
 #invoice-body .invoice-card .invoice-content .invoice-details th,
@@ -584,6 +631,52 @@ html {
 #tracking-body .tracking-result .tracking-card .tracking-content .tracking-logo {
 	width: 100px;
 }
+
+#tracking-body .tracking-card .btn-area {
+	position: relative;
+}
+
+#tracking-body .tracking-card .btn-area .btn-print {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 3px 7px;
+	border-radius: 20px;
+	border: 3px solid black;
+	color: white;
+	font-size: 14px;
+	background-color: #0c0c6d;
+	transition: all 0.3s;
+}
+
+#tracking-body .tracking-card .btn-area .btn-print:hover {
+	color: white;
+	background-color: #F60D4F;
+}
+
+@media print {
+	.btn-area {
+		position: relative;
+	}
+
+	.btn-print {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 3px 7px;
+		border-radius: 20px;
+		border: 3px solid black;
+		color: white;
+		font-size: 14px;
+		background-color: #0c0c6d;
+		transition: all 0.3s;
+	}
+
+	.tracking-logo {
+		width: 150px;
+	}
+}
+
 
 #tracking-body .tracking-result .tracking-card .tracking-content .tracking-details th,
 #tracking-body .tracking-result .tracking-card .tracking-content .tracking-details p {

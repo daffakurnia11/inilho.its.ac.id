@@ -3,7 +3,7 @@
   <div class="checkout-header">
     <h1 class="checkout-title">Checkout</h1>
     <div class="checkout-form text-center container">
-      <h4>Silahkan isi data diri kalian</h4>
+      <h4>Silahkan isi data diri Anda</h4>
       <?= form_open(); ?>
       <?php
       date_default_timezone_set("Asia/Jakarta");
@@ -18,11 +18,14 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="form-group">
-            <label for="phone">No Telpon</label>
+          <label for="phone">No Telpon</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">+62</span>
+            </div>
             <input type="text" class="form-control" id="phone" name="phone">
-            <?= form_error('phone', '<p style="color: red">', '</p>'); ?>
           </div>
+          <?= form_error('phone', '<p style="color: red">', '</p>'); ?>
         </div>
       </div>
       <div class="form-group">
@@ -55,12 +58,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label for="courier">Ekspedisi</label>
-            <select name="courier" id="courier" class="form-control">
-              <option value="">--Pilih Kurir--</option>
-              <option value="jne">JNE</option>
-              <option value="tiki">TIKI</option>
-              <option value="pos">Pos Indonesia</option>
-            </select>
+            <select name="courier" id="courier" class="form-control"></select>
             <?= form_error('courier', '<p style="color: red">', '</p>'); ?>
           </div>
         </div>
@@ -189,7 +187,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Kode Referral : </span>
                   </div>
-                  <input id="code_referral" name="referral" type="text" class="form-control" placeholder="Masukkan Kode Referral">
+                  <input id="code_referral" type="text" class="form-control" placeholder="Masukkan Kode Referral">
                 </div>
               </td>
               <td>
@@ -221,6 +219,7 @@
       <input type="hidden" name="subtotal" value="<?= $this->cart->total() ?>">
       <input type="hidden" name="bonus">
       <input type="hidden" name="total">
+      <input type="hidden" name="referral">
       <!-- END OF HIDDEN FORM -->
 
       <!-- SAVE DETAILS ITEM -->
@@ -245,7 +244,6 @@
             url: '<?= base_url('shipping/province') ?>',
             type: "POST",
             success: function(result_province) {
-              // console.log(result_province);
               $('#province').html(result_province);
             }
           });
@@ -253,6 +251,15 @@
           // City Data
           $('#province').on('change', function() {
             var get_province = $("option:selected", this).attr("id_province");
+            $('#city').empty();
+            $('#courier').empty();
+            $('#package').empty();
+
+            $("#cost-courier").empty();
+            $('#total-payment').empty();
+            $('input[name=etd]').val('');
+            $('input[name=shipping]').val('');
+            $('input[name=total]').val('');
 
             $.ajax({
               url: '<?= base_url('shipping/city') ?>',
@@ -264,12 +271,37 @@
               }
             });
           });
+          $('#city').on('change', function() {
+            $('#courier').empty();
+            $('#package').empty();
+
+            $("#cost-courier").empty();
+            $('#total-payment').empty();
+            $('input[name=etd]').val('');
+            $('input[name=shipping]').val('');
+            $('input[name=total]').val('');
+
+            $.ajax({
+              url: '<?= base_url('shipping/expedition') ?>',
+              type: "POST",
+              success: function(result_expedition) {
+                $('#courier').html(result_expedition);
+              }
+            });
+          })
 
           // Courier Data
           $('#courier').on('change', function() {
+            $('#package').empty();
+
+            $("#cost-courier").empty();
+            $('#total-payment').empty();
+            $('input[name=etd]').val('');
+            $('input[name=shipping]').val('');
+            $('input[name=total]').val('');
+
             var get_courier = $('#courier').val();
             var get_city = $("option:selected", '#city').attr("id_city");
-            // var get_city = $('#city').val();
             var get_weight = '<?= $weight ?>';
 
             $.ajax({
@@ -277,7 +309,6 @@
               type: "POST",
               data: 'courier=' + get_courier + '&city=' + get_city + '&weight=' + get_weight,
               success: function(result_courier) {
-                // console.log(result_courier);
                 $('#package').html(result_courier);
               }
             });
