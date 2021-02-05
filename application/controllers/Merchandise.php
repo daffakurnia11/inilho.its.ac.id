@@ -338,12 +338,16 @@ class Merchandise extends CI_Controller
     ];
 
     $config['allowed_types'] = 'jpg|png|JPG';
-    $config['max_size'] = '5120';
+    $config['max_size'] = '2048';
     $config['upload_path'] = 'public/merchandise/img/transfer/';
 
     $this->load->library('upload', $config);
 
-    if ($this->upload->do_upload('transfer')) {;
+    if ($this->upload->do_upload('transfer')) {
+      $old_image = $data_order['transfer'];
+      if ($old_image) {
+        unlink(FCPATH . 'public/merchandise/img/transfer/' . $old_image);
+      }
       $this->upload->data('file_name');
 
       $this->db->where('no_order', $this->input->post('no_order'));
