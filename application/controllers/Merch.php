@@ -199,4 +199,11 @@ class Merch extends CI_Controller
 
     $this->load->view('admin/merch/invoice_print', $data);
   }
+
+  public function transfer($id)
+  {
+    $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id])->row_array();
+
+    $this->load->view('admin/merch/transfer_img', $data);
+  }
 }
