@@ -56,7 +56,7 @@
         </div>
         <div class="tracking-card container-sm" id="printArea">
           <div class="btn-area">
-            <button type="button" onclick="printDiv('printArea')" class="btn-print"><i class="fas fa-print pr-2"></i>Cetak Invoice</button>
+            <a href="<?= base_url('merchandise/print/') . $data_order['no_order']; ?>" class="btn-print"><i class="fas fa-print pr-2"></i>Cetak Invoice</a>
           </div>
           <div class="tracking-content">
             <img class="tracking-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">

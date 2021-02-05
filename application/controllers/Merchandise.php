@@ -364,4 +364,14 @@ class Merchandise extends CI_Controller
       redirect($redirect_page);
     }
   }
+
+  public function print($id)
+  {
+    $data['data_store'] = $this->db->get_where('data_store', ['id' => 1])->row_array();
+    $data['data_order'] = $this->db->get_where('data_order', ['no_order' => $id])->row_array();
+    $data['order_detail'] = $this->db->get_where('order_detail', ['no_order' => $id])->result_array();
+    $data['order_bundle'] = $this->db->get_where('order_bundle', ['no_order' => $id])->result_array();
+
+    $this->load->view('merchandise/invoice_print', $data);
+  }
 }

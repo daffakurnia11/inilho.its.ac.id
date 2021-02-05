@@ -28,6 +28,9 @@
           <div class="mt-2 ml-3">
             <a class="text-gray-800" style="text-decoration: none;" href="<?= base_url('public/merchandise/img/transfer/' . $data_order['transfer']) ?>" target="_blank"><strong>Klik untuk lihat bukti pembayaran</strong></a>
           </div>
+          <div class="mt-2">
+            <a href="<?= base_url('merch/print/') . $data_order['no_order']; ?>" class="btn btn-primary" style="font-size: 14px;">Cetak Kertas Pengiriman!</a>
+          </div>
         <?php endif; ?>
       </div>
     </div>

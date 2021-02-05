@@ -41,7 +41,7 @@
     <textarea class="form-control" id="addres" rows="3" name="address"><?= $data_store['address'] ?></textarea>
     <?= form_error('address', '<p style="color: red">', '</p>'); ?>
   </div>
-  <input type="hidden" name="city_id" id="city_id">
+  <input type="hidden" name="city_id" id="city_id" value="<?= $data_store['city_id'] ?>">
   <button type="submit" name="submit" class="btn btn-primary">Atur Pengiriman!</button>
   </form>
 </div>

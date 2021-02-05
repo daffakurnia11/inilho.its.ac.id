@@ -1,19 +1,24 @@
-<!-- INVOICE CONTENT -->
-<div id="invoice-body" class="mb-5">
-  <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>">
-    <?= $this->session->unset_userdata('flash'); ?>
-  </div>
-  <div class="invoice-header text-center">
-    <h2>Terimakasih telah melakukan pemesanan.</h2>
-    <h4>Nomor Invoice Anda : <span style="color: #f60d4f; font-weight: 600;"><?= $data_order['no_order']; ?></span></h4>
-    <p>Selanjutnya, silakan melakukan pembayaran sesuai dengan petunjuk dibawah ini.</p>
-  </div>
-  <div class="invoice-card container-sm mb-5" id="printArea">
-    <div class="btn-area">
-      <a href="<?= base_url('merchandise/print/') . $data_order['no_order']; ?>" class="btn-print"><i class="fas fa-print pr-2"></i>Cetak Invoice</a>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cetak Invoice <?= $data_order['no_order']; ?></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <style>
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="invoice-card p-2" style="border: 2px solid black; width: 700px;">
     <div class="invoice-content">
-      <img class="invoice-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="">
+      <img class="invoice-logo ml-2" src="<?= base_url('assets/img/logo.png') ?>" alt="" width="100px">
       <div class="invoice-details mt-2">
         <div class="row">
           <div class="col">
@@ -29,7 +34,7 @@
         </div>
       </div>
       <div class="table-responsive invoice-cart">
-        <table class="table mt-2" style="color: black;">
+        <table class="table mt-2" style="color: black; font-size: 10pt; padding: 0; margin: 0;">
           <thead>
             <tr class="text-center">
               <th scope="col">Nama</th>
@@ -170,41 +175,11 @@
       </div>
     </div>
   </div>
-  <div class="container invoice-transfer text-center mt-3">
-    <h5>Status pemesanan kamu adalah <strong><?= $data_order['status'] ?></strong></h5>
-    <?php if ($data_order['status'] == 'Belum Bayar') : ?>
-      <h6>Silakan lakukan pembayaran dengan cara transfer pada berikut ini.</h6>
-      <p>
-        <strong>BCA :</strong> 8221052552 (Erlina Nabila Puteri)<br>
-        <strong>BNI :</strong> 0842439585 (Amalia Lutvita Nia)<br>
-        <strong>OVO :</strong> 081357259614 (M. Firman Fardiansyah)
-      </p>
-      <h6>Upload bukti pembayaran kamu pada kolom upload berikut.</h6>
-      <div class="container text-center" style="max-width: 500px;">
-        <?= form_open_multipart('merchandise/transferupload'); ?>
-        <?= form_hidden('redirect_page', str_replace('index.php/', '', current_url())) ?>
-        <div class="input-group">
-          <input type="hidden" name="no_order" value="<?= $data_order['no_order'] ?>">
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" name="transfer" id="transfer-input" aria-describedby="inputGroupFileAddon04">
-            <label id="transfer-file" class="custom-file-label text-left" for="transfer-input">Choose file</label>
-          </div>
-          <div class="input-group-append">
-            <button class="btn btn-blue" type="submit" id="inputGroupFileAddon04">Upload!</button>
-          </div>
-        </div>
-        <?= form_close() ?>
-      </div>
-    <?php elseif ($data_order['status'] == 'Ditolak') : ?>
-      <h6 class="mb-4">Silakan hubungi kami terkait masalah dan keluhan anda. Terima kasih.</h6>
-    <?php elseif ($data_order['status'] == 'Selesai') : ?>
-      <h6 class="mb-4">Terima kasih telah melakukan pemesanan, kami tunggu <i>next order!</i></h6>
-    <?php else : ?>
-      <h6 class="mb-4">Silakan ditunggu atau hubungi kami lebih lanjut. Terima Kasih.</h6>
-    <?php endif; ?>
-  </div>
-  <div class="text-center my-5">
-    <a href="<?= base_url('merchandise') ?>" class="mx-2 btn btn-yellow">Kembali ke Katalog</a>
-    <a href="<?= base_url('merchandise/tracking') ?>" class="mx-2 btn btn-green">Cek Status Pesanan</a>
-  </div>
-</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script>
+  window.print();
+</script>
+
+</html>
