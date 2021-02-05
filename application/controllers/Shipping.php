@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Shipping extends CI_Controller
 {
-  private $api_key = 'ded2a0a32bdfddc14fceb7f027d9c754';
+  private $api_key = '3119b6dfff09d5263caa82ee261fbf65';
 
   public function province()
   {
@@ -106,7 +106,7 @@ class Shipping extends CI_Controller
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "origin=" . $origin['city'] . "&destination=" . $city . "&weight=" . $weight . "&courier=" . $kurir . "",
+      CURLOPT_POSTFIELDS => "origin=" . $origin['city_id'] . "&destination=" . $city . "&weight=" . $weight . "&courier=" . $kurir . "",
       CURLOPT_HTTPHEADER => array(
         "content-type: application/x-www-form-urlencoded",
         "key: $this->api_key"

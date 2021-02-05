@@ -20,7 +20,7 @@ class Admin2021 extends CI_Controller
     $data['finished'] = $this->db->get_where('data_order', ['status' => 'Selesai'])->num_rows();
 
     $this->db->where('status', 'Sudah Bayar');
-    $this->db->or_where('status', 'Sedang Proses');
+    $this->db->or_where('status', 'Sedang Diproses');
     $data['paid'] = $this->db->get('data_order')->num_rows();
 
     $this->load->view('admin/templates/header', $data);

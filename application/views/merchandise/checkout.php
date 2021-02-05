@@ -310,6 +310,7 @@
               data: 'courier=' + get_courier + '&city=' + get_city + '&weight=' + get_weight,
               success: function(result_courier) {
                 $('#package').html(result_courier);
+                // console.log(result_courier);
               }
             });
           });

@@ -48,7 +48,8 @@ class Merch extends CI_Controller
         'sender' => $this->input->post('sender'),
         'phone' => $this->input->post('phone'),
         'address' => $this->input->post('address'),
-        'city' => $this->input->post('city')
+        'city' => $this->input->post('city'),
+        'city_id' => $this->input->post('city_id')
       ];
       $this->db->where('id', 1);
       $this->db->update('data_store', $data);

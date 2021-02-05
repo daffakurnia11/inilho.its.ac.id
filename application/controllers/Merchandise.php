@@ -169,7 +169,7 @@ class Merchandise extends CI_Controller
     $this->form_validation->set_rules('receiver', 'Nama Penerima', 'required|trim|alpha_numeric_spaces');
     $this->form_validation->set_rules('phone', 'No Penerima', 'required|trim|numeric|min_length[10]|max_length[12]');
     $this->form_validation->set_rules('address', 'Alamat Penerima', 'required|trim');
-    $this->form_validation->set_rules('postal', 'Kode Pos', 'required|trim|numeric');
+    $this->form_validation->set_rules('postal', 'Kode Pos', 'required|trim|numeric|exact_length[5]');
     $this->form_validation->set_rules('province', 'Provinsi', 'required');
     $this->form_validation->set_rules('city', 'Kota', 'required');
     $this->form_validation->set_rules('courier', 'Kurir', 'required');
@@ -191,7 +191,7 @@ class Merchandise extends CI_Controller
       $data = [
         'no_order' => $this->input->post('no_order'),
         'receiver' => $this->input->post('receiver'),
-        'phone' => $this->input->post('phone'),
+        'phone' => '62' . $this->input->post('phone'),
         'address' => $this->input->post('address'),
         'province' => $this->input->post('province'),
         'city' => $this->input->post('city'),

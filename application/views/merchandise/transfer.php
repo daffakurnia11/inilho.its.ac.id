@@ -3,7 +3,7 @@
   <div class="container" style="max-width: 900px;">
     <div class="invoice-header text-center mb-5">
       <h3>Bukti Transfer Berhasil di Upload!</h3>
-      <p>Selanjutnya, silakan tunggu sesuai dengan petunjuk dibawah ini. Jika ada keluhan atau masalah, silakan hubungi <i>Contact Person</i> di bawah ini.</p>
+      <p>Selanjutnya, silakan tunggu konfirmasi dari Admin Official Merchandise Ini Lho ITS! 2021. Jika ada keluhan atau masalah, silakan hubungi <i>Contact Person</i> di bawah ini.</p>
     </div>
     <!-- CONTACT PERSON -->
     <div class="contact-person text-center mb-5">
