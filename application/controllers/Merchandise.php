@@ -337,7 +337,7 @@ class Merchandise extends CI_Controller
       'referral' => $data_order['referral'],
       'total' => $data_order['total'],
       'status' => $data_order['status'],
-      'transfer' => $upload_image
+      'transfer' => str_replace(' ', '_', $upload_image)
     ];
     if ($upload_image) {
       $config['allowed_types'] = 'jpg|png|JPG';

@@ -169,11 +169,14 @@ $(function() {
           } 
         } else {
           $('#referral').html('<div class="text-center">Tidak Ditemukan</div>');
-          var total = parseInt(shipping) + parseInt(payment);
-
-          $('#total-payment').html(numberFormatter.format(parseInt(total)) + ',00');
+          var totalNoDiscount = parseInt(shipping) + parseInt(payment);
           
+          $('input[name=shipping]').val(shipping);
+          $('input[name=bonus]').val('');
+          $('input[name=total]').val(totalNoDiscount);
           $('input[name=referral]').val('');
+
+          $('#total-payment').html(numberFormatter.format(parseInt(totalNoDiscount)) + ',00');
         }
       }
     });
