@@ -2,7 +2,17 @@
 <div class="container text-center" style="color: black;">
   <h1 class="mb-3 ">Ini Lho ITS! Official Merchandise</h1>
   <h3 class="mb-3 text-left">Daftar Pesanan</h3>
-  <?= $this->pagination->create_links(); ?>
+  <div class="d-flex justify-content-between">
+    <form action="" method="post">
+      <div class="input-group mb-3" style="width: 400px;">
+        <input type="text" class="form-control" placeholder="Masukkan Kata Kunci" name="keyword">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Cari!</button>
+        </div>
+      </div>
+    </form>
+    <?= $this->pagination->create_links(); ?>
+  </div>
   <?= $this->session->flashdata('message'); ?>
   <?= $this->session->unset_userdata('message'); ?>
   <table class="table table-hover bg-white" style="color: black;font-size: 15px;">

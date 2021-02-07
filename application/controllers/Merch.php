@@ -12,15 +12,22 @@ class Merch extends CI_Controller
   public function index()
   {
     $data['title'] = 'Merchandise Order';
-    $config['base_url'] = base_url('merch');
-    $config['total_rows'] = $this->db->get('data_order')->num_rows();
-    $config['per_page'] = 5;
 
-    $this->pagination->initialize($config);
+    $keyword = $this->input->post('keyword');
+    if ($keyword) {
+      $this->db->like('no_order', $keyword);
+      $this->db->or_like('receiver', $keyword);
+      $data['data_order'] = $this->db->get('data_order')->result_array();
+    } else {
+      $config['base_url'] = base_url('merch/index/');
+      $config['total_rows'] = $this->db->get('data_order')->num_rows();
+      $config['per_page'] = 5;
 
-    $data['start'] = $this->uri->segment(3);
-    $data['data_order'] = $this->db->get('data_order', $config['per_page'], $data['start'])->result_array();
+      $this->pagination->initialize($config);
 
+      $data['start'] = $this->uri->segment(3);
+      $data['data_order'] = $this->db->get('data_order', $config['per_page'], $data['start'])->result_array();
+    }
     $this->load->view('admin/templates/header', $data);
     $this->load->view('admin/templates/sidebar');
     $this->load->view('admin/templates/navbar');
