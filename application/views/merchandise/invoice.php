@@ -189,18 +189,22 @@
             <input type="file" class="custom-file-input" name="transfer" id="transfer-input" aria-describedby="inputGroupFileAddon04">
             <label id="transfer-file" class="custom-file-label text-left" for="transfer-input">Choose file</label>
           </div>
-          <div class="input-group-append">
+          <div class="input-group-append mb-4">
             <button class="btn btn-blue" type="submit" id="inputGroupFileAddon04">Upload!</button>
           </div>
         </div>
         <?= form_close() ?>
       </div>
+    <?php elseif ($data_order['status'] == 'Sudah Upload') : ?>
+      <h6 class="mb-4">Anda sudah melakukan pembayaran, silakan ditunggu atau hubungi lebih lanjut</h6>
+    <?php elseif ($data_order['status'] == 'Sedang Proses') : ?>
+      <h6 class="mb-4">Pesanan anda sedang diproses. Silakan ditunggu atau hubungi kami lebih lanjut.</h6>
+    <?php elseif ($data_order['status'] == 'Dalam Pengiriman') : ?>
+      <h6 class="mb-4">Pesanan anda sudah dikirim dan sedang dalam pengiriman. Terima Kasih.</h6>
     <?php elseif ($data_order['status'] == 'Ditolak') : ?>
-      <h6 class="mb-4">Silakan hubungi kami terkait masalah dan keluhan anda. Terima kasih.</h6>
+      <h6 class="mb-4">Pesanan anda <strong>Ditolak!</strong> Silakan hubungi kami lebih lanjut.</h6>
     <?php elseif ($data_order['status'] == 'Selesai') : ?>
       <h6 class="mb-4">Terima kasih telah melakukan pemesanan, kami tunggu <i>next order!</i></h6>
-    <?php else : ?>
-      <h6 class="mb-4">Silakan ditunggu atau hubungi kami lebih lanjut. Terima Kasih.</h6>
     <?php endif; ?>
   </div>
   <div class="text-center my-5">

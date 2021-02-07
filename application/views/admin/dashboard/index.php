@@ -38,7 +38,7 @@
   <div class="row">
 
     <!-- Total Unpaid Orders -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card shadow h-100 py-2" style="border-left: 5px solid #f99121;">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -55,24 +55,58 @@
       </div>
     </div>
     <!-- Total Paid Orders -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card shadow h-100 py-2" style="border-left: 5px solid #0c0c6d;">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #0c0c6d;">
-                Sudah Bayar / Proses</div>
+                Sudah Upload</div>
               <div class="h5 mb-0 font-weight-bold"><?= $paid; ?> <span class="h6 font-weight-normal">Pesanan</span></div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-paper-plane fa-2x" style="color: #0c0c6d;"></i>
+              <i class="fas fa-money-bill-wave fa-2x" style="color: #0c0c6d;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Total Process Orders -->
+    <div class="col-xl-4 col-md-6 mb-4">
+      <div class="card shadow h-100 py-2" style="border-left: 5px solid #12040d;">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #12040d;">
+                Sedang Proses</div>
+              <div class="h5 mb-0 font-weight-bold"><?= $process; ?> <span class="h6 font-weight-normal">Pesanan</span></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-box fa-2x" style="color: #12040d;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Total Shipping Orders -->
+    <div class="col-xl-4 col-md-6 mb-4">
+      <div class="card shadow h-100 py-2" style="border-left: 5px solid #f95d8a;">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #f95d8a;">
+                Dalam Pengiriman</div>
+              <div class="h5 mb-0 font-weight-bold"><?= $ship; ?> <span class="h6 font-weight-normal">Pesanan</span></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-shipping-fast fa-2x" style="color: #f95d8a;"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Total Finished Orders -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card shadow h-100 py-2" style="border-left: 5px solid #13bf2b;">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -89,7 +123,7 @@
       </div>
     </div>
     <!-- Total Finished Orders -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card shadow h-100 py-2" style="border-left: 5px solid #f6014f;">
         <div class="card-body">
           <div class="row no-gutters align-items-center">

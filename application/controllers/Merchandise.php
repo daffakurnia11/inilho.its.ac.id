@@ -336,7 +336,7 @@ class Merchandise extends CI_Controller
       'subtotal' => $data_order['subtotal'],
       'referral' => $data_order['referral'],
       'total' => $data_order['total'],
-      'status' => $data_order['status'],
+      'status' => 'Sudah Upload',
       'transfer' => str_replace(' ', '_', $upload_image)
     ];
     if ($upload_image) {

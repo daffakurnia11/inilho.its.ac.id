@@ -16,12 +16,11 @@ class Admin2021 extends CI_Controller
     $data['order_total'] = $this->db->get('data_order');
 
     $data['unpaid'] = $this->db->get_where('data_order', ['status' => 'Belum Bayar'])->num_rows();
+    $data['paid'] = $this->db->get_where('data_order', ['status' => 'Sudah Upload'])->num_rows();
+    $data['process'] = $this->db->get_where('data_order', ['status' => 'Sedang Proses'])->num_rows();
+    $data['ship'] = $this->db->get_where('data_order', ['status' => 'Dalam Pengiriman'])->num_rows();
     $data['reject'] = $this->db->get_where('data_order', ['status' => 'Ditolak'])->num_rows();
     $data['finished'] = $this->db->get_where('data_order', ['status' => 'Selesai'])->num_rows();
-
-    $this->db->where('status', 'Sudah Bayar');
-    $this->db->or_where('status', 'Sedang Diproses');
-    $data['paid'] = $this->db->get('data_order')->num_rows();
 
     $this->load->view('admin/templates/header', $data);
     $this->load->view('admin/templates/sidebar');

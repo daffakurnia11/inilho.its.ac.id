@@ -21,7 +21,7 @@ class Merch extends CI_Controller
     } else {
       $config['base_url'] = base_url('merch/index/');
       $config['total_rows'] = $this->db->get('data_order')->num_rows();
-      $config['per_page'] = 5;
+      $config['per_page'] = 7;
 
       $this->pagination->initialize($config);
 

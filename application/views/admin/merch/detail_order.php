@@ -19,8 +19,9 @@
         <select class="form-control" id="status" name="status">
           <option value="<?= $data_order['status'] ?>">Saat ini : <?= $data_order['status'] ?></option>
           <option value="Belum Bayar">Belum Bayar</option>
-          <option value="Sudah Bayar">Sudah Bayar</option>
-          <option value="Sedang Diproses">Sedang Diproses</option>
+          <option value="Sudah Upload">Sudah Upload</option>
+          <option value="Sedang Proses">Sedang Proses</option>
+          <option value="Dalam Pengiriman">Dalam Pengiriman</option>
           <option value="Ditolak">Ditolak</option>
           <option value="Selesai">Selesai</option>
         </select>
