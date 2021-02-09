@@ -21,6 +21,7 @@
         <th scope="col">No</th>
         <th scope="col">Invoice</th>
         <th scope="col">Nama</th>
+        <th scope="col">Kode</th>
         <th scope="col">Status</th>
         <th scope="col">Aksi</th>
       </tr>
@@ -32,6 +33,13 @@
           <th scope="row"><?= $i; ?></th>
           <td><?= $items['no_order'] ?></td>
           <td><?= $items['receiver'] ?></td>
+          <td>
+            <?php if ($items['referral']) : ?>
+              <?= $items['referral'] ?>
+            <?php else : ?>
+              Tidak ada
+            <?php endif; ?>
+          </td>
           <td><?= $items['status'] ?></td>
           <td>
             <a href="<?= base_url('merch/detail/') . $items['no_order'] ?>">

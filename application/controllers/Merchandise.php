@@ -24,9 +24,6 @@ class Merchandise extends CI_Controller
   }
   public function images()
   {
-    // $id = $this->input->post('id');
-    // $query = 'SELECT * FROM tabel_images WHERE code = $id';
-    // var_dump($this->db->query($query));
     echo json_encode($this->db->get_where('tabel_images', ['code' => $this->input->post('code')])->result());
   }
 
@@ -39,6 +36,15 @@ class Merchandise extends CI_Controller
         'id'      => $this->input->post('id'),
         'qty'     => $this->input->post('qty'),
         'price'   => $this->input->post('price'),
+        'name'    => $this->input->post('name'),
+        'options' => array('Size' => $this->input->post('size'), 'Category' => $category)
+      );
+    }
+    if ($this->input->post('size') == 'XXL') {
+      $data = array(
+        'id'      => $this->input->post('id'),
+        'qty'     => $this->input->post('qty'),
+        'price'   => $this->input->post('price') + 5000,
         'name'    => $this->input->post('name'),
         'options' => array('Size' => $this->input->post('size'), 'Category' => $category)
       );
@@ -95,11 +101,16 @@ class Merchandise extends CI_Controller
     } else {
       $redirect_page = $this->input->post('redirect_page');
       $bundle = $this->db->get_where('tabel_bundle', ['product' => $this->input->post('productBundle')])->result_array()[0];
+      if ($this->input->post('sizeBundle') == 'XXL') {
+        $price = $bundle['price'] + 5000;
+      } else {
+        $price = $bundle['price'];
+      }
 
       $data = array(
         'id'      => $bundle['id'],
         'qty'     => 1,
-        'price'   => $bundle['price'],
+        'price'   => $price,
         'name'    => $this->input->post('productBundle'),
         'options' => [
           'Category' => 'Bundle',

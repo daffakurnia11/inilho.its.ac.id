@@ -301,7 +301,7 @@
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="sizeBundle" id="XXL<?= $j ?>" value="XXL">
                         <label class="form-check-label" for="XXL<?= $j ?>">
-                          XXL
+                          XXL (+IDR 5000)
                         </label>
                       </div>
                       <?= form_error('sizeBundle', '<p style="color: red">', '</p>'); ?>
@@ -540,7 +540,7 @@
                     <option value="M">M</option>
                     <option value="L">L</option>
                     <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
+                    <option value="XXL">XXL (+IDR 5000)</option>
                   </select>
                 </div>
               </div>
