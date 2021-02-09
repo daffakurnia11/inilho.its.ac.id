@@ -110,13 +110,21 @@
                       <td>
                         <div class="d-flex justify-content-between">
                           <span>IDR</span>
-                          <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                          <?php if ($items['notes'] == 'XXL') : ?>
+                            <span><?= number_format($product['price'] + 5000, 2, ',', '.') ?></span>
+                          <?php else : ?>
+                            <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                          <?php endif; ?>
                         </div>
                       </td>
                       <td>
                         <div class="d-flex justify-content-between">
                           <span>IDR</span>
-                          <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                          <?php if ($items['notes'] == 'XXL') : ?>
+                            <span><?= number_format(($product['price'] + 5000) * $items['qty'], 2, ',', '.') ?></span>
+                          <?php else : ?>
+                            <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                          <?php endif; ?>
                         </div>
                       </td>
                     </tr>
@@ -163,13 +171,21 @@
                         <td>
                           <div class="d-flex justify-content-between">
                             <span>IDR</span>
-                            <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                            <?php if ($items['size'] == 'XXL') : ?>
+                              <span><?= number_format($product['price'] + 5000, 2, ',', '.') ?></span>
+                            <?php else : ?>
+                              <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                            <?php endif; ?>
                           </div>
                         </td>
                         <td>
                           <div class="d-flex justify-content-between">
                             <span>IDR</span>
-                            <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                            <?php if ($items['size'] == 'XXL') : ?>
+                              <span><?= number_format(($product['price'] + 5000) * $items['qty'], 2, ',', '.') ?></span>
+                            <?php else : ?>
+                              <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                            <?php endif; ?>
                           </div>
                         </td>
                       </tr>
@@ -179,7 +195,7 @@
                     <td colspan="4" class="text-right font-weight-bold">Sub Total : </td>
                     <td class="d-flex justify-content-between">
                       <span>IDR</span>
-                      <span><?= number_format($subtotal, 2, ',', '.') ?></span>
+                      <span><?= number_format($data_order['subtotal'], 2, ',', '.') ?></span>
                     </td>
                   </tr>
                   <tr>
