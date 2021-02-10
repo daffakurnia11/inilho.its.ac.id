@@ -101,7 +101,7 @@
                     <tr>
                       <td class="text-left">
                         <?= $items['product'] ?><br>
-                        <?php if ($items['notes'] != 'null') {
+                        <?php if ($items['notes'] != null) {
                           echo 'Size : ' . $items['notes'];
                         } ?>
                       </td>
@@ -138,7 +138,9 @@
                       <tr>
                         <td class="text-left">
                           <?= $items['bundle'] ?><br>
-                          <p><?= 'Size : ' . $items['size']; ?></p>
+                          <?php if ($items['size']) : ?>
+                            <p>Size : <?= $items['size']; ?></p>
+                          <?php endif; ?>
                           <p>
                             <?php if ($items['hoodie']) : ?>
                               <?= $items['hoodie'] ?><br>

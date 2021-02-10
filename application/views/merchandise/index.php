@@ -232,7 +232,7 @@
                     <div class="col-sm-9">
                       <?php foreach ($lanyard as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="lanyard" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="hidden" name="lanyard" value="<?= $name['category']; ?> <?= $name['product']; ?>">
                           <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>
@@ -254,7 +254,7 @@
                     <div class="col-sm-9">
                       <?php foreach ($sticker as $name) : ?>
                         <div class="form-check">
-                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="radio" name="stickerbook" value="<?= $name['category']; ?> <?= $name['product']; ?>">
+                          <input class="form-check-input" id="<?= $name['id'] . $j ?>" type="hidden" name="stickerbook" value="<?= $name['category']; ?> <?= $name['product']; ?>">
                           <label class="form-check-label" for="<?= $name['id'] . $j ?>">
                             <?= $name['product']; ?>
                           </label>

@@ -238,14 +238,14 @@ class Merchandise extends CI_Controller
             'qty' => $this->input->post('qty' . $i),
             'bundle' => ($items['options']['Category'] . ' ' . $items['name']),
             'size' => $items['options']['Size'],
-            'hoodie' => $this->input->post('bundle-items' . 1),
-            'tshirt' => $this->input->post('bundle-items' . 2),
-            'totebag' => $this->input->post('bundle-items' . 3),
-            'cap' => $this->input->post('bundle-items' . 4),
-            'keychain' => $this->input->post('bundle-items' . 5),
-            'bracelet' => $this->input->post('bundle-items' . 6),
-            'lanyard' => $this->input->post('bundle-items' . 7),
-            'stickerbook' => $this->input->post('bundle-items' . 8),
+            'hoodie' => $this->input->post('bundle-items' . 1 . $i),
+            'tshirt' => $this->input->post('bundle-items' . 2 . $i),
+            'totebag' => $this->input->post('bundle-items' . 3 . $i),
+            'cap' => $this->input->post('bundle-items' . 4 . $i),
+            'keychain' => $this->input->post('bundle-items' . 5 . $i),
+            'bracelet' => $this->input->post('bundle-items' . 6 . $i),
+            'lanyard' => $this->input->post('bundle-items' . 7 . $i),
+            'stickerbook' => $this->input->post('bundle-items' . 8 . $i),
           ];
           $i++;
           $this->db->insert('order_bundle', $data_detail);
