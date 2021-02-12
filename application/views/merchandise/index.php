@@ -7,6 +7,39 @@
           Ini Lho ITS! 2021
         </h1>
         <img class="merch-official" src="<?= base_url('public/merchandise/img/') ?>merch-official.png">
+
+        <!-- COUNTDOWN -->
+        <div id="countdown-section" class="mb-4">
+          <h1 class="countdown-title">Pre-Order akan ditutup pada :</h1>
+          <div class="row countdown-time text-center">
+            <div class="col-3 px-1">
+              <p class="countdown-item">
+                <span class="days">00</span>
+                <br><span class="desc">Hari</span>
+              </p>
+            </div>
+            <div class="col-3 px-1">
+              <p class="countdown-item">
+                <span class="hours">00</span>
+                <br><span class="desc">Jam</span>
+              </p>
+            </div>
+            <div class="col-3 px-1">
+              <p class="countdown-item">
+                <span class="mins">00</span>
+                <br><span class="desc">Menit</span>
+              </p>
+            </div>
+            <div class="col-3 px-1">
+              <p class="countdown-item">
+                <span class="secs">00</span>
+                <br><span class="desc">Detik</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- END OF COUNTDOWN -->
+
         <div class="text-center">
           <a href="#catalog" class="btn btn-yellow mx-2 mb-2">Beli Sekarang !</a>
           <a href="<?= base_url('merchandise/tracking') ?>" class="btn btn-yellow mx-2 mb-2">Liat Pesananmu!</a>
