@@ -143,7 +143,7 @@
                   <?php endif; ?>
                 </td>
                 <td>
-                  <div>
+                  <div class="d-flex justify-content-between">
                     <span>IDR</span>
                     <span><?= number_format($items['price'], 2, ',', '.'); ?></span>
                   </div>

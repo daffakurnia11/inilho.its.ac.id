@@ -30,7 +30,7 @@
             <a class="text-gray-800" style="text-decoration: none;" href="<?= base_url('merch/transfer/' . $data_order['no_order']) ?>" target="_blank"><strong>Klik untuk lihat bukti pembayaran</strong></a>
           </div>
           <div class="mt-2">
-            <a href="<?= base_url('merch/print/') . $data_order['no_order']; ?>" class="btn btn-primary" style="font-size: 14px;">Cetak Kertas Pengiriman!</a>
+            <a href="<?= base_url('merch/print/') . $data_order['no_order']; ?>" target="_blank" class="btn btn-primary" style="font-size: 14px;">Cetak Kertas Pengiriman!</a>
           </div>
         <?php endif; ?>
       </div>
@@ -68,13 +68,21 @@
             <td>
               <div class="d-flex justify-content-between">
                 <span>IDR</span>
-                <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                <?php if ($items['notes'] == 'XXL') : ?>
+                  <span><?= number_format($product['price'] + 5000, 2, ',', '.') ?></span>
+                <?php else : ?>
+                  <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                <?php endif; ?>
               </div>
             </td>
             <td>
               <div class="d-flex justify-content-between">
                 <span>IDR</span>
-                <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                <?php if ($items['notes'] == 'XXL') : ?>
+                  <span><?= number_format(($product['price'] + 5000) * $items['qty'], 2, ',', '.') ?></span>
+                <?php else : ?>
+                  <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                <?php endif; ?>
               </div>
             </td>
           </tr>
@@ -123,13 +131,21 @@
               <td>
                 <div class="d-flex justify-content-between">
                   <span>IDR</span>
-                  <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                  <?php if ($items['size'] == 'XXL') : ?>
+                    <span><?= number_format($product['price'] + 5000, 2, ',', '.') ?></span>
+                  <?php else : ?>
+                    <span><?= number_format($product['price'], 2, ',', '.') ?></span>
+                  <?php endif; ?>
                 </div>
               </td>
               <td>
                 <div class="d-flex justify-content-between">
                   <span>IDR</span>
-                  <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                  <?php if ($items['size'] == 'XXL') : ?>
+                    <span><?= number_format(($product['price'] + 5000) * $items['qty'], 2, ',', '.') ?></span>
+                  <?php else : ?>
+                    <span><?= number_format(($product['price'] * $items['qty']), 2, ',', '.') ?></span>
+                  <?php endif; ?>
                 </div>
               </td>
             </tr>

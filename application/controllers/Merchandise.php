@@ -32,22 +32,23 @@ class Merchandise extends CI_Controller
     $redirect_page = $this->input->post('redirect_page');
     $category = $this->input->post('category');
     if ($category == 'Hoodie' || $category == 'T-Shirt' || $category == 'Tie Dye T-Shirt') {
-      $data = array(
-        'id'      => $this->input->post('id'),
-        'qty'     => $this->input->post('qty'),
-        'price'   => $this->input->post('price'),
-        'name'    => $this->input->post('name'),
-        'options' => array('Size' => $this->input->post('size'), 'Category' => $category)
-      );
-    }
-    if ($this->input->post('size') == 'XXL') {
-      $data = array(
-        'id'      => $this->input->post('id'),
-        'qty'     => $this->input->post('qty'),
-        'price'   => $this->input->post('price') + 5000,
-        'name'    => $this->input->post('name'),
-        'options' => array('Size' => $this->input->post('size'), 'Category' => $category)
-      );
+      if ($this->input->post('size') == 'XXL') {
+        $data = array(
+          'id'      => $this->input->post('id'),
+          'qty'     => $this->input->post('qty'),
+          'price'   => $this->input->post('price') + 5000,
+          'name'    => $this->input->post('name'),
+          'options' => array('Size' => $this->input->post('size'), 'Category' => $category)
+        );
+      } else {
+        $data = array(
+          'id'      => $this->input->post('id'),
+          'qty'     => $this->input->post('qty'),
+          'price'   => $this->input->post('price'),
+          'name'    => $this->input->post('name'),
+          'options' => array('Size' => $this->input->post('size'), 'Category' => $category)
+        );
+      }
     } else {
       $data = array(
         'id'      => $this->input->post('id'),
@@ -329,37 +330,40 @@ class Merchandise extends CI_Controller
     if ($old_image) {
       unlink(FCPATH . 'public/merchandise/img/transfer/' . $old_image);
     }
-    $upload_image = $_FILES['transfer']['name'];
+    $upload_image = $data_order['no_order'] . '_image.jpg';
 
-    $data = [
-      'id' => $data_order['id'],
-      'no_order' => $data_order['no_order'],
-      'receiver' => $data_order['receiver'],
-      'phone' => $data_order['phone'],
-      'address' => $data_order['address'],
-      'province' => $data_order['province'],
-      'city' => $data_order['city'],
-      'postal' => $data_order['postal'],
-      'courier' => $data_order['courier'],
-      'package' => $data_order['package'],
-      'weight' => $data_order['weight'],
-      'shipping' => $data_order['shipping'],
-      'subtotal' => $data_order['subtotal'],
-      'referral' => $data_order['referral'],
-      'total' => $data_order['total'],
-      'status' => 'Sudah Upload',
-      'transfer' => str_replace(' ', '_', $upload_image)
-    ];
     if ($upload_image) {
       $config['allowed_types'] = 'jpg|png|JPG';
       $config['max_size'] = '2048';
       $config['upload_path'] = 'public/merchandise/img/transfer/';
+      $config['file_name'] = $upload_image;
 
       $this->load->library('upload', $config);
 
       if ($this->upload->do_upload('transfer')) {
 
-        $this->upload->data('file_name');
+        // var_dump($this->upload->data('file_name'));
+        // die;
+
+        $data = [
+          'id' => $data_order['id'],
+          'no_order' => $data_order['no_order'],
+          'receiver' => $data_order['receiver'],
+          'phone' => $data_order['phone'],
+          'address' => $data_order['address'],
+          'province' => $data_order['province'],
+          'city' => $data_order['city'],
+          'postal' => $data_order['postal'],
+          'courier' => $data_order['courier'],
+          'package' => $data_order['package'],
+          'weight' => $data_order['weight'],
+          'shipping' => $data_order['shipping'],
+          'subtotal' => $data_order['subtotal'],
+          'referral' => $data_order['referral'],
+          'total' => $data_order['total'],
+          'status' => 'Sudah Upload',
+          'transfer' => $upload_image
+        ];
 
         $this->db->where('no_order', $this->input->post('no_order'));
         $this->db->update('data_order', $data);
