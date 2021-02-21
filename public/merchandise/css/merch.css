@@ -740,6 +740,57 @@ html {
 
 /* END OF TRACKING */
 
+/* CLOSE PRE ORDER PAGE */
+#close-header {
+	width: 100%;
+	min-height: 100vh;
+	background: url('http://localhost/inilho.its.ac.id/public/merchandise/img/landing-page.png');
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+	padding: 0;
+}
+
+#close-header .merch-head {
+	padding-top: 100px;
+}
+
+#close-header h1.merch-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+
+#close-header h2.merch-subtitle {
+	font-size: 20px;
+	line-height: 35px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+
+#close-header .merch-official {
+	width: 100%;
+}
+
+#close-header .btn-yellow {
+	padding: 5px 15px;
+	border: 3px solid black;
+	color: black;
+	font-weight: 600;
+	font-size: 18px;
+	border-radius: 50px;
+	background-color: #FCFC54;
+	transition: all 0.3s;
+}
+
+#close-header .btn-yellow:hover {
+	color: white;
+	background-color: #0C0C6D;
+}
+/* END OF CLOSE PRE ORDER */
+
+
 /* MEDIA QUERY */
 
 @media only screen and (min-width: 768px) {
@@ -752,6 +803,10 @@ html {
 		font-weight: bold;
 		color: white;
 		text-align: center;
+	}
+
+	#merch-catalog-header .merch-official {
+		width: 550px;
 	}
 
 	#merch-catalog-header .clothes img {
@@ -792,5 +847,20 @@ html {
 
 	#add-to-cart .media img.cart-image {
 		width: 150px;
+	}
+
+	#close-header h1.merch-title {
+		font-size: 60px;
+		font-weight: bold;
+		color: white;
+		text-align: center;
+	}
+	
+	#close-header h2.merch-subtitle {
+		font-size: 25px;
+		line-height: 40px;
+		font-weight: bold;
+		color: white;
+		text-align: center;
 	}
 }
