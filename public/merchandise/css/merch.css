@@ -21,7 +21,7 @@ html {
 }
 
 #merch-catalog-header .merch-head {
-	padding-top: 100px;
+	padding-top: 70px;
 }
 
 #merch-catalog-header .merch-title {
@@ -794,10 +794,6 @@ html {
 /* MEDIA QUERY */
 
 @media only screen and (min-width: 768px) {
-	#merch-catalog-header .merch-head {
-		padding-top: 70px;
-	}
-
 	#merch-catalog-header .merch-title {
 		font-size: 4rem;
 		font-weight: bold;
