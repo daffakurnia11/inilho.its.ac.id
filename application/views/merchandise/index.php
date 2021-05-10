@@ -10,7 +10,7 @@
 
         <!-- COUNTDOWN -->
         <div id="countdown-section" class="mb-4">
-          <h1 class="countdown-title">Pre-Order akan ditutup pada :</h1>
+          <h1 class="countdown-title">CLOSE ORDER :</h1>
           <div class="row countdown-time text-center">
             <div class="col-3 px-1">
               <p class="countdown-item">
@@ -50,20 +50,18 @@
           <!-- Carousel -->
           <div id="merchandise-carousel" data-interval="false" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="border: 4px solid #12042d; height:50vh">
-              <?php foreach ($slider as $sl => $value) {
-                $active = ($sl == 0) ? 'active' : '';
-              ?>
+              <?php foreach ($slider as $sl => $value) : ?>
+                <?php $active = ($sl == 0) ? 'active' : ''; ?>
                 <div class="carousel-item <?= $active ?> h-100" data-interval="2000">
                   <img style="object-fit: cover;" class="w-100 h-100" src="<?= base_url() ?>public/merchandise/img/slider/<?php echo $value['nama_foto'] ?>" alt="">
                 </div>
-              <?php } ?>
+              <?php endforeach; ?>
             </div>
             <div class="dots carousel-indicators w-100 mb-5" style="margin-top:-2rem;">
-              <?php foreach ($slider as $sl => $value) {
-                $active = ($sl == 0) ? 'active' : '';
-              ?>
+              <?php foreach ($slider as $sl => $value) : ?>
+                <?php $active = ($sl == 0) ? 'active' : ''; ?>
                 <i data-target="#merchandise-carousel" data-slide-to="<?= $sl ?>" class="dot-item <?= $active ?>"></i>
-              <?php } ?>
+              <?php endforeach; ?>
             </div>
           </div>
           <!-- END OF Carousel -->

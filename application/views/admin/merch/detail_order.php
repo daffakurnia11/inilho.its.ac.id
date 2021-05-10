@@ -219,31 +219,3 @@
 
 </div>
 <!-- End of Main Content -->
-<script>
-  $(document).ready(function() {
-    // Province Data
-    $.ajax({
-      url: '<?= base_url('shipping/province') ?>',
-      type: "POST",
-      success: function(result_province) {
-        // console.log(result_province);
-        $('#province').html(result_province);
-      }
-    });
-
-    // City Data
-    $('#province').on('change', function() {
-      var get_province = $("option:selected", this).attr("id_province");
-
-      $.ajax({
-        url: '<?= base_url('shipping/city') ?>',
-        type: "POST",
-        data: 'id_province=' + get_province,
-        success: function(result_city) {
-          // console.log(result_city);
-          $('#city').html(result_city);
-        }
-      });
-    });
-  });
-</script>

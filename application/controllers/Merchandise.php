@@ -18,6 +18,21 @@ class Merchandise extends CI_Controller
     $this->load->view('home/template/footer', $data);
   }
 
+  public function close()
+  {
+    $data['title'] = 'Merchandise';
+    $data['tabel_product'] = $this->db->get('tabel_product')->result_array();
+    $data['tabel_bundle'] = $this->db->get('tabel_bundle')->result_array();
+    $data['slider'] = $this->db->get('merchandise_slider')->result_array();
+    $data['nav'] = 1;
+    $data['merch_footer'] = true;
+
+    $this->load->view('home/template/header');
+    $this->load->view('home/template/navbar', $data);
+    $this->load->view('merchandise/close', $data);
+    $this->load->view('home/template/footer', $data);
+  }
+
   public function details()
   {
     echo json_encode($this->db->get_where('tabel_product', ['code' => $this->input->post('code')])->row_array());
@@ -393,5 +408,59 @@ class Merchandise extends CI_Controller
     $data['order_bundle'] = $this->db->get_where('order_bundle', ['no_order' => $id])->result_array();
 
     $this->load->view('merchandise/invoice_print', $data);
+  }
+
+
+  public function addCLOSE()
+  {
+    $redirect_page = $this->input->post('redirect_page');
+
+    $this->session->set_flashdata('flash', 'Close Order');
+    redirect($redirect_page);
+  }
+
+  public function addBundleClose()
+  {
+    $this->form_validation->set_rules('productBundle', 'Bundle Pack', 'required');
+
+    $tabel_bundle = $this->db->get_where('tabel_bundle', ['product' => $this->input->post('productBundle')])->row_array();
+
+    if ($tabel_bundle['hoodie'] == 1) {
+      $this->form_validation->set_rules('hoodie', 'Hoodie', 'required');
+    }
+    if ($tabel_bundle['shirt'] == 1) {
+      $this->form_validation->set_rules('tshirt', 'T-Shirt', 'required');
+    }
+    if ($tabel_bundle['totebag'] == 1) {
+      $this->form_validation->set_rules('totebag', 'Totebag', 'required');
+    }
+    if ($tabel_bundle['cap'] == 1) {
+      $this->form_validation->set_rules('cap', 'Dad Cap', 'required');
+    }
+    if ($tabel_bundle['keychain'] == 1) {
+      $this->form_validation->set_rules('keychain', 'Keychain', 'required');
+    }
+    if ($tabel_bundle['bracelet'] == 1) {
+      $this->form_validation->set_rules('bracelet', 'Bracelet', 'required');
+    }
+    if ($tabel_bundle['lanyard'] == 1) {
+      $this->form_validation->set_rules('lanyard', 'Lanyard', 'required');
+    }
+    if ($tabel_bundle['stickerbook'] == 1) {
+      $this->form_validation->set_rules('stickerbook', 'Stickerbook', 'required');
+    }
+    if ($tabel_bundle['product'] != 'Peach Pack' && $tabel_bundle['product'] != 'Yellow Pack') {
+      $this->form_validation->set_rules('sizeBundle', 'Size', 'required');
+    }
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->session->set_flashdata('flash', 'Bundle');
+      redirect('merchandise');
+    } else {
+      $redirect_page = $this->input->post('redirect_page');
+
+      $this->session->set_flashdata('flash', 'Close Order');
+      redirect($redirect_page);
+    }
   }
 }
